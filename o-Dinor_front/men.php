@@ -43,6 +43,7 @@
           <img src="img/cat1.jpg" alt="t-shirt" />
           <div class="text">
             <h1>T-SHIRTS</h1>
+            <h1>who</h1>
           </div>
         </div>
       </a>
