@@ -48,23 +48,33 @@
           </tr>
           <tr>
             <td>
+              <a href="women.php?gender=F">
               <div class="card">
-                <a href="women.php?gender=F">
-                <img src="img/blog-01.jpg" alt="women new red dress" />
-                <h4>Women</h4>
-                </a>
-                <h6></h6>
+                
+                  <img
+                    src="img/dom-hill-nimElTcTNyY-unsplash.jpg"
+                    alt="women new red dress"
+                  />
+                  <h4>Women</h4>
+                
+                
               </div>
+              </a>
+              
             </td>
             <td>
+              <a href="men.php?gender=M">
               <div class="card">
-                <img src="img/32.jpg" alt="#" />
-                <h4>Men</h4>
+                
+                <img src="img/rayul-_M6gy9oHgII-unsplash.jpg" alt="#" />
+                  <h4>Men</h4>
+
                 <h6></h6>
               </div>
+</a>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>
               <div class="card">
                 <img src="img/33.jpg" alt="#" />
@@ -78,12 +88,10 @@
                 <h6></h6>
               </div>
             </td>
-          </tr>
+          </tr> -->
         </table>
       </div>
     </section>
-
-    
 
     <!-------focuse section start here -->
     <section class="focus" id="focus">

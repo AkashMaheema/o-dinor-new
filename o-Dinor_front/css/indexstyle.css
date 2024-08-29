@@ -8,7 +8,7 @@ section {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: #2b0b0b;
+  background-color: white;
 }
 a {
   color: unset;
@@ -374,8 +374,8 @@ nav input {
 .tbl table tr td .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border: 0.1px solid rgb(5, 5, 5);
-  max-width: 500px;
+
+  max-width: 800px;
   display: flex;
   flex-wrap: wrap;
 }
