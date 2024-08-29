@@ -39,7 +39,7 @@
 
       </div>
       <div class="image-count">
-        <img src="img/home-img.png" />
+        <!-- <img src="img/home-img.png" /> -->
       </div>
 
     </div>
