@@ -13,9 +13,9 @@
   <div class="hero-wrap hero-bread" style="background-image: url('images/go-girl.jpg')">
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
-        <div class="col-md-9 ftco-animate text-center">
+        <div class="col-md-9 text-center">
           <p class="breadcrumbs">
-            <span class="mr-2"><a href="index.html">Home</a></span>
+            <span class="mr-2"><a href="index.php">Home</a></span>
             <span>Cart</span>
           </p>
           <h1 class="mb-0 bread">MY CART</h1>
@@ -72,7 +72,7 @@
             </p>
           </div>
           <p class="text-center">
-            <a href="checkout.html" class="checkout-button" id="checkout-btn">Proceed to Checkout</a>
+            <a href="checkout.php" class="checkout-button" id="checkout-btn">Proceed to Checkout</a>
           </p>
         </div>
       </div>
