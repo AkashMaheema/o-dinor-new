@@ -1,11 +1,11 @@
-/*html {
+html {
   overflow-x: hidden;
   scroll-padding-top: 7.5rem;
   scroll-behavior: smooth;
 }
 section {
   padding: 1rem 9%;
-}*/
+}
 
 /*deal section start*/
 
@@ -26,7 +26,7 @@ section {
 }
 .deal-count .row .image-count {
   flex: 1 1 40rem;
-  width: 80px;
+  width: 80%;
   padding: 1rem;
 }
 .deal-count .row .image-count img {
