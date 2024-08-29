@@ -4,7 +4,7 @@
   <!-- <div style="overflow-y: auto;"> -->
   <ul class="listCard_atc"></ul>
   <div class="checkOut">
-    <div class="total">0</div>
+    <a href="./main_cart.php"><div class="total">0</div></a>
     <div class="closeShopping">Close</div>
   </div>
   <!-- </div> -->
@@ -20,28 +20,35 @@
   let listCards = JSON.parse(localStorage.getItem('cart')) || {};
 
   function addToCart() {
-    const selectedColor = document.querySelector('input[name="color"]:checked');
-    const selectedSize = document.querySelector('input[name="size"]:checked');
+  const selectedColor = document.querySelector('input[name="color"]:checked');
+  const selectedSize = document.querySelector('input[name="size"]:checked');
 
-    if (!selectedColor || !selectedSize) {
-      alert('Please select both a color and size.');
-      return;
-    }
-
-    document.body.classList.add("active");
-    document.body.style.overflow = "hidden";
-
-    // Get the selected product details
-    const productId = <?= json_encode($product_id); ?>;
-    const productName = <?= json_encode($product['name']); ?>;
-    const productRate = <?= json_encode($product['rate']); ?>;
-    const productImage = <?= json_encode($images[0]); ?>;
-    const color = selectedColor.value;
-    const size = selectedSize.value;
-
-    addToCard(productId, productName, productRate, productImage, color, size);
+  if (!selectedColor || !selectedSize) {
+    alert('Please select both a color and size.');
+    return;
   }
 
+  document.body.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  // Get the selected product details
+  const productId = <?= json_encode($product_id); ?>;
+  const productName = <?= json_encode($product['name']); ?>;
+  const productImage = <?= json_encode($images[0]); ?>;
+  const color = selectedColor.value;
+  const size = selectedSize.value;
+
+  // Get the rate for the selected size
+  const sizeRates = <?= json_encode($sizeRates); ?>; // PHP size rates passed to JS
+  const productRate = sizeRates[size]; // Get rate for the selected size
+
+  if (!productRate) {
+    alert('Unable to retrieve the rate for the selected size.');
+    return;
+  }
+
+  addToCard(productId, productName, productRate, productImage, color, size);
+}
   function addToCard(id, name, rate, image, color, size) {
     const uniqueKey = `${id}_${color}_${size}`;
 
