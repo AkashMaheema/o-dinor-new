@@ -1,0 +1,66 @@
+/* cart.css */
+/* Cart Slider Styles */
+.cart-slider {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.cart-slider.active {
+  right: 0;
+}
+
+.cart-slider-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cart-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.cart-slider-header h2 {
+  margin: 0;
+}
+
+.cart-slider-header .close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cart-items {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cart-slider-footer {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.checkout-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,80 @@
+/*html {
+  overflow-x: hidden;
+  scroll-padding-top: 7.5rem;
+  scroll-behavior: smooth;
+}
+section {
+  padding: 1rem 9%;
+}*/
+
+/*deal section start*/
+
+.deal-count .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  text-align: center;
+  border: 0.1rem solid rgb(220, 218, 218);
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.deal-count .row .content-count {
+  flex: 1 1 40rem;
+  padding: 1rem;
+}
+.deal-count .row .image-count {
+  flex: 1 1 40rem;
+  width: 80px;
+  padding: 1rem;
+}
+.deal-count .row .image-count img {
+  width: 80%;
+}
+
+.deal-count h1 {
+  padding: 1rem;
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deal-count .row .discount {
+  font-size: 2rem;
+  color: rgb(183, 41, 6);
+  text-transform: capitalize;
+}
+
+.deal-count .row .text {
+  font-size: 4rem;
+
+  padding: 0.5rem 0;
+  color: rgb(6, 6, 6);
+  text-transform: capitalize;
+}
+.deal-count .row .count-down {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  padding: 0.5rem 0;
+  text-transform: capitalize;
+}
+
+.deal-count .row .count-down h3 {
+  font-size: 4rem;
+  color: orange;
+  text-transform: capitalize;
+}
+.deal-count .row .count-down span {
+  font-size: 1.5rem;
+  color: rgb(10, 10, 10);
+}
+.row.btn {
+  border: 1px solid black;
+  margin-bottom: 5rem;
+  color: black;
+}
+
+/*review section start*/

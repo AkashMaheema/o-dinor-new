@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #f1faff;
+  --text-dark: #030712;
+  --text-light: #6b7280;
+  --extra-light: #fbfbfb;
+  --white: #ffffff;
+  --max-width: 1400px;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;  
+}
+
+header {
+  margin-top: 7rem;
+  background-color: var(--primary-color);
+}
+
+.section__container {
+  /* max-width: var(--max-width); */
+  width: fit-content !important;
+  margin: auto;
+  padding: 5rem 1rem;
+}
+
+.section__title {
+  padding-bottom: 0.5rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  position: relative;
+}
+
+.section__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 75px;
+  background-color: var(--text-dark);
+}
+
+.btn {
+  padding: 0.75rem 2rem;
+  font-size: 0.8rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.header__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.header__content p {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.header__content h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 3rem;
+  color: var(--text-dark);
+}
+
+.header__content .btn {
+  background-color: var(--text-dark);
+  color: var(--white);
+}
+
+.header__image {
+  position: relative;
+}
+
+.header__image img {
+  max-width: 6500px;
+  position: absolute;
+  bottom: -3rem;
+}
+
+.collection__container {
+  position: relative;
+}
+
+.collection__container img {
+  max-width: 400px;
+  margin: auto;
+}
+
+.collection__content {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
+.collection__content .section__title {
+  margin-bottom: 2rem;
+}
+
+.collection__content p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.collection__content h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.collection__content .btn {
+  border: 1px solid var(--text-dark);
+  color: var(--text-dark);
+  background-color: var(--white);
+}
+
+.collection__content .btn:hover {
+  background-color: var(--text-dark);
+  color: var(--white);
+}
+
+/* ************ */
+
+.section1{
+  width: fit-content !important;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 220px);
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 60px;
+  gap: 10px;
+}
+
+.categoryCard{
+  position: relative;
+}
+
+.categoryCard img{
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  position: relative;
+  border-radius: 20px;
+}
+
+.categoryCard::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 440px;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 20px;
+  transition: background-color 0.5s;
+}
+
+.categoryCard:hover::before{
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.categoryCard .text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.categoryCard .text h1{
+  font-size: 23px;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.categoryCard .text h1::after{
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.categoryCard:hover .text h1::after{
+  border-radius: 20px;
+  width: 110px;
+}
+
+/* ************ */
+
+.news {
+  background-color: var(--extra-light);
+}
+
+.news__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.news__details {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.news__details p {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.news__details p i {
+  font-size: 0.5rem;
+  color: var(--text-light);
+  padding: 0.5rem;
+}
+
+.news__details p span {
+  font-weight: 600;
+}
+
+.news__details h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.news__details a i {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  transition: 0.3s;
+}
+
+.news__details a:hover i {
+  color: var(--text-dark);
+}
+
+
+/* Destop view 1 */
+/* @media (min-width: 1238px){
+  .section1{
+    display: grid;
+    grid-template-columns: repeat(5, 280px);
+    grid-auto-rows: 480px;
+    grid-row-gap: 10px;
+  }
+  .categoryCard .text h1{
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 1238px){
+  .section1{
+    grid-template-columns: repeat(3, 280px);
+  }
+} */
+
+@media (min-width: 1200px) and (max-width: 1549px){
+  .section1{
+    grid-template-columns: repeat(5, 220px);
+  }
+  .categoryCard .text h1{
+    font-size: 23px;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 1238px){
+  .section1{
+    grid-template-columns: repeat(4, 220px);
+  }
+}
+
+/* Tablet view */
+/* @media (min-width: 801px) and (max-width: 1023px){
+  .section1{
+    display: grid;
+    grid-template-columns: repeat(2, 280px);
+  }
+  .categoryCard .text h1::after{
+    opacity: 0;
+  }
+  
+} */
+
+@media (min-width: 801px) and (max-width: 1023px){
+  .section1{
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+  }
+  .categoryCard .text h1::after{
+    opacity: 0;
+  }
+  
+}
+
+/* Mobilie view 1*/
+@media (min-width: 643px) and (max-width: 800px) {
+  .section1{
+    display: grid;
+    grid-template-columns: repeat(2, 280px);
+    justify-content: center;
+    gap: 10px;
+  }
+  .categoryCard .text h1::after{
+    opacity: 0;
+  }
+  
+}
+
+@media (min-width: 643px) and (max-width: 800px) {
+  .section1{
+    display: grid;
+    grid-template-columns: repeat(2, 240px);
+    justify-content: center;
+    gap: 10px;
+  }
+  .categoryCard .text h1::after{
+    opacity: 0;
+  }
+  
+}
+
+/* Mobilie view 1*/
+@media (max-width: 642px) {
+  .section1{
+    grid-template-columns: repeat(2, 160px);
+    grid-template-rows: 274px;
+  }
+  .categoryCard, .categoryCard img, .categoryCard::before{
+    height: 274px;
+  }
+  .categoryCard .text h1{
+    font-size: 17px;
+  }
+  .categoryCard .text h1::after{
+    opacity: 0;
+  }
+  main .mainh1{
+    font-size: 45px;
+  }
+}
+

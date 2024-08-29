@@ -1,0 +1,46 @@
+header {
+    margin: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container {
+    margin-left: 300px;
+    width: 75%;
+    padding: 20px;
+}
+.card {
+    height: 550px;
+    width: 250px;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card-btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.image {
+    height: 300px;
+    width: 250px;
+}
+
+.btn {
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+}
+
+.btn:hover {
+    color: #fff;
+    background-color: #333;
+    border: 1px solid #000;
+}
+@media (min-width:1000px) and (max-width:1460px) {
+    
+}

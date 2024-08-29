@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/* filter products  */
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+.SearchbyName{
+    width: 400px;
+}
+.filterByPrice{
+    width: 300px;
+    display: flex;
+}
+.min_price{
+    margin-right: 10px ;
+}
+
+/*filter css end */
+
+.form-check-name {
+    margin-right: 100px !important;
+}
+
+.title {
+    margin-top: 100px;
+}
+
+.card {
+    width: 280px;
+    height: 500px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.918);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    height: 380px;
+}
+.card-title{
+    height: 50px;
+    font-size: large;
+    font-weight: 500;
+}
+.card-text{
+    letter-spacing: 7px;
+    font-size: small;
+}
+
+.img-body {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.img-body img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    transition: transform 0.3s ease;
+}
+
+.card:hover img {
+    transform: scale(1.25);
+}
+
+ion-icon {
+    font-size: 20px;
+    --ionicon-stroke-width: 60px;
+}
+  

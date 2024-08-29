@@ -1,0 +1,105 @@
+.card_atc {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 700px;
+  height: 100vh;
+  background-color: #0c0c0c;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 999;
+}
+
+.card_atc h1 {
+  color: #f8f7f3;
+  font-weight: 100;
+  margin: 0;
+  padding: 0 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.card_atc .checkOut {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card_atc .checkOut div {
+  background-color: #f9f8f3;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+
+  margin-bottom: 20px;
+  gap: 5px;
+}
+
+.card_atc .checkOut div:nth-child(2) {
+  background-color: #1c1f25;
+  color: #fff;
+}
+
+.active .card_atc {
+  left: calc(100% - 700px);
+}
+
+.listCard_atc {
+  flex: 1;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: calc(100vh - 146px);
+}
+
+.listCard_atc li {
+  display: grid;
+  grid-template-columns: 100px repeat(5, 1fr);
+  color: #fff;
+  row-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.listCard_atc li div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listCard_atc li img {
+  width: 80%;
+}
+
+.listCard_atc li button {
+  width: 30px;
+  background-color: rgba(247, 243, 243, 0.333);
+  border: none;
+}
+
+.listCard_atc .count {
+  margin: 0 10px;
+}
+
+body.active .card_atc {
+  display: block;
+  /* or another property to show the cart */
+}
+
+@media (max-width: 768px) {
+  .card_atc {
+    width: 100%;
+    left: 100%;
+  }
+
+  .active .card_atc {
+    left: 0;
+  }
+}
+
+@media (max-width: 400px) {
+}
