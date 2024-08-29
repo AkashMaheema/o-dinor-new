@@ -45,7 +45,6 @@
     </div>
   </section>
 
-  <div class="testing"></div>
 
   <script>
     let countDate = new Date("aug 30, 2024 00:00:00").getTime();
