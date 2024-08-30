@@ -82,29 +82,29 @@ body {
   color: var(--text-dark);
 }
 /*  */
-.newHeader{
+.newHeader {
   position: relative;
-  top: 100px;
+
   width: 100%;
   height: 600px;
   margin-bottom: 100px;
 }
 
-.newHeader .hero-img{
+.newHeader .hero-img {
   width: 100%;
   height: 100px;
   position: relative;
   z-index: 1;
 }
 
-.newHeader .hero-img img{
+.newHeader .hero-img img {
   width: 100%;
   height: 600px;
   object-position: center;
   object-fit: cover;
 }
 
-.newHeader .hero-info{
+.newHeader .hero-info {
   width: auto;
   height: 100%;
   position: absolute;
@@ -139,7 +139,7 @@ body {
   transition: 0.4s;
 }
 
-.newHeader .hero-info .btn:hover{
+.newHeader .hero-info .btn:hover {
   background-color: white;
   color: black;
 }
