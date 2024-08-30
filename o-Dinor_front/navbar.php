@@ -73,13 +73,12 @@
           <li><a href="blog.html">Blog</a></li>
 
           <div class="icons">
-
-         <button onclick="goTocart()"   <i class="fa-solid fa-cart-shopping"></i></button>
+            <a href="./main_cart.php">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </a>
           </div>
         </ul>
-        <label for="menu-btn" class="btn menu-btn"
-          ><i class="fas fa-bars"></i
-        ></label>
+        <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
       </div>
     </nav>
     <script>
