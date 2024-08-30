@@ -3,7 +3,7 @@ nav {
   position: fixed;
   z-index: 100;
   width: 100%;
-  top:0;
+  top: 0;
   background: #000;
   /* background: #8f9396; */
 }
@@ -26,7 +26,7 @@ nav .wrapper {
 }
 .wrapper .nav-links {
   display: inline-flex;
-} 
+}
 .nav-links li {
   list-style: none;
 }
@@ -50,7 +50,7 @@ nav .wrapper {
 }
 .nav-links .drop-menu {
   position: absolute;
-  background: #242526;
+  background: black;
   width: 180px;
   line-height: 45px;
   top: 85px;
@@ -82,7 +82,7 @@ nav .wrapper {
   visibility: hidden;
 }
 .mega-box .content {
-  background: #242526;
+  background: black;
   padding: 25px 20px;
   display: flex;
   width: 100%;
@@ -131,7 +131,7 @@ nav .wrapper {
   right: 30px;
   top: 10px;
 }
-.icons a{
+.icons a {
   color: #fff;
   padding: 10px;
   background-color: transparent;
@@ -262,7 +262,7 @@ nav .wrapper {
 nav input {
   display: none;
 }
-.row header{
+.row header {
   margin-top: 0;
-  background: #242526;
+  background: #060606;
 }
