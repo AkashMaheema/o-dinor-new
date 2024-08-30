@@ -81,6 +81,70 @@ body {
 .link a:hover {
   color: var(--text-dark);
 }
+/*  */
+.newHeader{
+  position: relative;
+  top: 100px;
+  width: 100%;
+  height: 600px;
+  margin-bottom: 100px;
+}
+
+.newHeader .hero-img{
+  width: 100%;
+  height: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.newHeader .hero-img img{
+  width: 100%;
+  height: 600px;
+  object-position: center;
+  object-fit: cover;
+}
+
+.newHeader .hero-info{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  z-index: 2;
+}
+
+.newHeader .hero-info h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.newHeader .hero-info p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.newHeader .hero-info .btn {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+.newHeader .hero-info .btn:hover{
+  background-color: white;
+  color: black;
+}
+
+/*  */
 
 header {
   margin-top: 7rem;
