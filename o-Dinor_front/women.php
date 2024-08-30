@@ -25,7 +25,7 @@
       </div>
       <div class="header__image">
         <img
-          src="images/Joven ucraniana aislada sobre fondo blanco riendo _ Foto Premium.jpg"
+          src="images/pooma.jpg"
           alt="header" />
       </div>
     </div>
@@ -44,7 +44,7 @@
     <h2 class="section__title">On Sale</h2>
     <div class="sale__grid">
       <div class="sale_card">
-        <img src="images/sale1.jpg" alt="sale" />
+        <img src="images/ivan-stern-xlP76AXGQ4A-unsplash.jpg" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">WOMEN T-SHIRT</p>
           <h4 class="sale__title">sale ,<span>40%</span> off</h4>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="sale_card">
-        <img src="images/sale2.jpg" alt="sale" />
+        <img src="images/ksusha-sosnovskaya-QopYtvEBrps-unsplash.jpg" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">Accecerise</p>
           <h4 class="sale__title">sale ,<span>25%</span> off</h4>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="sale_card">
-        <img src="images/sale3.jpg" alt="sale" />
+        <img src="images/blake-carpenter-4PFBfYIEyyM-unsplash.jpg" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">BAGS</p>
           <h4 class="sale__title">sale ,<span>20%</span> off</h4>
@@ -266,7 +266,7 @@
           </div>
         </div>
         <div class="news__card">
-          <img src="images/news-2.png" alt="news" />
+          <img src="images/katsiaryna-endruszkiewicz-BteCp6aq4GI-unsplash.jpg" alt="news" />
           <div class="news__details">
             <p>
               FASHION <i class="ri-checkbox-blank-circle-fill"></i>
@@ -283,7 +283,7 @@
           </div>
         </div>
         <div class="news__card">
-          <img src="images/news-3.png" alt="news" />
+          <img src="images/good-faces-xmSWVeGEnJw-unsplash.jpg" alt="news" />
           <div class="news__details">
             <p>
               STYLE <i class="ri-checkbox-blank-circle-fill"></i>

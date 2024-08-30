@@ -26,11 +26,11 @@ section {
 }
 .deal-count .row .image-count {
   flex: 1 1 40rem;
-  width: 80%;
+  width: 100%;
   padding: 1rem;
 }
 .deal-count .row .image-count img {
-  width: 80%;
+  width: 100%;
 }
 
 .deal-count h1 {

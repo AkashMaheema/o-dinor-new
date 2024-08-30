@@ -43,6 +43,7 @@
           <img src="img/cat1.jpg" alt="t-shirt" />
           <div class="text">
             <h1>T-SHIRTS</h1>
+            
           </div>
         </div>
       </a>
@@ -136,7 +137,7 @@
       <h2 class="section__title">Latest News</h2>
       <div class="news__grid">
         <div class="news__card">
-          <img src="img/men-2.jpg" alt="news">
+          <img src="img/stow-kelly-uDfmJ8tijCY-unsplash.jpg" alt="news">
           <div class="news__details">
             <p>
               FASHION <i class="ri-checkbox-blank-circle-fill"></i>
@@ -152,7 +153,7 @@
           </div>
         </div>
         <div class="news__card">
-          <img src="img/men-5.jpg" alt="news">
+          <img src="img/good-faces-yliYi-2s9qg-unsplash.jpg" alt="news">
           <div class="news__details">
             <p>
               FASHION <i class="ri-checkbox-blank-circle-fill"></i>
@@ -168,7 +169,7 @@
           </div>
         </div>
         <div class="news__card">
-          <img src="img/men-4.jpg" alt="news">
+          <img src="img/gift-habeshaw-ImFZSnfobKk-unsplash.jpg" alt="news">
           <div class="news__details">
             <p>
               STYLE <i class="ri-checkbox-blank-circle-fill"></i>

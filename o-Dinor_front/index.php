@@ -48,23 +48,31 @@
           </tr>
           <tr>
             <td>
+              <a href="women.php?gender=F">
               <div class="card">
-                <a href="women.php?gender=F">
-                <img src="img/blog-01.jpg" alt="women new red dress" />
-                <h4>Women</h4>
-                </a>
-                <h6></h6>
+                
+                  <img
+                    src="img/dom-hill-nimElTcTNyY-unsplash.jpg"
+                    alt="women new red dress"
+                  />
+                  <h1>WOMEN</h1>
+                
+                
               </div>
+              </a>
+              
             </td>
             <td>
+              <a href="men.php?gender=M">
               <div class="card">
-                <img src="img/32.jpg" alt="#" />
-                <h4>Men</h4>
-                <h6></h6>
+                
+                <img src="img/rayul-_M6gy9oHgII-unsplash.jpg" alt="#" />
+                  <h1>MEN</h1>
               </div>
+</a>
             </td>
           </tr>
-          <tr>
+          <!-- <tr>
             <td>
               <div class="card">
                 <img src="img/33.jpg" alt="#" />
@@ -78,12 +86,10 @@
                 <h6></h6>
               </div>
             </td>
-          </tr>
+          </tr> -->
         </table>
       </div>
     </section>
-
-    
 
     <!-------focuse section start here -->
     <section class="focus" id="focus">
@@ -101,8 +107,8 @@
               <img src="img/model12.jpg" alt="#" />
             </td>
             <td>
-              <h3><u>WINTER 2024 COLLECTION</u></h3>
-              <p>
+              <h3 class="focus_title"><u>WINTER 2024 COLLECTION</u></h3>
+              <p class="focus_text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius
                 autem expedita iusto excepturi <br />at! Id laboriosam libero
                 totam! Quos fugiat dolorum rerum unde. Numquam, officia?
@@ -112,9 +118,9 @@
           </tr>
           <tr>
             <td>
-              <h3><u>WINTER 2024 COLLECTION</u></h3>
+              <h3 class="focus_title"><u>WINTER 2024 COLLECTION</u></h3>
 
-              <p>
+              <p class="focus_text">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam,
                 officia obcaecati. Ipsa sequi doloremque repellendus explicabo a
                 expedita, error, velit accusamus harum libero quaerat nesciunt?
@@ -130,9 +136,9 @@
               <img src="img/model14.jpg" alt="#" />
             </td>
             <td>
-              <h3><u>WINTER 2024 COLLECTION</u></h3>
+              <h3 class="focus_title"><u>WINTER 2024 COLLECTION</u></h3>
 
-              <p>
+              <p class="focus_text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
                 vel magni, recusandae veniam nulla rem repellat quaerat quod
                 saepe temporibus.
@@ -142,9 +148,9 @@
           </tr>
           <tr>
             <td>
-              <h3><u>WINTER 2024 COLLECTION</u></h3>
+              <h3 class="focus_title"><u>WINTER 2024 COLLECTION</u></h3>
 
-              <p>
+              <p class="focus_text">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br />
                 Adipisci id quidem deleniti amet hic similique vitae dicta at
                 ipsam iure. Quis commodi <br />reiciendis debitis eveniet rerum
