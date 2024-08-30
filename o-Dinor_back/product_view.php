@@ -5,15 +5,14 @@ $name = $_SESSION['name'];
 if (empty($_SESSION['name'])) {
     header("Location: /o-dinor_back/login.php");
 }
+
 // Fetch product details based on product id
 $product_id = isset($_GET['product_id']) ? $_GET['product_id'] : 1;
 $product_sql = "SELECT p.*, GROUP_CONCAT(DISTINCT pi.image_path ORDER BY pi.id) AS images, 
-                GROUP_CONCAT(DISTINCT pc.color ORDER BY pc.color) AS colors, 
-                GROUP_CONCAT(DISTINCT ps.size ORDER BY ps.size) AS sizes
+                GROUP_CONCAT(DISTINCT pc.color ORDER BY pc.color) AS colors 
                 FROM products p 
                 LEFT JOIN product_images pi ON p.id = pi.product_id 
                 LEFT JOIN product_colors pc ON p.id = pc.product_id
-                LEFT JOIN product_sizes ps ON p.id = ps.product_id
                 WHERE p.id = ?
                 GROUP BY p.id";
 $stmt = $conn->prepare($product_sql);
@@ -21,6 +20,17 @@ $stmt->bind_param("i", $product_id);
 $stmt->execute();
 $product_result = $stmt->get_result();
 $product = $product_result->fetch_assoc();
+
+// Fetch sizes with their costs and prices
+$sizes_sql = "SELECT size, cost, rate FROM product_sizes WHERE product_id = ?";
+$stmt_sizes = $conn->prepare($sizes_sql);
+$stmt_sizes->bind_param("i", $product_id);
+$stmt_sizes->execute();
+$sizes_result = $stmt_sizes->get_result();
+$sizes = [];
+while ($row = $sizes_result->fetch_assoc()) {
+    $sizes[] = $row;
+}
 
 $conn->close();
 ?>
@@ -48,7 +58,7 @@ $conn->close();
         .carousel img {
             cursor: pointer;
             object-fit: cover;
-            outline: 1px solid #00ffff
+            outline: 1px solid #ffa45c;
         }
 
         .main-image {
@@ -74,6 +84,7 @@ $conn->close();
             padding: 6px 10px;
             border: 1px solid #000;
             margin: 5px;
+            cursor: pointer;
         }
 
         .similar-products {
@@ -103,11 +114,7 @@ $conn->close();
         <div class="details">
             <h1><?= htmlspecialchars($product['name']); ?></h1>
             <h3>ID : <?= htmlspecialchars($product['id']); ?></h3>
-            <p><b>Gender:</b> <?php if ($product['gender'] == 'M') {
-                                    echo "Male";
-                                } else {
-                                    "Female";
-                                }; ?></p>
+            <p><b>Gender:</b> <?= $product['gender'] == 'M' ? "Male" : "Female"; ?></p>
             <h4>Title</h4>
             <p><?= htmlspecialchars($product['title']); ?></p>
             <h4>Description</h4>
@@ -120,16 +127,18 @@ $conn->close();
                 <?php endforeach; ?>
             </p>
             <p><b>Sizes:</b>
-                <?php
-                $sizes = explode(',', $product['sizes']);
-                foreach ($sizes as $size) : ?>
-                    <span class="size-box"><?= htmlspecialchars($size); ?></span>
-                <?php endforeach; ?>
+                <div id="sizes">
+                    <?php foreach ($sizes as $size) : ?>
+                        <span class="size-box" data-cost="<?= htmlspecialchars($size['cost']); ?>" data-rate="<?= htmlspecialchars($size['rate']); ?>">
+                            <?= htmlspecialchars($size['size']); ?>
+                        </span>
+                    <?php endforeach; ?>
+                </div>
             </p>
-            <p><b>Cost:</b> LKR <?= htmlspecialchars($product['cost']); ?></p>
-            <p><b>Price:</b> LKR <?= htmlspecialchars($product['rate']); ?></p>
+            <p><b>Cost:</b> LKR <span id="productCost"><?= htmlspecialchars($sizes[0]['cost']); ?></span></p>
+            <p><b>Price:</b> LKR <span id="productRate"><?= htmlspecialchars($sizes[0]['rate']); ?></span></p>
 
-            <?php echo '<a href="edit_product.php?product_id=' . $product['id'] . '" class="btn btn-primary m-1">Edit</a>'; ?>
+            <a href="edit_product.php?product_id=<?= $product['id']; ?>" class="btn btn-primary m-1">Edit</a>
         </div>
     </div>
 
@@ -139,6 +148,9 @@ $conn->close();
         document.addEventListener('DOMContentLoaded', function() {
             const carouselImages = document.querySelectorAll('.carousel-image');
             const mainImage = document.getElementById('mainImage');
+            const sizeBoxes = document.querySelectorAll('.size-box');
+            const productCost = document.getElementById('productCost');
+            const productRate = document.getElementById('productRate');
 
             // Function to set carousel images height equal to main image height
             function setCarouselImagesHeight() {
@@ -160,6 +172,14 @@ $conn->close();
 
             // Adjust carousel image height on window resize
             window.addEventListener('resize', setCarouselImagesHeight);
+
+            // Update cost and rate when a size is selected
+            sizeBoxes.forEach(box => {
+                box.addEventListener('click', function() {
+                    productCost.textContent = this.getAttribute('data-cost');
+                    productRate.textContent = this.getAttribute('data-rate');
+                });
+            });
         });
     </script>
 </body>

@@ -131,7 +131,7 @@ nav .wrapper {
   right: 30px;
   top: 10px;
 }
-.icons button {
+.icons a{
   color: #fff;
   padding: 10px;
   background-color: transparent;

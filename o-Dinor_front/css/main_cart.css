@@ -1,0 +1,203 @@
+/* main_cart.css */
+
+body.goto-here {
+  background-color: #f8f9fa;
+  color: #000;
+  font-family: Arial, sans-serif;
+}
+a {
+  text-decoration: none;
+}
+
+.hero-wrap {
+  padding: 20px 0;
+  color: #fff;
+}
+.hero-wrap.hero-bread {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+  padding: 10em 0;
+}
+
+.hero-wrap {
+  width: 100%;
+  position: relative;
+}
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  opacity: 0.6;
+  width: 50%;
+  background: #ffa45c;
+}
+.hero-wrap .slider-text {
+  color: #fff;
+  position: relative;
+}
+.hero-wrap .slider-text .breadcrumbs {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 0;
+  z-index: 99;
+  font-weight: 300;
+}
+span.mr-2.color {
+  color: #fff;
+}
+.hero-wrap .slider-text .breadcrumbs span {
+  color: black;
+}
+.hero-wrap .slider-text .breadcrumbs span a {
+  color: black;
+}
+h1.mb-0.bread.color {
+  color: #fff;
+}
+h1.mb-0.bread.color {
+  color: #fff;
+}
+.hero-wrap .slider-text .bread {
+  font-weight: 800;
+  color: black;
+  font-size: 30px;
+  font-family: "Open Sans", Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.hero-wrap .slider-text .btn-primary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  border-radius: 30px;
+}
+.hero-wrap .slider-text .btn-primary:hover,
+.hero-wrap .slider-text .btn-primary:focus {
+  background: #fff !important;
+  color: #000000;
+}
+.cart-list {
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.table thead {
+  background-color: #000;
+  color: #fff;
+}
+
+.table th {
+  padding: 20px;
+  text-align: center;
+  background-color: #000;
+  color: #eee;
+}
+.table td {
+  vertical-align: middle;
+  height: 300px;
+  padding: 10px;
+  text-align: center;
+  justify-content: center;
+  color: #000000;
+}
+.table .image-prod {
+  width: 200px;
+}
+
+.table .image-prod img {
+  height: 200px !important;
+  width: 200px !important;
+  object-fit: cover;
+}
+.cart_calucatation{
+    margin-bottom: 100px;
+}
+.discount-section,
+.total-section {
+  margin-top: 20px;
+}
+
+.discount-label,
+.total-section h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.discount-code-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.checkout-button {
+  display: inline-block;
+  padding: 10px 20px;
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 16px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+  color: #000;
+  background-color: #eee;
+  border: 1.5px solid #000;
+}
+
+.cart-wrap .btn-primary {
+  display: block;
+  width: 100%;
+}
+
+.cart-total {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 20px;
+}
+.cart-total h3 {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.cart-total p {
+  width: 100%;
+  display: block;
+}
+.cart-total p span {
+  display: block;
+  width: 50%;
+}
+.cart-total p.total-price span {
+  text-transform: uppercase;
+}
+.cart-total p.total-price span:last-child {
+  color: #000000;
+  font-weight: 600;
+}
+.cart-total hr {
+  background: rgba(255, 255, 255, 0.1);
+}
