@@ -16,8 +16,16 @@
   <?php include 'navbar.php' ?>
   <?php include 'header_bar.php' ?>
 
-  <header>
-    <div class="section__container header__container">
+  <header class="newHeader">
+    <div class="hero-img">
+      <img src="images/herocover.jpeg" alt="">
+    </div>
+    <div class="hero-info">
+      <h1>Discover & Shop</h1>
+      <p>EXTRA 55% OFF IN SPRING SALE</p>
+      <button class="btn">SHOP NOW</button>
+    </div>
+    <!-- <div class="section__container header__container">
       <div class="header__content">
         <p>EXTRA 55% OFF IN SPRING SALE</p>
         <h1>Discover & Shop<br />The Trend Ss19</h1>
@@ -25,10 +33,10 @@
       </div>
       <div class="header__image">
         <img
-          src="images/pooma.jpg"
+          src="images/cat1.jpg"
           alt="header" />
       </div>
-    </div>
+    </div> -->
   </header>
 
   <section class="section__container collection__container">
