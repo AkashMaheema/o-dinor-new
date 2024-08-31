@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 section {
-  padding: 1.5rem 4%;
+  padding: 1rem 4%;
 }
 
 body {
@@ -159,7 +159,7 @@ a {
 
 /*product overviwe part */
 .container {
-  width: 1000px;
+  width: 800px;
   max-width: 100vw;
   margin: auto;
   padding-top: 10px;
@@ -355,8 +355,15 @@ a {
     flex-wrap: wrap;
   }
 
+  .tbl-3 table tr td .product-card {
+    align-items: center;
+    justify-content: center;
+  }
+
   .tbl-3 table tr td img {
     width: 100%;
+    display: grid;
+    align-items: center;
   }
   section .footer {
     padding: 50px 5% 40px;

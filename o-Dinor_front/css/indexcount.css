@@ -78,3 +78,28 @@ section {
 }
 
 /*review section start*/
+/* Media Query for mobile devices */
+/* @media screen and (max-width: 480px) {
+  .deal-count h1 {
+    font-size: 2rem;
+  }
+
+  .deal-count .row .discount {
+    font-size: 1.5rem;
+  }
+
+  .deal-count .row .text {
+    font-size: 2rem;
+  }
+
+  .deal-count .row .count-down h3 {
+    font-size: 2.5rem;
+  }
+
+  .deal-count .row .count-down span {
+    font-size: 1rem;
+  }
+}
+ section {
+    padding: 1rem 2%;
+  } */
