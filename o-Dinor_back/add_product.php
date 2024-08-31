@@ -102,6 +102,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <option>Trousers</option>
                         <option>Blazers</option>
                         <option>Jackets</option>
+                        <option>Dress</option>
+                        <option>Skirts</option>
                         <option>Shoes</option>
                         <option>Accessories</option>
                     </select>
