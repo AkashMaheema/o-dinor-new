@@ -14,11 +14,12 @@ a {
   color: unset;
   text-decoration: none;
 }
+
 /*nav bar code*/
 nav {
   position: fixed;
   z-index: 99;
-  width: 100%;
+  width: 90%;
 
   background: transparent;
 }
@@ -626,19 +627,19 @@ nav input {
 
 @media (max-width: 700px) {
   .home .containt h1 pre {
-    font-size: 5rem;
+    font-size: 3rem;
     color: rgb(247, 244, 239);
-    margin-top: 6rem;
+    margin-top: 5rem;
   }
   .home .containt h3 pre {
-    font-size: 4rem;
+    font-size: 2rem;
     color: #eee;
     margin-top: 4rem;
     margin-bottom: 5rem;
   }
 
   section {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   .tbl table tr td .card {
     align-items: center;
@@ -658,10 +659,16 @@ nav input {
   .tbl-2 table tr td .product-card {
     align-items: center;
     justify-content: center;
+    display: flex;
   }
   .tbl-2 table tr td {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .tbl-3 table tr td .product-card {
+    align-items: center;
+    justify-content: center;
   }
   .tbl-2 table tr td .product-card img {
     width: 100%;
@@ -703,6 +710,11 @@ nav input {
   .home .containt h1 pre {
     font-size: 4rem;
     padding-left: 5rem;
+  }
+  .tbl-3 table tr td .product-card {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 
