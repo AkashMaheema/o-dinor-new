@@ -4,7 +4,7 @@ include './configdb.php';
 session_start();
 $name = $_SESSION['name'];
 if (empty($_SESSION['name'])) {
-    header("Location: /o-dinor_back/login.php");
+    header("Location: login.php");
 }
 // Handle image uploads
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['upload'])) {

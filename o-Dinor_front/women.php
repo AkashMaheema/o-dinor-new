@@ -55,7 +55,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=shirt">
+      <a href="shop.php?gender=F&category=Shirts">
         <div class="categoryCard shirt">
           <img src="img/SHIRT.jpg" alt="shirt">
           <div class="text">
@@ -64,7 +64,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=polos">
+      <a href="shop.php?gender=F&category=Dress">
         <div class="categoryCard polos">
           <img src="img/DRESS.jpg" alt="dress">
           <div class="text">
@@ -73,7 +73,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=blazers">
+      <a href="shop.php?gender=F&category=Skirts">
         <div class="categoryCard blazers">
           <img src="img/SKIRT.jpg" alt="SKIRTS">
           <div class="text">
@@ -82,7 +82,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=accessories">
+      <a href="shop.php?gender=F&category=Accessories">
         <div class="categoryCard accessories">
           <img src="img/ACCESSORIES.jpg" alt="ACCESSORIES">
           <div class="text">
@@ -91,7 +91,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=jackets">
+      <a href="shop.php?gender=F&category=Jackets">
         <div class="categoryCard jackets">
           <img src="img/JACKET.jpg" alt="jackets">
           <div class="text">
@@ -100,7 +100,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=jeans">
+      <a href="shop.php?gender=F&category=Jeans">
         <div class="categoryCard jeans">
           <img src="img/JEANS.jpg" alt="jeans">
           <div class="text">
@@ -109,7 +109,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=shoes">
+      <a href="shop.php?gender=F&category=Shoes">
         <div class="categoryCard shoes">
           <img src="img/BAGS.jpg" alt="bags">
           <div class="text">

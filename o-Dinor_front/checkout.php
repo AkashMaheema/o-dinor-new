@@ -5,7 +5,6 @@
   <title>O-Dinor</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/checkout.css" />
@@ -36,7 +35,7 @@
             <div class="row align-items-end">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="firstname">Firt Name</label>
+                  <label for="firstname">First Name</label>
                   <input type="text" class="form-control" placeholder="" />
                 </div>
               </div>
@@ -74,7 +73,7 @@
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Appartment, suite, unit etc: (optional)" />
+                  <input type="text" class="form-control" placeholder="Apartment, suite, unit etc: (optional)" />
                 </div>
               </div>
               <div class="w-100"></div>
@@ -125,20 +124,20 @@
                 <h3 class="billing-heading mb-4">Cart Total</h3>
                 <p class="d-flex">
                   <span>Subtotal</span>
-                  <span></span>
+                  <span id="checkout-subtotal">LKR 0.00</span>
                 </p>
                 <p class="d-flex">
                   <span>Delivery</span>
-                  <span></span>
+                  <span id="checkout-delivery">LKR 0.00</span>
                 </p>
                 <p class="d-flex">
                   <span>Discount</span>
-                  <span></span>
+                  <span id="checkout-discount">LKR 0.00</span>
                 </p>
                 <hr />
                 <p class="d-flex total-price">
                   <span>Total</span>
-                  <span></span>
+                  <span id="checkout-total">LKR 0.00</span>
                 </p>
               </div>
             </div>
@@ -149,7 +148,7 @@
                   <div class="col-md-12">
                     <div class="radio">
                       <label><input type="radio" name="optradio" class="mr-2" />
-                        Direct Bank Tranfer</label>
+                        Direct Bank Transfer</label>
                     </div>
                   </div>
                 </div>
@@ -204,9 +203,29 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/scrollax.min.js"></script>
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    function loadCheckoutDetails() {
+      document.getElementById('checkout-subtotal').textContent = localStorage.getItem('cartSubtotal') || 'LKR 0.00';
+      document.getElementById('checkout-delivery').textContent = localStorage.getItem('cartDelivery') || 'LKR 0.00';
+      document.getElementById('checkout-discount').textContent = localStorage.getItem('cartDiscount') || 'LKR 0.00';
+      document.getElementById('checkout-total').textContent = localStorage.getItem('cartTotal') || 'LKR 0.00';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadCheckoutDetails);
+
+    // Clear cart data from localStorage after placing the order
+    document.getElementById('order-btn').addEventListener('click', function () {
+      localStorage.removeItem('cartSubtotal');
+      localStorage.removeItem('cartDelivery');
+      localStorage.removeItem('cartDiscount');
+      localStorage.removeItem('cartTotal');
+      alert('Order placed successfully!'); // Add your order processing logic here
+    });
+  </script>
 </body>
 
 </html>
