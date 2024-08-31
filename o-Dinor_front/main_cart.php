@@ -79,7 +79,7 @@
       </div>
     </div>
   </section>
-  <?php include 'footer.php';?>
+  <?php include 'footer.php'; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -164,7 +164,15 @@
       const delivery = DELIVERY_PRICE;
       const discount = applyDiscountCode(document.getElementById('discount-code').value) || 0;
       const totalPrice = subtotalPrice + delivery - discount;
+
+      // Update the total price display
       document.getElementById('total-price').textContent = `LKR ${totalPrice.toFixed(2)}`;
+
+      // Save values to localStorage
+      localStorage.setItem('cartSubtotal', `LKR ${subtotalPrice.toFixed(2)}`);
+      localStorage.setItem('cartDelivery', `LKR ${delivery.toFixed(2)}`);
+      localStorage.setItem('cartDiscount', `LKR ${discount.toFixed(2)}`);
+      localStorage.setItem('cartTotal', `LKR ${totalPrice.toFixed(2)}`);
     }
 
     // Apply discount code and return the discount amount
@@ -187,6 +195,7 @@
 
     // Load cart items on page load
     document.addEventListener('DOMContentLoaded', displayCartItems);
+
   </script>
 </body>
 

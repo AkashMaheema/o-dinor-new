@@ -45,6 +45,8 @@ $available_sizes = explode(',', $product['sizes']);
 
 // Fetch similar products based on the category
 $category = $product['category'];
+$gender = $product['gender'];
+
 $sql = "SELECT p.*, 
         GROUP_CONCAT(pi.image_path ORDER BY pi.id) AS images,
         COALESCE(
@@ -57,18 +59,19 @@ $sql = "SELECT p.*,
         ) AS lowest_rate
         FROM products p 
         LEFT JOIN product_images pi ON p.id = pi.product_id 
-        WHERE p.category = ? AND p.id != ? 
+        WHERE p.category = ? AND p.gender = ? AND p.id != ? 
         GROUP BY p.id 
         LIMIT 4"; // Adjust the limit as needed
+
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("si", $category, $product_id);
+$stmt->bind_param("ssi", $category, $gender, $product_id); // Corrected bind_param parameters
 $stmt->execute();
 $result = $stmt->get_result();
 
 $similarProducts = [];
 while ($row = $result->fetch_assoc()) {
-  $row['images'] = explode(',', $row['images']);
-  $similarProducts[] = $row;
+    $row['images'] = explode(',', $row['images']);
+    $similarProducts[] = $row;
 }
 
 $conn->close();
