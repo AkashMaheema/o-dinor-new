@@ -21,10 +21,164 @@ body{
   height: 100vh;  
 }
 
-header {
-  margin-top: 7rem;
-  background-color: var(--primary-color);
+/*  */
+
+.hero-wrap {
+  padding: 20px 0;
+  color: #fff;
+  width: 100%;
+  position: relative;
+  top: 100px;
 }
+
+.hero-wrap h1{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-wrap.hero-bread {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 500px;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+  padding: 10em 0;
+}
+
+.hero-wrap .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  opacity: 0.6;
+  width: 50%;
+  background: #ffa45c;
+}
+
+.hero-wrap .slider-text {
+  color: #fff;
+  position: relative;
+}
+
+.hero-wrap .slider-text .breadcrumbs {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 0;
+  z-index: 99;
+  font-weight: 300;
+}
+
+span.mr-2.color {
+  color: #fff;
+}
+
+.hero-wrap .slider-text .breadcrumbs span {
+  color: black;
+}
+
+.hero-wrap .slider-text .breadcrumbs span a {
+  color: black;
+}
+
+h1.mb-0.bread.color {
+  color: #fff;
+}
+
+.hero-wrap .slider-text .bread {
+  font-weight: 800;
+  color: black;
+  font-size: 30px;
+  font-family: "Open Sans", Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.hero-wrap .slider-text .btn-primary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+}
+
+.hero-wrap .slider-text .btn-primary:hover,
+.hero-wrap .slider-text .btn-primary:focus {
+  background: #fff !important;
+  color: #000000;
+}
+
+/* .newHeader {
+  position: relative;
+  top: 100px;
+  width: 100%;
+  height: 400px; 
+  overflow: hidden; 
+  margin-bottom: 100px;
+}
+
+.newHeader .hero-img {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.newHeader .hero-img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.newHeader .hero-info {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+}
+
+.newHeader .hero-info h1 {
+  font-size: 46px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: black;
+}
+
+
+
+@media (max-width: 768px) {
+  
+  .newHeader .hero-info h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newHeader {
+    top: 50px; 
+  }
+
+  .newHeader .hero-info h1 {
+    font-size: 28px; 
+  }
+} */
+
+/*  */
 
 .section__container {
   /* max-width: var(--max-width); */
@@ -63,7 +217,7 @@ header {
   transition: 0.3s;
 }
 
-.header__container {
+/* .header__container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
@@ -96,7 +250,7 @@ header {
   max-width: 6500px;
   position: absolute;
   bottom: -3rem;
-}
+} */
 
 .collection__container {
   position: relative;
@@ -139,6 +293,70 @@ header {
 .collection__content .btn:hover {
   background-color: var(--text-dark);
   color: var(--white);
+}
+
+.sale__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.sale__card {
+  position: relative;
+  overflow: hidden;
+}
+
+.sale__content {
+  position: inherit;
+  top: 600px;
+  left: 50%;
+  transform: translate(0%, -200%);
+  width: 100%;
+  color: var(--extra-light);
+  text-align: center;
+  margin-top: 3.5rem;
+}
+
+.sale__title {
+  font-size: 2rem;
+  font-weight: bolder;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.sale__title span {
+  font-size: 2.5rem;
+}
+
+.sale__subtitle {
+  font-size: 1rem;
+}
+
+.sale__btn {
+  margin-top: 3rem;
+  color: var(--white);
+  background-color: var(--text-dark);
+}
+
+.sale__card:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  top: -100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+}
+
+.sale__card:hover:before {
+  top: 0;
+}
+
+.sale__card:hover .sale__btn {
+  color: var(--text-dark);
+  background-color: var(--white);
 }
 
 /* ************ */
@@ -300,6 +518,19 @@ header {
 @media (min-width: 1023px) and (max-width: 1238px){
   .section1{
     grid-template-columns: repeat(4, 220px);
+  }
+}
+@media screen and (max-width: 899px){
+  .newHeader{
+    top: 0;
+  }
+  .newHeader .hero-img img{
+    /* object-fit: contain; */
+  }
+}
+@media screen and (min-width: 900px){
+  .newHeader{
+    top: 100px;
   }
 }
 
