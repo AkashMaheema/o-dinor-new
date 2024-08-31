@@ -153,7 +153,7 @@
     <h2 class="section__title">On Sale</h2>
     <div class="sale__grid">
       <div class="sale_card">
-        <img src="images/ms1.jpg" alt="sale" />
+        <img src="images/ivan-stern-xlP76AXGQ4A-unsplash.jpg" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">WOMEN T-SHIRT</p>
           <h4 class="sale__title">sale ,<span>40%</span> off</h4>
@@ -162,7 +162,7 @@
         </div>
       </div>
       <div class="sale_card">
-        <img src="images/ms2.jpg" alt="sale" />
+        <img src="images/ksusha-sosnovskaya-QopYtvEBrps-unsplash.jpg" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">Accecerise</p>
           <h4 class="sale__title">sale ,<span>25%</span> off</h4>
@@ -171,7 +171,7 @@
         </div>
       </div>
       <div class="sale_card">
-        <img src="images/ms3.jpg" alt="sale" />
+        <img src="images/blake-carpenter-4PFBfYIEyyM-unsplash.jpg" alt="sale" />
         <div class="sale__content">
           <p class="sale__subtitle">BAGS</p>
           <h4 class="sale__title">sale ,<span>20%</span> off</h4>
