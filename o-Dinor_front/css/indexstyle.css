@@ -294,17 +294,21 @@ nav input {
 .container1 {
   width: 100%;
   height: 100vh;
-  /*background: url(woman-5864279.jpg);*/
-  /* background: url(model-12.mp4);*/
-  background-position: center;
-  background-size: cover;
-  margin-bottom: 250px;
+  position: relative; /* Ensure positioning for absolute children */
+  overflow: hidden; /* Prevents scrollbars from appearing */
 }
 
 .back-video {
   position: absolute;
-  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the container without distortion */
+  transform: translate(-50%, -50%); /* Centers the video */
+  z-index: -1; /* Keep video in the background */
 }
+
 @media (min-aspect-ratio: 16/9) {
   .back-video {
     width: 100%;
@@ -318,6 +322,7 @@ nav input {
     height: 100%;
   }
 }
+
 .anim {
   opacity: 0;
   transform: translateY(100px);
@@ -327,24 +332,26 @@ nav input {
 @keyframes movedown {
   100% {
     opacity: 1;
-    transform: translateX(0px);
+    transform: translateY(0px);
   }
 }
 
 .containt h1 pre {
   margin-left: 4rem;
   padding-top: 12rem;
-  font-size: 120px;
+  font-size: 100px;
   color: #eee;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-style: italic;
   font-weight: bold;
+  line-height: 1.2;
 }
+
 .containt h1 pre span {
-  /*color: rgb(9, 33, 6);*/
   color: white;
   transition: 0.5s;
 }
+
 .containt h1 span {
   color: white;
 }
@@ -352,6 +359,25 @@ nav input {
 .containt h1 pre span:hover {
   -webkit-text-stroke: 2px rgb(120, 110, 110);
   color: transparent;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .containt h1 {
+    margin-left: 2rem;
+    padding-top: 6rem;
+    font-size: 60px;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .containt h1 {
+    margin-left: 1rem;
+    padding-top: 4rem;
+    font-size: 40px;
+    margin-bottom: 4rem;
+  }
 }
 
 /*home body end*/
@@ -611,6 +637,7 @@ nav input {
 
 .focus_title {
   margin-bottom: 1rem;
+  text-align: center;
 }
 .focus_text {
   font-size: 13px;
@@ -664,6 +691,7 @@ nav input {
   .tbl-2 table tr td {
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
   }
 
   .tbl-3 table tr td .product-card {
@@ -679,7 +707,11 @@ nav input {
     flex-wrap: wrap;
   }
   .focuse-btn {
+    margin-left: 55px;
     padding-left: 5rem;
+  }
+  .focus_title {
+    margin-left: 30px;
   }
 
   .tbl-3 table tr td img {
@@ -694,10 +726,10 @@ nav input {
     gap: 2.5rem;
     margin: 1rem;
   }
-  .back-video {
+  /* .back-video {
     width: auto;
     height: 100%;
-  }
+  } */
 }
 @media (max-width: 450px) {
   html {
