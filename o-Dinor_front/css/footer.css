@@ -153,6 +153,12 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .section__container {
+    max-width: var(--max-width);
+    margin-left: 30px;
+    padding: 5rem 1rem;
+  }
+
   .footer__bar {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -169,5 +175,10 @@ body {
 @media (width < 600px) {
   .footer__container {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .section__container {
+    max-width: var(--max-width);
+    margin-left: 30px;
+    padding: 5rem 1rem;
   }
 }
