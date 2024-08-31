@@ -2,75 +2,41 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mens section</title>
-  <link rel="stylesheet" href="css/menstyle.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet" />
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="css/womenstyle.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <title>Men section</title>
 </head>
 
 <body>
-  <?php include 'navbar.php'; ?>
+  <?php include 'navbar.php' ?>
   <?php include 'header_bar.php' ?>
 
-  <!-- <header class="newHeader">
-    <div class="hero-img">
-      <img src="images/menhero.jpeg" alt="">
-    </div>
-    <div class="hero-info">
-      <h1>MEN</h1>
-    </div>
-  </header> -->
 
   <div class="hero-wrap hero-bread" style="background-image: url('images/menhero.jpeg')">
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
         <div class="col-md-9 text-center">
-          <!-- <p class="breadcrumbs">
-            <span class="mr-2"><a href="index.php">Home</a></span>
-            <span>Cart</span>
-          </p> -->
           <h1 class="mb-0 bread">MENS WEAR</h1>
         </div>
       </div>
-       
     </div>
-      
   </div>
 
-  <!-- <header>
-    <div class="section__container header__container">
-      <div class="header__content">
-        <p>EXTRA 55% OFF IN SPRING SALE</p>
-        <h1>Discover & Shop<br>The Trend Ss19</h1>
-        <button class="btn">SHOP NOW</button>
-      </div>
-      <div class="header__image">
-        <img src="img/model2.jpg" alt="header" />
-      </div>
-    </div>
-  </header> -->
-
-  <!-- <section class="section__container collection__container">
-    <img src="img/model3.jpg" alt="collection">
-    <div class="collection__content">
-      <h2 class="section__title">New Collection</h2>
-      <p>#35 ITEMS</p>
-      <h4>Available on Store</h4>
-      <button class="btn">SHOP NOW</button>
-    </div>
-  </section> -->
-
-  <section class="section__container musthave__container">
+  <section class="section_container musthave__container">
     <h2 class="section__title">Categories</h2>
 
     <section class="section1">
       <a href="shop.php?gender=M&category=T-Shirts">
         <div class="categoryCard tshirt one">
-          <img src="img/cat1.jpg" alt="t-shirt" />
+          <img src="img/cat1.jpg" alt="t-shirt">
           <div class="text">
             <h1>T-SHIRTS</h1>
-
           </div>
         </div>
       </a>
@@ -85,7 +51,7 @@
       </a>
 
       <a href="shop.php?gender=M&category=Shorts">
-        <div class="categoryCard short">
+        <div class="categoryCard polos">
           <img src="img/cat4.jpg" alt="t-shirt" />
           <div class="text">
             <h1>SHORTS</h1>
@@ -155,9 +121,19 @@
           </div>
         </div>
       </a>
-    </section>
 
+    </section>
   </section>
+
+  <!-- <section class="section__container collection__container">
+    <img src="images/🤍.jpg" alt="collection" />
+    <div class="collection__content">
+      <h2 class="section__title">New Collection</h2>
+      <p>#35 ITEMS</p>
+      <h4>Available on Store</h4>
+      <button class="btn">SHOP NOW</button>
+    </div>
+  </section> -->
 
   <section class="section__container sale__container">
     <h2 class="section__title">On Sale</h2>
@@ -192,12 +168,87 @@
     </div>
   </section>
 
+
+
+  <!-- <section class="section__container musthave__container">
+        <h2 class="section__title">Must Have</h2>
+        <div class="musthave__nav">
+            <a href="shop.php?gender=F">ALL</a>
+            <a href="#">WOMEN</a>
+            <a href="#">BAGS</a>
+            <a href="#">SHOES</a>
+            <a href="#">Accecerise</a>
+        </div>
+        <div class="musthave__grid">
+            <div class="musthave__card">
+                <img src="images/musthave-1.png" alt="must have">
+                <h4>Basic long sleeve T-shirt</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-2.png" alt="must have">
+                <h4>Ribbed T-shirt with buttons</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-3.png" alt="must have">
+                <h4>Jacket withside strings</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-4.png" alt="must have">
+                <h4>High heel tubular sandalst</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-5.png" alt="must have">
+                <h4>Coral fabric belt bag</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-6.png" alt="must have">
+                <h4>Piggy skatar slogen T-shirt</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-7.png" alt="must have">
+                <h4>White platform boots</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-8.png" alt="must have">
+                <h4>Sweater vest with sleeves</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-9.png" alt="must have">
+                <h4>Slim fit pants</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-10.png" alt="must have">
+                <h4>Gray backpack</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-11.png" alt="must have">
+                <h4>Neon smartwatch</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+            <div class="musthave__card">
+                <img src="images/musthave-12.png" alt="must have">
+                <h4>Neon sweater</h4>
+                <p><del>$45.00</del>$75.00</p>
+            </div>
+        </div>
+    </section> -->
+
   <section class="news">
     <div class="section__container news__container">
       <h2 class="section__title">Latest News</h2>
       <div class="news__grid">
         <div class="news__card">
-          <img src="img/stow-kelly-uDfmJ8tijCY-unsplash.jpg" alt="news">
+          <img src="images/news-1.png" alt="news" />
           <div class="news__details">
             <p>
               FASHION <i class="ri-checkbox-blank-circle-fill"></i>
@@ -205,15 +256,17 @@
               <i class="ri-checkbox-blank-circle-fill"></i>FEB 2, 2024
             </p>
             <h4>Season1 Trends</h4>
-            <hr>
+            <hr />
             <p>
-              Discuss the latest fashion trends for the current season and offer tips and ideas on how to incorporate these trends into your wardrobe.
+              Discuss the latest fashion trends for the current season and
+              offer tips and ideas on how to incorporate these trends into
+              your wardrobe.
             </p>
             <a href="#"><i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
         <div class="news__card">
-          <img src="img/good-faces-yliYi-2s9qg-unsplash.jpg" alt="news">
+          <img src="images/katsiaryna-endruszkiewicz-BteCp6aq4GI-unsplash.jpg" alt="news" />
           <div class="news__details">
             <p>
               FASHION <i class="ri-checkbox-blank-circle-fill"></i>
@@ -221,15 +274,16 @@
               <i class="ri-checkbox-blank-circle-fill"></i>APR 15, 2024
             </p>
             <h4>Fashion Tips and Advice</h4>
-            <hr>
+            <hr />
             <p>
-              Provide your readers with practical tips and advice on how to dress for different ocasions, body types, or style preferences.
+              Provide your readers with practical tips and advice on how to
+              dress for different ocasions, body types, or style preferences.
             </p>
             <a href="#"><i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
         <div class="news__card">
-          <img src="img/gift-habeshaw-ImFZSnfobKk-unsplash.jpg" alt="news">
+          <img src="images/good-faces-xmSWVeGEnJw-unsplash.jpg" alt="news" />
           <div class="news__details">
             <p>
               STYLE <i class="ri-checkbox-blank-circle-fill"></i>
@@ -237,9 +291,10 @@
               <i class="ri-checkbox-blank-circle-fill"></i>JUL 22, 2024
             </p>
             <h4>Sustainable Fashion</h4>
-            <hr>
+            <hr />
             <p>
-              Cover the growing trend of eco-conscious fashion and explore the various ways to be sustainable in your fashion choices.
+              Cover the growing trend of eco-conscious fashion and explore the
+              various ways to be sustainable in your fashion choices.
             </p>
             <a href="#"><i class="ri-arrow-right-line"></i></a>
           </div>
@@ -248,6 +303,26 @@
     </div>
   </section>
 
+  <!-- <section class="section__container brands__container">
+        <div class="brand__image">
+            <img src="images/brand-1.png" alt="brand" />
+        </div>
+        <div class="brand__image">
+            <img src="images/brand-2.png" alt="brand" />
+        </div>
+        <div class="brand__image">
+            <img src="images/brand-3.png" alt="brand" />
+        </div>
+        <div class="brand__image">
+            <img src="images/brand-4.png" alt="brand" />
+        </div>
+        <div class="brand__image">
+            <img src="images/brand-5.png" alt="brand" />
+        </div>
+        <div class="brand__image">
+            <img src="images/brand-6.png" alt="brand" />
+        </div>
+    </section> -->
 
   <?php include 'footer.php'; ?>
 </body>
