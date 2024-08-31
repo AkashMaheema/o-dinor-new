@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="css/footer.css" />
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet" />
 <hr>
 <footer class="section__container footer__container">
         <div class="footer__col">
