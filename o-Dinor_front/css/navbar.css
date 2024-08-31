@@ -255,6 +255,9 @@ nav .wrapper {
   .row .mega-links li {
     margin: 0;
   }
+  .wrapper .icons {
+    margin-left: 1.5rem;
+  }
   .content .row header {
     font-size: 19px;
   }
