@@ -46,7 +46,7 @@
     <h2 class="section__title">Categories</h2>
 
     <section class="section1">
-      <a href="shop.php?gender=F&category=tshirt">
+      <a href="shop.php?gender=F&category=T-Shirts">
         <div class="categoryCard tshirt one">
           <img src="img/T-SHIRT.jpg" alt="t-shirt">
           <div class="text">
