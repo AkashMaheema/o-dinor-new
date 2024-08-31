@@ -1,10 +1,10 @@
-/* main_cart.css */
-
+/* Main styles */
 body.goto-here {
   background-color: #f8f9fa;
   color: #000;
   font-family: Arial, sans-serif;
 }
+
 a {
   text-decoration: none;
 }
@@ -12,7 +12,10 @@ a {
 .hero-wrap {
   padding: 20px 0;
   color: #fff;
+  width: 100%;
+  position: relative;
 }
+
 .hero-wrap.hero-bread {
   background-size: cover;
   background-position: center;
@@ -23,10 +26,6 @@ a {
   padding: 10em 0;
 }
 
-.hero-wrap {
-  width: 100%;
-  position: relative;
-}
 .hero-wrap .overlay {
   position: absolute;
   top: 0;
@@ -38,33 +37,38 @@ a {
   width: 50%;
   background: #ffa45c;
 }
+
 .hero-wrap .slider-text {
   color: #fff;
   position: relative;
 }
+
 .hero-wrap .slider-text .breadcrumbs {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 3px;
+  margin-top: 15px;
   margin-bottom: 0;
   z-index: 99;
   font-weight: 300;
 }
+
 span.mr-2.color {
   color: #fff;
 }
+
 .hero-wrap .slider-text .breadcrumbs span {
   color: black;
 }
+
 .hero-wrap .slider-text .breadcrumbs span a {
   color: black;
 }
+
 h1.mb-0.bread.color {
   color: #fff;
 }
-h1.mb-0.bread.color {
-  color: #fff;
-}
+
 .hero-wrap .slider-text .bread {
   font-weight: 800;
   color: black;
@@ -73,20 +77,21 @@ h1.mb-0.bread.color {
   letter-spacing: 3px;
   text-transform: uppercase;
 }
+
 .hero-wrap .slider-text .btn-primary {
   border: 1px solid rgba(255, 255, 255, 0.4);
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
   border-radius: 30px;
 }
+
 .hero-wrap .slider-text .btn-primary:hover,
 .hero-wrap .slider-text .btn-primary:focus {
   background: #fff !important;
   color: #000000;
 }
+
 .cart-list {
   margin-top: 20px;
+  overflow-x: scroll;
 }
 
 .table {
@@ -106,6 +111,7 @@ h1.mb-0.bread.color {
   background-color: #000;
   color: #eee;
 }
+
 .table td {
   vertical-align: middle;
   height: 300px;
@@ -114,18 +120,20 @@ h1.mb-0.bread.color {
   justify-content: center;
   color: #000000;
 }
-.table .image-prod {
-  width: 200px;
-}
 
 .table .image-prod img {
-  height: 200px !important;
-  width: 200px !important;
+  height: 100px !important;
+  width: 100px !important;
   object-fit: cover;
 }
-.cart_calucatation{
-    margin-bottom: 100px;
+.btn_Qnt{
+  padding: 10px !important;
 }
+
+.cart_calculation {
+  margin-bottom: 100px;
+}
+
 .discount-section,
 .total-section {
   margin-top: 20px;
@@ -145,12 +153,12 @@ h1.mb-0.bread.color {
 }
 
 .checkout-button {
-  display: inline-block;
-  padding: 10px 20px;
-  width: 400px;
+  display: inline-flex; /* Use inline-flex to keep it inline but with flex properties */
+  justify-content: center; /* Horizontally centers the text */
+  align-items: center; /* Vertically centers the text */
+  width: 100%;
   height: 50px;
   text-align: center;
-  line-height: 30px;
   font-size: 16px;
   background-color: #000;
   color: white;
@@ -177,27 +185,115 @@ h1.mb-0.bread.color {
   border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 20px;
 }
+
 .cart-total h3 {
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 20px;
 }
+
 .cart-total p {
   width: 100%;
   display: block;
 }
+
 .cart-total p span {
   display: block;
   width: 50%;
 }
+
 .cart-total p.total-price span {
   text-transform: uppercase;
 }
+
 .cart-total p.total-price span:last-child {
   color: #000000;
   font-weight: 600;
 }
+
 .cart-total hr {
   background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero-wrap.hero-bread {
+    height: 400px;
+    padding: 8em 0;
+  }
+
+  .checkout-button {
+    width: 300px;
+    font-size: 14px;
+  }
+
+  .cart-total p span {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-wrap.hero-bread {
+    height: 300px;
+    padding: 6em 0;
+  }
+
+  .hero-wrap .slider-text .bread {
+    font-size: 24px;
+  }
+
+  .checkout-button {
+    width: 250px;
+    font-size: 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+  }
+
+  .cart-wrap .btn-primary {
+    width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-wrap.hero-bread {
+    height: 200px;
+    padding: 4em 0;
+  }
+
+  .hero-wrap .slider-text .bread {
+    font-size: 20px;
+  }
+
+  .hero-wrap .slider-text .breadcrumbs {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .checkout-button {
+    width: 200px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .cart-wrap .btn-primary {
+    width: 100%;
+  }
+
+  .table .image-prod {
+    width: 100px;
+  }
+
+  .table .image-prod img {
+    height: 100px !important;
+    width: 100px !important;
+  }
+
+  .table th,
+  .table td {
+    padding: 5px;
+  }
 }

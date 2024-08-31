@@ -3,13 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O-Dinor</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main_cart.css">
 </head>
 
 <body class="goto-here">
-  <?php include("navbar.php"); ?>
+  <?php include 'navbar.php'; ?>
   <div class="hero-wrap hero-bread" style="background-image: url('images/go-girl.jpg')">
     <div class="container">
       <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -29,7 +30,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="cart-list">
-            <table class="table">
+            <table class="table col-md-12">
               <thead class="thead-primary">
                 <tr class="text-center">
                   <th>&nbsp;</th>
@@ -78,7 +79,7 @@
       </div>
     </div>
   </section>
-  <?php include("footer.php");?>
+  <?php include 'footer.php';?>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
@@ -118,9 +119,9 @@
                     LKR ${item.rate.toFixed(2)}
                 </td>
                 <td class="quantity">
-                    <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity('${key}', ${item.quantity - 1})">-</button>
+                    <button class="btn btn-sm btn-outline-secondary btn_Qnt" onclick="changeQuantity('${key}', ${item.quantity - 1})">-</button>
                     ${item.quantity}
-                    <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity('${key}', ${item.quantity + 1})">+</button>
+                    <button class="btn btn-sm btn-outline-secondary btn_Qnt" onclick="changeQuantity('${key}', ${item.quantity + 1})">+</button>
                 </td>
                 <td class="total">
                     LKR ${(item.rate * item.quantity).toFixed(2)}
