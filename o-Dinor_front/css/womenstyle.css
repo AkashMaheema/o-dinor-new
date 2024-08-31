@@ -177,10 +177,9 @@ h1.mb-0.bread.color {
   color: var(--text-dark);
 }
 /*  */
-
 .newHeader {
   position: relative;
-  top: 100px;
+
   width: 100%;
   height: 400px; 
   overflow: hidden; 
@@ -220,6 +219,7 @@ h1.mb-0.bread.color {
   text-transform: uppercase;
   color: black;
 }
+
 
 
 
