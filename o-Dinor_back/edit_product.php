@@ -45,11 +45,11 @@ while ($row = $colors_result->fetch_assoc()) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['update'])) {
         // Update product details
-        $name = $_POST['name'];
-        $gender = $_POST['gender'];
-        $category = $_POST['category'];
-        $title = $_POST['title'];
-        $description = $_POST['description'];
+        $name = $conn->real_escape_string($_POST['name']);
+        $gender = $conn->real_escape_string($_POST['gender']);
+        $category = $conn->real_escape_string($_POST['category']);
+        $title = $conn->real_escape_string($_POST['title']);
+        $description = $conn->real_escape_string($_POST['description']);
 
         // Update product details in the database
         $update_sql = "UPDATE products SET 
@@ -64,13 +64,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo '<div class="d-flex justify-content-end"><div class="alert alert-success m-1" role="alert" style="width: 300px;text-align:center;">Product updated successfully!</div></div>';
 
             // Update sizes
-            $conn->query("DELETE FROM product_sizes WHERE product_id = $product_id");
             $sizes = ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
             foreach ($sizes as $size) {
-                if (isset($_POST['size'][$size])) {
-                    $cost = $_POST['cost_' . $size];
-                    $rate = $_POST['rate_' . $size];
-                    $conn->query("INSERT INTO product_sizes (product_id, size, cost, rate) VALUES ($product_id, '$size', '$cost', '$rate')");
+                if (isset($_POST['size']) && in_array($size, $_POST['size'])) {
+                    $cost = $conn->real_escape_string($_POST['cost_' . $size]);
+                    $rate = $conn->real_escape_string($_POST['rate_' . $size]);
+
+                    // Check if the size already exists
+                    $size_exists_query = "SELECT * FROM product_sizes WHERE product_id = $product_id AND size = '$size'";
+                    $size_exists_result = $conn->query($size_exists_query);
+
+                    if ($size_exists_result->num_rows > 0) {
+                        // Update the existing size
+                        $update_size_sql = "UPDATE product_sizes SET cost = '$cost', rate = '$rate' WHERE product_id = $product_id AND size = '$size'";
+                        $conn->query($update_size_sql);
+                    } else {
+                        // Insert the new size
+                        $insert_size_sql = "INSERT INTO product_sizes (product_id, size, cost, rate) VALUES ($product_id, '$size', '$cost', '$rate')";
+                        $conn->query($insert_size_sql);
+                    }
                 }
             }
 
@@ -87,18 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } else {
             echo '<div class="alert alert-danger" role="alert">Error updating product: ' . $conn->error . '</div>';
-        }
-    } elseif (isset($_POST['delete'])) {
-        // Delete product from the database
-        $delete_sql = "DELETE FROM products WHERE id = $product_id";
-
-        if ($conn->query($delete_sql) === TRUE) {
-            echo '<div class="alert alert-success" role="alert">Product deleted successfully!</div>';
-            // Redirect to view_products.php or any other page after deletion
-            header('Location: view_products.php');
-            exit;
-        } else {
-            echo '<div class="alert alert-danger" role="alert">Error deleting product: ' . $conn->error . '</div>';
         }
     }
 }
@@ -141,26 +141,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="mb-3">
                 <label for="category" class="form-label">Category</label>
                 <select class="form-select" id="category" name="category" required>
-                    <option value="Shirts" <?php echo ($product['category'] === 'Shirts') ? 'selected' : ''; ?>>Shirts
-                    </option>
-                    <option value="T-Shirts" <?php echo ($product['category'] === 'T-Shirts') ? 'selected' : ''; ?>>
-                        T-Shirts</option>
-                    <option value="Polos" <?php echo ($product['category'] === 'Polos') ? 'selected' : ''; ?>>Polos
-                    </option>
-                    <option value="Shorts" <?php echo ($product['category'] === 'Shorts') ? 'selected' : ''; ?>>Shorts
-                    </option>
-                    <option value="Jeans" <?php echo ($product['category'] === 'Jeans') ? 'selected' : ''; ?>>Jeans
-                    </option>
-                    <option value="Trousers" <?php echo ($product['category'] === 'Trousers') ? 'selected' : ''; ?>>
-                        Trousers</option>
-                    <option value="Blazers" <?php echo ($product['category'] === 'Blazers') ? 'selected' : ''; ?>>Blazers
-                    </option>
-                    <option value="Jackets" <?php echo ($product['category'] === 'Jackets') ? 'selected' : ''; ?>>Jackets
-                    </option>
-                    <option value="Shoes" <?php echo ($product['category'] === 'Shoes') ? 'selected' : ''; ?>>Shoes
-                    </option>
-                    <option value="Accessories" <?php echo ($product['category'] === 'Accessories') ? 'selected' : ''; ?>>
-                        Accessories</option>
+                    <option value="Shirts" <?php echo ($product['category'] === 'Shirts') ? 'selected' : ''; ?>>Shirts</option>
+                    <option value="T-Shirts" <?php echo ($product['category'] === 'T-Shirts') ? 'selected' : ''; ?>>T-Shirts</option>
+                    <option value="Polos" <?php echo ($product['category'] === 'Polos') ? 'selected' : ''; ?>>Polos</option>
+                    <option value="Shorts" <?php echo ($product['category'] === 'Shorts') ? 'selected' : ''; ?>>Shorts</option>
+                    <option value="Jeans" <?php echo ($product['category'] === 'Jeans') ? 'selected' : ''; ?>>Jeans</option>
+                    <option value="Trousers" <?php echo ($product['category'] === 'Trousers') ? 'selected' : ''; ?>>Trousers</option>
+                    <option value="Blazers" <?php echo ($product['category'] === 'Blazers') ? 'selected' : ''; ?>>Blazers</option>
+                    <option value="Jackets" <?php echo ($product['category'] === 'Jackets') ? 'selected' : ''; ?>>Jackets</option>
+                    <option value="Shoes" <?php echo ($product['category'] === 'Shoes') ? 'selected' : ''; ?>>Shoes</option>
+                    <option value="Accessories" <?php echo ($product['category'] === 'Accessories') ? 'selected' : ''; ?>>Accessories</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -208,7 +198,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea class="form-control" id="description" name="description" rows="3"><?php echo htmlspecialchars($product['description']); ?></textarea>
             </div>
             <button type="submit" name="update" class="btn btn-primary">Update</button>
-            <button type="submit" name="delete" class="btn btn-danger">Delete</button>
         </form>
     </div>
 
