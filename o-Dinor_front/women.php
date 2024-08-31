@@ -7,6 +7,7 @@
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="css/womenstyle.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <title>ODIOR</title>
@@ -16,30 +17,129 @@
   <?php include 'navbar.php' ?>
   <?php include 'header_bar.php' ?>
 
-  <header class="newHeader">
+  <!-- <header class="newHeader">
     <div class="hero-img">
-      <img src="images/herocover.jpeg" alt="">
+      <img src="images/womenhero.jpeg" alt="">
     </div>
     <div class="hero-info">
-      <h1>Discover & Shop</h1>
-      <p>EXTRA 55% OFF IN SPRING SALE</p>
-      <button class="btn">SHOP NOW</button>
+      <h1>WOMEN</h1>
     </div>
-    <!-- <div class="section__container header__container">
-      <div class="header__content">
-        <p>EXTRA 55% OFF IN SPRING SALE</p>
-        <h1>Discover & Shop<br />The Trend Ss19</h1>
-        <button class="btn">SHOP NOW</button>
-      </div>
-      <div class="header__image">
-        <img
-          src="images/cat1.jpg"
-          alt="header" />
-      </div>
-    </div> -->
-  </header>
+  </header> -->
 
-  <section class="section__container collection__container">
+  <div class="hero-wrap hero-bread" style="background-image: url('images/womenhero.jpeg')">
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 text-center">
+          <!-- <p class="breadcrumbs">
+            <span class="mr-2"><a href="index.php">Home</a></span>
+            <span>Cart</span>
+          </p> -->
+          <h1 class="mb-0 bread">WOMENS WEAR</h1>
+        </div>
+      </div>
+       
+    </div>
+      
+  </div>
+
+  <section class="section_container musthave__container">
+    <h2 class="section__title">Categories</h2>
+
+    <section class="section1">
+      <a href="shop.php?gender=F&category=T-Shirts">
+        <div class="categoryCard tshirt one">
+          <img src="img/T-SHIRT.jpg" alt="t-shirt">
+          <div class="text">
+            <h1>T-SHIRTS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=shirt">
+        <div class="categoryCard shirt">
+          <img src="img/SHIRT.jpg" alt="shirt">
+          <div class="text">
+            <h1>SHIRTS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=polos">
+        <div class="categoryCard polos">
+          <img src="img/DRESS.jpg" alt="dress">
+          <div class="text">
+            <h1>DRESS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=blazers">
+        <div class="categoryCard blazers">
+          <img src="img/SKIRT.jpg" alt="SKIRTS">
+          <div class="text">
+            <h1>SKIRTS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=accessories">
+        <div class="categoryCard accessories">
+          <img src="img/ACCESSORIES.jpg" alt="ACCESSORIES">
+          <div class="text">
+            <h1>ACCESSORIES</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=jackets">
+        <div class="categoryCard jackets">
+          <img src="img/JACKET.jpg" alt="jackets">
+          <div class="text">
+            <h1>JACKETS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=jeans">
+        <div class="categoryCard jeans">
+          <img src="img/JEANS.jpg" alt="jeans">
+          <div class="text">
+            <h1>JEANS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=shoes">
+        <div class="categoryCard shoes">
+          <img src="img/BAGS.jpg" alt="bags">
+          <div class="text">
+            <h1>BAGS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=short">
+        <div class="categoryCard short">
+          <img src="img/SHORTS.jpg" alt="t-shirt">
+          <div class="text">
+            <h1>SHORTS</h1>
+          </div>
+        </div>
+      </a>
+
+      <a href="shop.php?gender=F&category=trousers">
+        <div class="categoryCard trousers">
+          <img src="img/TROUSERS.jpg" alt="trousers">
+          <div class="text">
+            <h1>TROUSERS</h1>
+          </div>
+        </div>
+      </a>
+
+    </section>
+  </section>
+
+  <!-- <section class="section__container collection__container">
     <img src="images/🤍.jpg" alt="collection" />
     <div class="collection__content">
       <h2 class="section__title">New Collection</h2>
@@ -47,7 +147,8 @@
       <h4>Available on Store</h4>
       <button class="btn">SHOP NOW</button>
     </div>
-  </section>
+  </section> -->
+
   <section class="section__container sale__container">
     <h2 class="section__title">On Sale</h2>
     <div class="sale__grid">
@@ -81,102 +182,7 @@
     </div>
   </section>
 
-  <section class="section_container musthave__container">
-    <h2 class="section__title">Must Have</h2>
 
-    <section class="section1">
-      <a href="shop.php?gender=F&category=T-Shirts">
-        <div class="categoryCard tshirt one">
-          <img src="img/T-SHIRT.jpg" alt="t-shirt">
-          <div class="text">
-            <h1>T-SHIRTS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=shirt">
-        <div class="categoryCard shirt">
-          <img src="img/SHIRT.jpg" alt="shirt">
-          <div class="text">
-            <h1>SHIRTS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=polos">
-        <div class="categoryCard polos">
-          <img src="img/DRESS.jpg" alt="dress">
-          <div class="text">
-            <h1>DRESS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=blazers">
-        <div class="categoryCard blazers">
-          <img src="img/SKIRT.jpg" alt="SKIRTS">
-          <div class="text">
-            <h1>SKIRTS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=accessories">
-        <div class="categoryCard accessories">
-          <img src="img/ACCESSORIES.jpg" alt="ACCESSORIES">
-          <div class="text">
-            <h1>ACCESSORIES</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=jackets">
-        <div class="categoryCard jackets">
-          <img src="img/JACKET.jpg" alt="jackets">
-          <div class="text">
-            <h1>JACKETS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=jeans">
-        <div class="categoryCard jeans">
-          <img src="img/JEANS.jpg" alt="jeans">
-          <div class="text">
-            <h1>JEANS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=shoes">
-        <div class="categoryCard shoes">
-          <img src="img/BAGS.jpg" alt="bags">
-          <div class="text">
-            <h1>BAGS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=short">
-        <div class="categoryCard short">
-          <img src="img/SHORTS.jpg" alt="t-shirt">
-          <div class="text">
-            <h1>SHORTS</h1>
-          </div>
-        </div>
-      </a>
-
-      <a href="shop.php?gender=M&category=trousers">
-        <div class="categoryCard trousers">
-          <img src="img/TROUSERS.jpg" alt="trousers">
-          <div class="text">
-            <h1>TROUSERS</h1>
-          </div>
-        </div>
-      </a>
-
-    </section>
-  </section>
 
   <!-- <section class="section__container musthave__container">
         <h2 class="section__title">Must Have</h2>

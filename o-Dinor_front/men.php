@@ -6,12 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mens section</title>
   <link rel="stylesheet" href="css/menstyle.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 </head>
 
 <body>
   <?php include 'navbar.php'; ?>
   <?php include 'header_bar.php' ?>
-  <header>
+
+  <!-- <header class="newHeader">
+    <div class="hero-img">
+      <img src="images/menhero.jpeg" alt="">
+    </div>
+    <div class="hero-info">
+      <h1>MEN</h1>
+    </div>
+  </header> -->
+
+  <div class="hero-wrap hero-bread" style="background-image: url('images/menhero.jpeg')">
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 text-center">
+          <!-- <p class="breadcrumbs">
+            <span class="mr-2"><a href="index.php">Home</a></span>
+            <span>Cart</span>
+          </p> -->
+          <h1 class="mb-0 bread">MENS WEAR</h1>
+        </div>
+      </div>
+       
+    </div>
+      
+  </div>
+
+  <!-- <header>
     <div class="section__container header__container">
       <div class="header__content">
         <p>EXTRA 55% OFF IN SPRING SALE</p>
@@ -22,7 +49,7 @@
         <img src="img/model2.jpg" alt="header" />
       </div>
     </div>
-  </header>
+  </header> -->
 
   <!-- <section class="section__container collection__container">
     <img src="img/model3.jpg" alt="collection">
@@ -35,7 +62,7 @@
   </section> -->
 
   <section class="section__container musthave__container">
-    <h2 class="section__title">Must Have</h2>
+    <h2 class="section__title">Categories</h2>
 
     <section class="section1">
       <a href="shop.php?gender=M&category=T-Shirts">
@@ -43,7 +70,7 @@
           <img src="img/cat1.jpg" alt="t-shirt" />
           <div class="text">
             <h1>T-SHIRTS</h1>
-            
+
           </div>
         </div>
       </a>
@@ -130,6 +157,39 @@
       </a>
     </section>
 
+  </section>
+
+  <section class="section__container sale__container">
+    <h2 class="section__title">On Sale</h2>
+    <div class="sale__grid">
+      <div class="sale_card">
+        <img src="images/ms1.jpg" alt="sale" />
+        <div class="sale__content">
+          <p class="sale__subtitle">WOMEN T-SHIRT</p>
+          <h4 class="sale__title">sale ,<span>40%</span> off</h4>
+          <p class="sale__subtitle">- DON'T MISS -</p>
+          <button class="btn sale__btn">SHOP NOW</button>
+        </div>
+      </div>
+      <div class="sale_card">
+        <img src="images/ms2.jpg" alt="sale" />
+        <div class="sale__content">
+          <p class="sale__subtitle">Accecerise</p>
+          <h4 class="sale__title">sale ,<span>25%</span> off</h4>
+          <p class="sale__subtitle">- DON'T MISS -</p>
+          <button class="btn sale__btn">SHOP NOW</button>
+        </div>
+      </div>
+      <div class="sale_card">
+        <img src="images/ms3.jpg" alt="sale" />
+        <div class="sale__content">
+          <p class="sale__subtitle">BAGS</p>
+          <h4 class="sale__title">sale ,<span>20%</span> off</h4>
+          <p class="sale__subtitle">- DON'T MISS -</p>
+          <button class="btn sale__btn">SHOP NOW</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="news">
