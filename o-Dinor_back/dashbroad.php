@@ -3,7 +3,7 @@
     session_start();
     $name = $_SESSION['name'];
     if(empty($_SESSION['name'])){
-        header("Location: /o-dinor_back/login.php");
+        header("Location:login.php");
     }
 ?>
 <!DOCTYPE html>
