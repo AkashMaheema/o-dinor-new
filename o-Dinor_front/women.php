@@ -85,7 +85,7 @@
     <h2 class="section__title">Must Have</h2>
 
     <section class="section1">
-      <a href="shop.php?gender=M&category=tshirt">
+      <a href="shop.php?gender=F&category=T-Shirts">
         <div class="categoryCard tshirt one">
           <img src="img/T-SHIRT.jpg" alt="t-shirt">
           <div class="text">
