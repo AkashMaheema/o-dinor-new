@@ -220,9 +220,6 @@ h1.mb-0.bread.color {
   color: black;
 }
 
-
-
-
 @media (max-width: 768px) {
   
   .newHeader .hero-info h1 {
@@ -239,43 +236,6 @@ h1.mb-0.bread.color {
     font-size: 28px; 
   }
 }
-
-/*  */
-
-/* .header__container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-} */
-
-/* .header__content p {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--text-light);
-  margin-bottom: 0.5rem;
-} */
-
-/* .header__content h1 {
-  font-size: 3rem;
-  font-weight: 400;
-  margin-bottom: 2rem;
-  color: var(--text-dark);
-} */
-
-/* .header__content .btn {
-  background-color: var(--text-dark);
-  color: var(--white);
-} */
-
-/* .header__image {
-  position: relative;
-} */
-
-/* .header__image img {
-  max-width: 6500px;
-  position: absolute;
-  bottom: -3rem;
-} */
 
 .collection__container {
   position: relative;
@@ -589,8 +549,38 @@ h1.mb-0.bread.color {
     margin-top: 5rem;
   }
 
+  .musthave__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .news__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brands__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width < 850px){
+  .sale__title{
+    font-size: 1.5rem;
+  }
+
+  .sale__title span{
+    font-size: 1.5rem;
+  }
+
+  .sale__subtitle{
+    font-size: 0.7rem;
+  }
+}
+
+@media (width < 700px){
   .sale__grid {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 
   .sale__content {
@@ -610,19 +600,6 @@ h1.mb-0.bread.color {
 
   .sale__subtitle{
     font-size: 0.7rem;
-  }
-
-  .musthave__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .news__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .brands__container {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -661,11 +638,9 @@ h1.mb-0.bread.color {
 
   .sale_card{
     width: 100% !important;
-    /* width: 300px !important; */
   }
   .sale_card img{
     width: 100% !important;
-    /* width: 300px !important; */
   }
 
   .sale__title{
@@ -708,19 +683,6 @@ h1.mb-0.bread.color {
 @media (min-width: 1023px) and (max-width: 1238px) {
   .section1 {
     grid-template-columns: repeat(4, 220px);
-  }
-}
-@media screen and (max-width: 899px){
-  .newHeader{
-    top: 0;
-  }
-  .newHeader .hero-img img{
-    /* object-fit: contain; */
-  }
-}
-@media screen and (min-width: 900px){
-  .newHeader{
-    top: 100px;
   }
 }
 
