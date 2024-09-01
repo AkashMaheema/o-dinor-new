@@ -135,7 +135,7 @@
     </div>
   </section> -->
 
-  <section class="section__container sale__container">
+  <section class="section__container sale__container" style="margin-left: 0px">
     <h2 class="section__title">On Sale</h2>
     <div class="sale__grid">
       <div class="sale_card">
@@ -244,7 +244,7 @@
     </section> -->
 
   <section class="news">
-    <div class="section__container news__container">
+    <div class="section__container news__container" style="margin-left: 0px;">
       <h2 class="section__title">Latest News</h2>
       <div class="news__grid">
         <div class="news__card">
