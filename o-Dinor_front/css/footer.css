@@ -14,7 +14,12 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+hr{
+  color: #ffffff;
+}
+.footer_con{
+  background-color: #000;
+}
 .section__container {
   max-width: var(--max-width);
   margin: auto;
@@ -41,18 +46,18 @@ img {
 
 body {
   font-family: "Montserrat", sans-serif;
-}
 
+}
 .link a {
   padding: 0 0.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-light);
+  color: var(--white);
   transition: 0.3s;
 }
 
 .link a:hover {
-  color: var(--text-dark);
+  color: var(--white);
 }
 
 .footer__container {
@@ -62,7 +67,7 @@ body {
 }
 
 .footer__heading {
-  color: var(--text-light);
+  color: var(--white);
   font-size: 1rem;
   font-weight: 600;
   padding-bottom: 1rem;
@@ -84,13 +89,13 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: var(--text-light);
+  color: var(--white);
   cursor: pointer;
   transition: 0.3s;
 }
 
 .footer__col p:hover {
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
 .footer__col p i {
