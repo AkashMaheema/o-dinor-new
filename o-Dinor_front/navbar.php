@@ -70,7 +70,7 @@
             </div>
           </li>
           <li><a href="blog.html">New</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="blog.php">Blog</a></li>
 
           <div class="icons">
             <a href="./main_cart.php">
