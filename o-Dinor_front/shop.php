@@ -16,11 +16,11 @@ $sql = "SELECT p.*, GROUP_CONCAT(pi.image_path) AS images,
         ) AS lowest_rate
         FROM products p
         LEFT JOIN product_images pi ON p.id = pi.product_id
-        WHERE p.gender = ? AND p.category = ?
+        WHERE (p.gender = ? OR ? = '') AND (p.category = ? OR ? = '')
         GROUP BY p.id";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $gender, $category);
+$stmt->bind_param("ssss", $gender, $gender, $category, $category);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -109,7 +109,7 @@ $conn->close();
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">${product.name}</h5>
-                            <p class="card-text">LKR ${product.lowest_rate}</p>
+                            <p class="card-text">LKR ${product.lowest_rate}.00</p>
                         </div>
                     </div>
                     </a>

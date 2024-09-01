@@ -292,6 +292,9 @@ body {
   max-width: 1200px;
   margin-top: 1rem;
 }
+.img_con{
+  overflow: hidden;
+}
 @media (min-width: 600px) {
   .leftBox,
   .events,
