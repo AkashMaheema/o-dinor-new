@@ -3,6 +3,7 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet" />
 <hr>
+<div class="footer_con">
 <footer class="section__container footer__container">
         <div class="footer__col">
             <h4 class="footer__heading">O-DINOR</h4>
@@ -67,3 +68,4 @@
             </form>
         </div>
     </div>
+</div>
