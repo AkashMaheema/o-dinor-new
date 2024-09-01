@@ -69,7 +69,7 @@
               </div>
             </div>
           </li>
-          <li><a href="blog.html">New</a></li>
+          <li><a href="news.php">News</a></li>
           <li><a href="blog.php">Blog</a></li>
 
           <div class="icons">
