@@ -6,10 +6,10 @@
 <footer class="section__container footer__container">
         <div class="footer__col">
             <h4 class="footer__heading">O-DINOR</h4>
-            <p>
+            <p><i class= "ri-facebook-fill icn" ></i>
             </p>
-            <p></p>
-            <p></p>
+            <p><i class="ri-twitter-fill icn"></i></p>
+            <p><i class="ri-whatsapp-fill icn"></i></p>
         </div>
         
         <div class="footer__col">
