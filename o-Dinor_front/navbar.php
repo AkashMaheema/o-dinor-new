@@ -11,7 +11,7 @@
             ><i class="fas fa-times"></i
           ></label>
           <li><a href="#">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="aboutus.php">About</a></li>
           <li>
             <a href="#" class="desktop-item">Jewelry and Timepieces</a>
             <input type="checkbox" id="showDrop" />
