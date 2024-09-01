@@ -7,7 +7,6 @@
   <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet" />
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="css/womenstyle.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <title>Women section</title>
@@ -17,14 +16,6 @@
   <?php include 'navbar.php' ?>
   <?php include 'header_bar.php' ?>
 
-  <!-- <header class="newHeader">
-    <div class="hero-img">
-      <img src="images/womenhero.jpeg" alt="">
-    </div>
-    <div class="hero-info">
-      <h1>WOMEN</h1>
-    </div>
-  </header> -->
 
   <div class="hero-wrap hero-bread" style="background-image: url('images/womenhero.jpeg')">
     <div class="container">
@@ -133,17 +124,7 @@
     </section>
   </section>
 
-  <!-- <section class="section__container collection__container">
-    <img src="images/🤍.jpg" alt="collection" />
-    <div class="collection__content">
-      <h2 class="section__title">New Collection</h2>
-      <p>#35 ITEMS</p>
-      <h4>Available on Store</h4>
-      <button class="btn">SHOP NOW</button>
-    </div>
-  </section> -->
-
-  <section class="section__container sale__container">
+  <section class="section__container sale__container" style="margin: auto;">
     <h2 class="section__title">On Sale</h2>
     <div class="sale__grid">
       <div class="sale_card">
@@ -176,83 +157,8 @@
     </div>
   </section>
 
-
-
-  <!-- <section class="section__container musthave__container">
-        <h2 class="section__title">Must Have</h2>
-        <div class="musthave__nav">
-            <a href="shop.php?gender=F">ALL</a>
-            <a href="#">WOMEN</a>
-            <a href="#">BAGS</a>
-            <a href="#">SHOES</a>
-            <a href="#">Accecerise</a>
-        </div>
-        <div class="musthave__grid">
-            <div class="musthave__card">
-                <img src="images/musthave-1.png" alt="must have">
-                <h4>Basic long sleeve T-shirt</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-2.png" alt="must have">
-                <h4>Ribbed T-shirt with buttons</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-3.png" alt="must have">
-                <h4>Jacket withside strings</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-4.png" alt="must have">
-                <h4>High heel tubular sandalst</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-5.png" alt="must have">
-                <h4>Coral fabric belt bag</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-6.png" alt="must have">
-                <h4>Piggy skatar slogen T-shirt</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-7.png" alt="must have">
-                <h4>White platform boots</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-8.png" alt="must have">
-                <h4>Sweater vest with sleeves</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-9.png" alt="must have">
-                <h4>Slim fit pants</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-10.png" alt="must have">
-                <h4>Gray backpack</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-11.png" alt="must have">
-                <h4>Neon smartwatch</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-            <div class="musthave__card">
-                <img src="images/musthave-12.png" alt="must have">
-                <h4>Neon sweater</h4>
-                <p><del>$45.00</del>$75.00</p>
-            </div>
-        </div>
-    </section> -->
-
   <section class="news">
-    <div class="section__container news__container">
+    <div class="section__container news__container" style="margin: auto;">
       <h2 class="section__title">Latest News</h2>
       <div class="news__grid">
         <div class="news__card">
@@ -310,27 +216,6 @@
       </div>
     </div>
   </section>
-
-  <!-- <section class="section__container brands__container">
-        <div class="brand__image">
-            <img src="images/brand-1.png" alt="brand" />
-        </div>
-        <div class="brand__image">
-            <img src="images/brand-2.png" alt="brand" />
-        </div>
-        <div class="brand__image">
-            <img src="images/brand-3.png" alt="brand" />
-        </div>
-        <div class="brand__image">
-            <img src="images/brand-4.png" alt="brand" />
-        </div>
-        <div class="brand__image">
-            <img src="images/brand-5.png" alt="brand" />
-        </div>
-        <div class="brand__image">
-            <img src="images/brand-6.png" alt="brand" />
-        </div>
-    </section> -->
 
   <?php include 'footer.php'; ?>
 </body>
