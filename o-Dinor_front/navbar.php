@@ -10,7 +10,7 @@
           <label for="close-btn" class="btn close-btn"
             ><i class="fas fa-times"></i
           ></label>
-          <li><a href="#">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="aboutus.php">About</a></li>
           <li>
             <a href="#" class="desktop-item">Jewelry and Timepieces</a>
@@ -19,10 +19,10 @@
               >Jewelry and Timepieces</label
             >
             <ul class="drop-menu">
-              <li><a href="#">Rings</a></li>
-              <li><a href="#">Earrings</a></li>
-              <li><a href="#">Necklaces</a></li>
-              <li><a href="#">Bracelets</a></li>
+              <li><a href="shop.php?gender=F&category=Rings">Rings</a></li>
+              <li><a href="shop.php?gender=F&category=Earrings">Earrings</a></li>
+              <li><a href="shop.php?gender=F&category=Necklaces">Necklaces</a></li>
+              <li><a href="shop.php?gender=F&category=Bracelets">Bracelets</a></li>
             </ul>
           </li>
           <li>
@@ -37,22 +37,22 @@
                 <div class="row">
                   <header>MENS</header>
                   <ul class="mega-links">
-                    <li><a href="#">BAGS</a></li>
-                    <li><a href="#">SHOES</a></li>
-                    <li><a href="#">REDY-TO-WEAR</a></li>
-                    <li><a href="#">ACCESSORICE</a></li>
-                    <li><a href="#">SMALL LETHER GOODS</a></li>
+                    <li><a href="shop.php?gender=M&category=Bags">BAGS</a></li>
+                    <li><a href="shop.php?gender=M&category=Shoes">SHOES</a></li>
+                    <li><a href="shop.php?gender=M&category=">REDY-TO-WEAR</a></li>
+                    <li><a href="shop.php?gender=M&category=Accessorice">ACCESSORICE</a></li>
+                    <li><a href="shop.php?gender=M&category=Leather">SMALL LETHER GOODS</a></li>
                   </ul>
                 </div>
 
                 <div class="row">
                   <header>WOMENS</header>
                   <ul class="mega-links">
-                    <li><a href="#">BAGS</a></li>
-                    <li><a href="#">SHOES</a></li>
-                    <li><a href="#">REDY-TO-WEAR</a></li>
-                    <li><a href="#">ACCESSORICE</a></li>
-                    <li><a href="#">SMALL LETHER GOODS</a></li>
+                    <li><a href="shop.php?gender=F&category=Bags">BAGS</a></li>
+                    <li><a href="shop.php?gender=F&category=Shoes">SHOES</a></li>
+                    <li><a href="shop.php?gender=F&category=">REDY-TO-WEAR</a></li>
+                    <li><a href="shop.php?gender=F&category=Accessorice">ACCESSORICE</a></li>
+                    <li><a href="shop.php?gender=F&category=Leather">SMALL LETHER GOODS</a></li>
                   </ul>
                 </div>
                 <div class="row">
