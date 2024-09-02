@@ -17,7 +17,7 @@
   let total = document.querySelector(".total");
 
   // Initialize the cart from local storage or an empty object
-  let listCards = JSON.parse(localStorage.getItem('cart')) || {};
+  let listCards = JSON.parse(localStorage.getItem('O-Dinor_cart')) || {};
 
   function addToCart() {
   const selectedColor = document.querySelector('input[name="color"]:checked');
@@ -114,7 +114,7 @@
 
   function saveCart() {
     // Convert the listCards object to a JSON string and save it to localStorage
-    localStorage.setItem('cart', JSON.stringify(listCards));
+    localStorage.setItem('O-Dinor_cart', JSON.stringify(listCards));
   }
 
   document.addEventListener('DOMContentLoaded', function () {

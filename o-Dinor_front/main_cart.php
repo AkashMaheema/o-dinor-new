@@ -85,7 +85,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
   <script>
     // Retrieve the cart data from local storage
-    let cartData = JSON.parse(localStorage.getItem('cart')) || {};
+    let cartData = JSON.parse(localStorage.getItem('O-Dinor_cart')) || {};
     const DELIVERY_PRICE = 2000; // Fixed delivery price
 
     // Display cart items in the list

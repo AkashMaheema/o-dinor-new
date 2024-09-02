@@ -82,7 +82,7 @@
         </div>
         <div class="footer__form">
             <form>
-                <input type="text" placeholder="ENTER YOUR EMAAIL">
+                <input type="text" placeholder="ENTER YOUR EMAIL">
                 <button class="btn" type="submit">SUBSCRIBE</button>
             </form>
         </div>
