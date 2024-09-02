@@ -61,7 +61,8 @@ nav .wrapper {
 .nav-links li:hover .drop-menu,
 .nav-links li:hover .mega-box {
   transition: all 0.3s ease;
-  top: 70px;
+  top: 60px;
+  z-index: 99;
   opacity: 1;
   visibility: visible;
 }
