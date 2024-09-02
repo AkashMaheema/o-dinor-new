@@ -1,0 +1,145 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.main-content {
+    flex: 3;
+}
+
+.sidebar {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.banner {
+    width: 100%;
+    height: 400px;
+    background-image: url('../images/fashion2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.banner-content {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.banner-content h1 {
+    font-size: 50px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.banner-content p {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.recent-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+.recent-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.recent-section p {
+    font-size: 16px;
+    color: #777;
+}
+
+
+.post-content {
+    flex: 3;
+    padding: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    border-left: 1px solid #ddd;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.categories h3, .recent-blog h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.categories ul, .recent-blog ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.categories li, .recent-blog li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.categories li {
+    font-size: 16px;
+}
+
+.recent-blog li img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.recent-post-content p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.recent-post-content span {
+    font-size: 12px;
+    color:chocolate;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.read-more:hover {
+    text-decoration:dashed;
+}

@@ -1,45 +1,65 @@
 <link rel="stylesheet" href="css/footer.css" />
-<link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-    rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 <hr>
-<footer class="section__container footer__container">
+<div class="footer_con">
+    <footer class="section__container footer__container">
         <div class="footer__col">
             <h4 class="footer__heading">O-DINOR</h4>
-            <p><i class= "ri-facebook-fill icn" ></i>
+            <p><i class="ri-facebook-fill icn"></i>
             </p>
             <p><i class="ri-twitter-fill icn"></i></p>
             <p><i class="ri-whatsapp-fill icn"></i></p>
         </div>
-        
+
         <div class="footer__col">
             <h4 class="footer__heading">MENU</h4>
-            <p>Home</p>
-            <p>About Us</p>
-            <p>News</p>
-            <p>Our Blog</p>
-            <p>For You</p>
+            <a href="index.php">
+                <p>Home</p>
+            </a>
+            <a href="aboutus.php">
+                <p>About Us</p>
+            </a>
+            <a href="news.php">
+                <p>News</p>
+            </a>
+            <a href="blog.php">
+                <p>Our Blog</p>
+            </a>
+            <a href="shop.php">
+                <p>For You</p>
+            </a>
         </div>
         <div class="footer__col">
             <h4 class="footer__heading">HELP</h4>
-             <p>FAQs</p>
-            <p>Contact Us</p>
-            <p>Privacy Policy</p>
-            
-            <p>Returns & Exchange</p>
-            
-          
-             <p>Terms & Conditions</p>
+            <a href="Privacy.php">
+                <p>FAQs</p>
+            </a>
+            <a href="contactus.php">
+                <p>Contact Us</p>
+            </a>
+            <a href="Privacy.php">
+                <p>Privacy Policy</p>
+            </a>
+            <a href="aboutus.php">
+                <p>Returns & Exchange</p>
+            </a>
+            <a href="terms.php">
+                <p>Terms & Conditions</p>
+            </a>
         </div>
 
 
         <div class="footer__col">
             <h4 class="footer__heading">CONTACT INFO</h4>
-            <p>
-                <i class="ri-map-pin-2-fill"></i> 123, Wicramasinghe Road, Colombo, Sri Lanka
-            </p>
-            <p><i class="ri-mail-fill"></i> support@odinor.com</p>
-            <p><i class="ri-phone-fill"></i> (+94) 77 265 7126</p>
+            <a href="contactus.php">
+                <p><i class="ri-map-pin-2-fill"></i> 123, Wicramasinghe Road, Colombo, Sri Lanka</p>
+            </a>
+            <a href="contactus.php">
+                <p><i class="ri-mail-fill"></i> support@odinor.com</p>
+            </a>
+            <a href="contactus.php">
+                <p><i class="ri-phone-fill"></i> (+94) 77 265 7126</p>
+            </a>
         </div>
         <div class="footer__col">
             <h4 class="footer__heading">INSTAGRAM</h4>
@@ -67,3 +87,4 @@
             </form>
         </div>
     </div>
+</div>

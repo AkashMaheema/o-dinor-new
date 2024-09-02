@@ -159,6 +159,7 @@
 
   <section class="news">
     <div class="section__container news__container" style="margin: auto;">
+
       <h2 class="section__title">Latest News</h2>
       <div class="news__grid">
         <div class="news__card">

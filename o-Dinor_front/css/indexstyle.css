@@ -717,19 +717,6 @@ nav input {
   .tbl-3 table tr td img {
     width: 100%;
   }
-  section .footer {
-    padding: 50px 5% 40px;
-  }
-  .footer {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
-    gap: 2.5rem;
-    margin: 1rem;
-  }
-  /* .back-video {
-    width: auto;
-    height: 100%;
-  } */
 }
 @media (max-width: 450px) {
   html {
