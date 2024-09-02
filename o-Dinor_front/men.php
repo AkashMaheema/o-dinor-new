@@ -69,7 +69,7 @@
 
       <a href="shop.php?gender=M&category=accessories">
         <div class="categoryCard accessories">
-          <img src="img/cat6.jpg" alt="ACCESSORIES" />
+          <img src="img/cat6.1.jpg" alt="ACCESSORIES" />
           <div class="text">
             <h1>ACCESSORIES</h1>
           </div>
