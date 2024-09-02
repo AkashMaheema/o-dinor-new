@@ -5,25 +5,20 @@ body {
 }
 
 /* filter products  */
-
 .filter{
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 50px;
 }
 .SearchbyName{
-    width: 400px;
+    width: 350px;
 }
 .filterByPrice{
-    width: 300px;
-    display: flex;
+    width: 350px;
 }
 .min_price{
     margin-right: 10px ;
 }
 
 /*filter css end */
-
 .form-check-name {
     margin-right: 100px !important;
 }
@@ -31,8 +26,11 @@ body {
 .title {
     margin-top: 100px;
 }
-
+.colClass{
+    margin-left: 300px;
+}
 .card {
+    align-self: center;
     width: 280px;
     height: 500px;
     border-radius: 20px;
