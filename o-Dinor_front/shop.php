@@ -41,7 +41,10 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/shop.css" />
 
@@ -50,7 +53,7 @@ $conn->close();
 
 <body>
     <?php include 'navbar.php'; ?>
-    <div class="container mt-5">
+    <div class="container">
         <h1 class="title mb-4 "><?php echo htmlspecialchars($category); ?></h1>
 
         <!-- Render the product data as hidden JSON -->
@@ -59,48 +62,64 @@ $conn->close();
         </div>
 
         <!-- Filter inputs -->
-        <div class="filter">
-            <div class="SearchbyName">
-                <input type="text" id="search-name" class="form-control form-check-name" placeholder="Search by name">
-            </div>
-            <div class="col-md-3">
-                <div class="filterByPrice">
-                        <input type="number" id="search-price-min" class="form-control min_price" placeholder="Min price">
-                        <input type="number" id="search-price-max" class="form-control max_price" placeholder="Max price">
+        <div class="filter d-md-flex">
+                <div class="col-lg-9">
+                        <div class="SearchbyName" >
+                            <input type="text" id="search-name" class="form-control form-check-name"
+                                placeholder="Search by name">
+                        </div>
                 </div>
-            </div>
+                <div class="col-lg-3">
+                        <div class="filterByPrice">
+                            <input type="number" id="search-price-min" class="form-control min_price"
+                                placeholder="Min price">
+                            <input type="number" id="search-price-max" class="form-control max_price"
+                                placeholder="Max price">
+                    </div>
+                </div>
         </div>
 
-        <div id="product-list" class="row row-cols-1 row-cols-md-3 g-4">
+        <div id="product-list" class="row" style="">
             <!-- JavaScript will render products here -->
         </div>
     </div>
     <?php include 'footer.php'; ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const productData = JSON.parse(document.getElementById('product-data').textContent);
-        const productList = document.getElementById('product-list');
-        const searchName = document.getElementById('search-name');
-        const searchPriceMin = document.getElementById('search-price-min');
-        const searchPriceMax = document.getElementById('search-price-max');
+        document.addEventListener('DOMContentLoaded', function () {
+            const productData = JSON.parse(document.getElementById('product-data').textContent);
+            const productList = document.getElementById('product-list');
+            const searchName = document.getElementById('search-name');
+            const searchPriceMin = document.getElementById('search-price-min');
+            const searchPriceMax = document.getElementById('search-price-max');
 
-        function renderProducts(products) {
-            const screenWidth = window.innerWidth;
-            productList.innerHTML = '';
+            function renderProducts(products) {
+                const screenWidth = window.innerWidth;
+                productList.innerHTML = '';
 
-            products.forEach(product => {
-                const firstImage = product.images[0] || 'default_image.jpg';
-                
-                // Determine the column class based on screen width
-                let colClass = 'col-md-3 mb-3'; // default for medium and larger screens
-                if (screenWidth < 1200) {
-                    colClass = 'col-md-12 mb-4'; // for smaller screens
-                }
+                products.forEach(product => {
+                    const firstImage = product.images[0] || 'default_image.jpg';
 
-                productList.innerHTML += `
+                    // Determine the column class based on screen width
+                    let colClass = 'col-md-3 mb-3';
+
+                    if (screenWidth < 1300) {
+                        colClass = 'col-md-4 mb-3'; // for smaller screens
+                    }
+                    if (screenWidth < 1000) {
+                        colClass = 'col-md-6 mb-3'; // for smaller screens
+                    }
+                    if (screenWidth < 770) {
+                        colClass = 'col-md-3 mb-3 m-4'; // for smaller screens
+                    }
+
+                    productList.innerHTML += `
                 <div class="${colClass}">
                     <a href="detail.php?id=${product.id}&category=${product.category}">
                     <div class="card">
@@ -115,36 +134,36 @@ $conn->close();
                     </a>
                 </div>
             `;
-            });
-        }
+                });
+            }
 
-        function filterProducts() {
-            const searchTermName = searchName.value.toLowerCase();
-            const minPrice = parseFloat(searchPriceMin.value);
-            const maxPrice = parseFloat(searchPriceMax.value);
+            function filterProducts() {
+                const searchTermName = searchName.value.toLowerCase();
+                const minPrice = parseFloat(searchPriceMin.value);
+                const maxPrice = parseFloat(searchPriceMax.value);
 
-            const filteredProducts = productData.filter(product =>
-                (!searchTermName || product.name.toLowerCase().includes(searchTermName)) &&
-                (!minPrice || product.lowest_rate >= minPrice) &&
-                (!maxPrice || product.lowest_rate <= maxPrice)
-            );
-            renderProducts(filteredProducts);
-        }
+                const filteredProducts = productData.filter(product =>
+                    (!searchTermName || product.name.toLowerCase().includes(searchTermName)) &&
+                    (!minPrice || product.lowest_rate >= minPrice) &&
+                    (!maxPrice || product.lowest_rate <= maxPrice)
+                );
+                renderProducts(filteredProducts);
+            }
 
-        // Initial render
-        renderProducts(productData);
-
-        // Add event listeners to filter inputs
-        searchName.addEventListener('input', filterProducts);
-        searchPriceMin.addEventListener('input', filterProducts);
-        searchPriceMax.addEventListener('input', filterProducts);
-
-        // Event listener for window resize to update layout
-        window.addEventListener('resize', function() {
+            // Initial render
             renderProducts(productData);
+
+            // Add event listeners to filter inputs
+            searchName.addEventListener('input', filterProducts);
+            searchPriceMin.addEventListener('input', filterProducts);
+            searchPriceMax.addEventListener('input', filterProducts);
+
+            // Event listener for window resize to update layout
+            window.addEventListener('resize', function () {
+                renderProducts(productData);
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 
