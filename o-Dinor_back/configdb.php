@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "Plus888@";
-$port = 3306;
+$password = "";
+$port = 4306;
 $dbname = "o_dinor";
 
 

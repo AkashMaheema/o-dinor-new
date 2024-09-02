@@ -5,128 +5,209 @@
   <link rel="stylesheet" href="css/news.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
   <style>
     .col-img:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease;
     }
   </style>
+
+  
 </head>
 
 <body>
+  <?php include 'navbar.php'; ?>
   <div class="header">
     <h1>WHAT'S NEW</h1>
     <p>
-      At ODior, ideas are transformed into creations to accompany the
+      At O-dinor, ideas are transformed into creations to accompany the
       seasons.<br />
       Colorful makeup to suit every style by Peter Philips, statement
       fragrances composed by Francis Kurkdjian and high-performance skincare
       that doesn't comprise on sensoriality
     </p>
   </div>
-  <div class="mid">
-    <div class="leftBox">
-      <div class="content">
-        <h1>Events and Shows</h1>
-        <p>
-          Discover the art of fashion at our exclusive events and shows,where
-          creativity and style take center stage.Each event showcases the
-          latest collections from visionary designers, bringing their unique
-          visions to life on the runway.Immerse yourself in the dynamic energy
-          of the fashion world, where trends are born, and elegance is
-          redefined.Whether you’re a fashion enthusiast or industry
-          insider,our events offer a rare glimpse into the craftsmanship and
-          innovation that drive the fashion industry.Join us for an
-          unforgettable experience that celebrates the beauty, diversity, and
-          transformative power of fashion.
-        </p>
+<section class="new-creations">
+      <h1>NEW CREATIONS</h1>
+      <div class="product">
+        <img src="images/cosmatic1.jpg" alt="Dior Forever" />
+        <div class="product-info">
+          <h2>Dior Forever</h2>
+          <p>
+            The first O-dinor liquid highlighter, a true concentration of light
+            that brightens the complexion with an instant and long-lasting glow.
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
       </div>
-    </div>
-    <div class="events">
-      <ul>
-        <li>
-          <div class="time">
-            <h2>15 <br /><span>March</span></h2>
-          </div>
-          <div class="details">
-            <h3>Where is the event happening?</h3>
-            <p>
-              With the idea of imparting programming knowledge, Mr. Sandeep
-              Jain, an IIT Roorkee alumnus started a dream, GeeksforGeeks.
-              Whether programming excites you or you feel stifled, how to ace
-              data structures and algorithms, GeeksforGeeks is a one-stop
-              solution.
-            </p>
-            <a href="#">View Details</a>
-          </div>
-        </li>
+      <div class="product">
+        <img src="images/cosmatic2.jpg" alt="Capture Totale Hyalushot" />
+        <div class="product-info">
+          <h2>Capture Totale Hyalushot</h2>
+          <p>
+            The 1st O-dinor wrinkle corrector for both emerging and present
+            wrinkles, a concentrated hyaluronic acid duo.
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
+      </div>
 
-        <li>
-          <div class="time">
-            <h2>19 <br /><span>March</span></h2>
-          </div>
-          <div class="details">
-            <h3>Where is the event happening?</h3>
-            <p>
-              With the idea of imparting programming knowledge, Mr. Sandeep
-              Jain, an IIT Roorkee alumnus started a dream, GeeksforGeeks.
-              Whether programming excites you or you feel stifled, how to ace
-              data structures and algorithms, GeeksforGeeks is a one-stop
-              solution.
-            </p>
-            <a href="#">View Details</a>
-          </div>
-        </li>
 
-        <li>
-          <div class="time">
-            <h2>22 <br /><span>March</span></h2>
-          </div>
-          <div class="details">
-            <h3>Where is the event happening?</h3>
-            <p>
-              With the idea of imparting programming knowledge, Mr. Sandeep
-              Jain, an IIT Roorkee alumnus started a dream, GeeksforGeeks.
-              Whether programming excites you or you feel stifled, how to ace
-              data structures and algorithms, GeeksforGeeks is a one-stop
-              solution.
-            </p>
-            <a href="#">View Details</a>
-          </div>
-        </li>
-      </ul>
+
+        <div class="product">
+        <img src="images/cosmatic3.jpg" alt="Dior Forever" />
+        <div class="product-info">
+          <h2>Dior Forever</h2>
+          <p>
+            The first O-dinor liquid highlighter, a true concentration of light
+            that brightens the complexion with an instant and long-lasting glow.
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
+      </div>
+
+
+
+        <div class="product">
+        <img src="images/cosmatic4.jpg" alt="Dior Forever" />
+        <div class="product-info">
+          <h2>Dior Forever</h2>
+          <p>
+            The first O-dinor liquid highlighter, a true concentration of light
+            that brightens the complexion with an instant and long-lasting glow.
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
+      </div>
+
+
+       
+
+        
+
+
+      
+
+      
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Mid Section -->
+  <div class="container ">
+    <div class="row">
+      <div class="col-lg-6 mb-4">
+        <div class="content">
+          <h1>Events and Shows</h1>
+          <p>
+            Discover the art of fashion at our exclusive events and shows, where
+            creativity and style take center stage. Each event showcases the
+            latest collections from visionary designers, bringing their unique
+            visions to life on the runway. Immerse yourself in the dynamic energy
+            of the fashion world, where trends are born, and elegance is
+            redefined. Whether you’re a fashion enthusiast or industry
+            insider, our events offer a rare glimpse into the craftsmanship and
+            innovation that drive the fashion industry. Join us for an
+            unforgettable experience that celebrates the beauty, diversity, and
+            transformative power of fashion.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <ul class="list-unstyled">
+          <li class="d-flex mb-4">
+            <div class="time me-3">
+              <h2>15 <br /><span>March</span></h2>
+            </div>
+            <div class="details">
+              <h3>Where is the event happening?</h3>
+              <p>
+                With the idea of imparting programming knowledge, Mr. Sandeep
+                Jain, an IIT Roorkee alumnus started a dream, GeeksforGeeks.
+                Whether programming excites you or you feel stifled, how to ace
+                data structures and algorithms, GeeksforGeeks is a one-stop
+                solution.
+              </p>
+              <a href="#">View Details</a>
+            </div>
+          </li>
+
+          <li class="d-flex mb-4">
+            <div class="time me-3">
+              <h2>19 <br /><span>March</span></h2>
+            </div>
+            <div class="details">
+              <h3>Where is the event happening?</h3>
+              <p>
+                With the idea of imparting programming knowledge, Mr. Sandeep
+                Jain, an IIT Roorkee alumnus started a dream, GeeksforGeeks.
+                Whether programming excites you or you feel stifled, how to ace
+                data structures and algorithms, GeeksforGeeks is a one-stop
+                solution.
+              </p>
+              <a href="#">View Details</a>
+            </div>
+          </li>
+
+          <li class="d-flex">
+            <div class="time me-3">
+              <h2>22 <br /><span>March</span></h2>
+            </div>
+            <div class="details">
+              <h3>Where is the event happening?</h3>
+              <p>
+                With the idea of imparting programming knowledge, Mr. Sandeep
+                Jain, an IIT Roorkee alumnus started a dream, GeeksforGeeks.
+                Whether programming excites you or you feel stifled, how to ace
+                data structures and algorithms, GeeksforGeeks is a one-stop
+                solution.
+              </p>
+              <a href="#">View Details</a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="maincontent">
-    <div class="maincontent2">
-      <div class="maincontent-img">
-        <img src="images/news5.jpg" width="100%" height="500px" />
+  <!-- Main Content Section -->
+  <div class="maincontent container  ">
+    <div class="row d-dm-flex">
+      <div class="col-lg-6 maincontent-img">
+        <!-- <div class="maincontent-img"> -->
+          <img src="images/news5.jpg" alt="News Image" />
+        <!-- </div> -->
       </div>
-      <div class="maincontent-tex">
-        <h3 class="">1946</h3>
-        <h4>
-          <span>
-            FOUNDING OF THE HOUSE OF DIOR AND ESTABLISHMENT AT 30, AVENUE
-            MONTAIGNE
-          </span>
-        </h4>
-        <h5>
-          <span>
-            <p>
-              “It was in 1946 that I moved into 30 Avenue Montaigne. This
-              delightful house had enough elegant rooms and salons to contain
-              a house of couture (...).”
-            </p>
-          </span>
-        </h5>
-        <h5>
-          <span>
-            <p style="padding-top: 25px">
-              Christian Dior, Je suis Couturier, 1951
-            </p>
-          </span>
-        </h5>
+       <!-- <div class="col-lg-2"> </div> -->
+      <div class="col-lg-6  maincontent-tex">
+        <!-- <div class="maincontent-tex"> -->
+          <h3>1946</h3>
+          <h4>
+            
+              FOUNDING OF THE HOUSE OF DIOR AND ESTABLISHMENT AT 30, AVENUE
+              MONTAIGNE
+            
+          </h4>
+          <p>
+            “It was in 1946 that I moved into 30 Avenue Montaigne. This
+            delightful house had enough elegant rooms and salons to contain
+            a house of couture (...).”
+          </p>
+          <p style="padding-top: 25px">
+            Christian O-dinor, Je suis Couturier, 1951
+          </p>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -177,6 +258,107 @@
       </div>
     </div>
   </section>
+
+
+
+<section class="new-creations">
+      <h1>CULTURE & EVENTS​</h1>
+      <div class="product">
+        <img src="image/news6.jpg" alt="Dior Forever" />
+        <div class="product-info">
+          <h2>O-dinor Forever</h2>
+          <p>
+           
+          Inside the Dream, the film
+               F rom the inspiration to the launch of an exquisite fragrance, experience a sensorial journey through the secret world of these passionate artisans.
+            
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
+      </div>
+      <div class="product">
+        <img src="images/c23.jpg" alt="Capture Totale Hyalushot" />
+        <div class="product-info">
+          <h2>
+Wildlife Day</h2>
+          <p>
+            The 1st Dior wrinkle corrector for both emerging and present
+            wrinkles, a concentrated hyaluronic acid duo.
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
+      </div>
+
+
+
+        <div class="product">
+        <img src="images/c22.jpg" alt="Dior Forever" />
+        <div class="product-info">
+          <h2>o-Dinor Forever</h2>
+          <p>
+            The first Dior liquid highlighter, a true concentration of light
+            that brightens the complexion with an instant and long-lasting glow.
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
+      </div>
+
+
+
+        <div class="product">
+        <img src="images/newsevent02 (1).jpg" alt="Dior Forever" />
+        <div class="product-info">
+          <h2>Look of the show</h2>
+          <p>
+            
+
+Discover tips from Peter Philips and the beauty products used on the models from the latest runway show from Maria Grazia Chiuri.
+          </p>
+          <a href="#" class="discover-btn">Discover</a>
+        </div>
+      </div>
+
+
+       
+
+        
+
+
+      
+
+      
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <!-- <div class="exceptional-main">
       <div class="exceptional-text">
         <h3>EXCEPTIONAL</h3>
@@ -239,6 +421,7 @@
         </p>
       </div>
     </div> -->
+     <?php include 'footer.php'; ?>
 </body>
 
 </html>
