@@ -77,6 +77,18 @@ while ($row = $result->fetch_assoc()) {
   $similarProducts[] = $row;
 }
 
+// Fetch stock based on selected size and color
+$stock_sql = "SELECT size, color, quantity FROM stock WHERE product_id = ?";
+$stmt = $conn->prepare($stock_sql);
+$stmt->bind_param("i", $product_id);
+$stmt->execute();
+$stock_result = $stmt->get_result();
+
+$stockData = [];
+while ($row = $stock_result->fetch_assoc()) {
+  $stockData[$row['size']][$row['color']] = $row['quantity'];
+}
+
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -144,7 +156,7 @@ $conn->close();
         <br>
         <p><b>Price:</b> LKR <span
             id="product-price"><?= htmlspecialchars(number_format($product['lowest_rate'], 2)); ?></span></p>
-
+        <p><b>Stock Status:</b> <span id="stock-status">Checking stock...</span></p>
         <div class="buttons">
           <button class="btn_add" onclick="addToCart()">Add To Cart</button>
         </div>
@@ -165,79 +177,109 @@ $conn->close();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const colorOptions = document.querySelectorAll('#color-options .color-label');
-      const sizeOptions = document.querySelectorAll('#size-options .size-label');
-      const sizeRates = <?= json_encode($sizeRates); ?>; // PHP size rates passed to JS
-      const priceElement = document.getElementById('product-price');
+    <script>
+  const stockData = <?= json_encode($stockData); ?>;
+  document.addEventListener('DOMContentLoaded', function () {
+    const colorOptions = document.querySelectorAll('#color-options .color-label');
+    const sizeOptions = document.querySelectorAll('#size-options .size-label');
+    const sizeRates = <?= json_encode($sizeRates); ?>; // PHP size rates passed to JS
+    const priceElement = document.getElementById('product-price');
+    const stockStatusElement = document.getElementById('stock-status');
+    const addToCartButton = document.querySelector('.btn_add'); // Reference to the Add to Cart button
 
-      colorOptions.forEach(label => {
-        label.addEventListener('click', function () {
-          colorOptions.forEach(item => item.classList.remove('selected'));
-          this.classList.add('selected');
-        });
-      });
+    let selectedColor = null;
+    let selectedSize = null;
 
-      sizeOptions.forEach(label => {
-        if (!label.querySelector('input').disabled) {
-          label.addEventListener('click', function () {
-            sizeOptions.forEach(item => item.classList.remove('selected'));
-            this.classList.add('selected');
+    function updateStockStatus() {
+      if (selectedSize && selectedColor) {
+        const stockQuantity = stockData[selectedSize]?.[selectedColor] || 0;
+        stockStatusElement.textContent = stockQuantity > 0 ? 'In Stock' : 'Out of Stock';
 
-            // Update price based on selected size
-            const selectedSize = label.querySelector('input').value;
-            if (sizeRates[selectedSize]) {
-              priceElement.textContent = parseFloat(sizeRates[selectedSize]).toFixed(2);
-            }
-          });
+        // Disable or enable the "Add to Cart" button based on stock status
+        if (stockQuantity > 0) {
+          addToCartButton.disabled = false;
+          addToCartButton.classList.remove('disabled');
+        } else {
+          addToCartButton.disabled = true;
+          addToCartButton.classList.add('disabled');
         }
-      });
-
-      const carouselImages = document.querySelectorAll('.carousel-image');
-      const mainImage = document.getElementById('mainImage');
-      const similarProducts = <?php echo json_encode($similarProducts); ?>;
-
-      // Function to set carousel images height equal to main image height
-      function setCarouselImagesHeight() {
-        const mainImageHeight = mainImage.clientHeight;
-        carouselImages.forEach(image => {
-          image.style.height = `${mainImageHeight / 6}px`;
-        });
+      } else {
+        // If no size or color is selected, show "Checking stock..." or a default message
+        stockStatusElement.textContent = 'Checking stock...';
+        addToCartButton.disabled = true;
+        addToCartButton.classList.add('disabled');
       }
+    }
 
-      // Initial setting of carousel images height
-      setCarouselImagesHeight();
-
-      // Add click event to carousel images
-      carouselImages.forEach(image => {
-        image.addEventListener('click', function () {
-          mainImage.src = this.src;
-        });
-      });
-
-      // Adjust carousel image height on window resize
-      window.addEventListener('resize', setCarouselImagesHeight);
-
-      // Add similar products
-      const similarProductsContainer = document.getElementById('similar-products');
-      similarProducts.forEach(similarProduct => {
-        const item = document.createElement('a');
-        item.href = 'detail.php?id=' + similarProduct.id;
-        item.classList.add('item');
-        item.innerHTML = `
-            <div class='img-body'>
-            <img src="${similarProduct.images[0] || 'default_image.jpg'}" alt="${similarProduct.name}">
-            </div>
-            <div class='card-body'>
-            <h2>${similarProduct.name}</h2>
-            <div class="price">LKR ${similarProduct.lowest_rate.toFixed(2)}</div>
-            </div>
-          `;
-        similarProductsContainer.appendChild(item);
+    colorOptions.forEach(label => {
+      label.addEventListener('click', function () {
+        colorOptions.forEach(item => item.classList.remove('selected'));
+        this.classList.add('selected');
+        selectedColor = this.querySelector('input').value;
+        updateStockStatus();
       });
     });
-  </script>
+
+    sizeOptions.forEach(label => {
+      if (!label.querySelector('input').disabled) {
+        label.addEventListener('click', function () {
+          sizeOptions.forEach(item => item.classList.remove('selected'));
+          this.classList.add('selected');
+
+          // Update price based on selected size
+          selectedSize = label.querySelector('input').value;
+          if (sizeRates[selectedSize]) {
+            priceElement.textContent = parseFloat(sizeRates[selectedSize]).toFixed(2);
+          }
+          updateStockStatus();
+        });
+      }
+    });
+
+    const carouselImages = document.querySelectorAll('.carousel-image');
+    const mainImage = document.getElementById('mainImage');
+    const similarProducts = <?php echo json_encode($similarProducts); ?>;
+
+    // Function to set carousel images height equal to main image height
+    function setCarouselImagesHeight() {
+      const mainImageHeight = mainImage.clientHeight;
+      carouselImages.forEach(image => {
+        image.style.height = `${mainImageHeight / 5}px`;
+      });
+    }
+
+    // Initial setting of carousel images height
+    setCarouselImagesHeight();
+
+    // Add click event to carousel images
+    carouselImages.forEach(image => {
+      image.addEventListener('click', function () {
+        mainImage.src = this.src;
+      });
+    });
+
+    // Adjust carousel image height on window resize
+    window.addEventListener('resize', setCarouselImagesHeight);
+
+    // Add similar products
+    const similarProductsContainer = document.getElementById('similar-products');
+    similarProducts.forEach(similarProduct => {
+      const item = document.createElement('a');
+      item.href = 'detail.php?id=' + similarProduct.id;
+      item.classList.add('item');
+      item.innerHTML = `
+      <div class='img-body'>
+      <img src="${similarProduct.images[0] || 'default_image.jpg'}" alt="${similarProduct.name}">
+      </div>
+      <div class='card-body'>
+      <h2>${similarProduct.name}</h2>
+      <div class="price">LKR ${similarProduct.lowest_rate.toFixed(2)}</div>
+      </div>
+    `;
+      similarProductsContainer.appendChild(item);
+    });
+  });
+</script>
 </body>
 
 </html>
