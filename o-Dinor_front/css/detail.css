@@ -85,6 +85,10 @@ input[type="radio"] {
 
 .imageContainer {
   display: flex;
+  border-radius: 0px;
+background: #e0e0e0;
+box-shadow:  18px 18px 93px #d9d9d9,
+             -18px -18px 93px #e7e7e7;
   /* padding: 20px; */
 }
 
@@ -92,12 +96,14 @@ input[type="radio"] {
   width: 20%;
   display: flex;
   flex-direction: column;
+  background-color: transparent;
 }
 
 .carousel img {
   cursor: pointer;
   object-fit: cover;
-  border-bottom: 1px solid;
+  /* border-bottom: 1px solid ; */
+  border: 1px solid rgb(216, 216, 216);
 }
 
 .image {
