@@ -234,23 +234,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="form-group">
                     <div class="col-md-12">
                       <div class="checkbox">
-                        <label><input type="checkbox" name="terms_accepted" value="1" class="mr-2" required /> I have
-                          read
-                          and accept the terms and conditions</label>
+                        <label><input type="checkbox" value="" class="mr-2" required/> I have read and accept the <a
+                            id="termsLink" href="">terms and conditions</a></label>
                       </div>
                     </div>
                   </div>
-                  <button id="checkout-button" type="submit" class="btn btn-primary py-3 px-4"
-                    form="checkout-form">Place
+                  <button id="checkout-button" type="submit" class="btn order-button" form="checkout-form">Place
                     an order</button>
                 </div>
               </div>
             </div>
           </form>
+
+        </div>
+      </div>
+    </div>
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <!-- <span class="close">&times;</span> -->
+        <div class="modal-info">
+          <h1>Your order is complete!</h1>
+          <p>You will be receiving a conformation email with order details.</p>
+          <a href="shop.php" class="order-button">Explore more</a>
+        </div>
+      </div>
+    </div>
+    <div id="termsModal" class="modal1">
+      <div class="modal1-content terms-box">
+        <span class="close">&times;</span>
+        <div class="terms-text">
+          <h2>
+            <center>Term of service</center>
+          </h2>
+          <p>
+            Welcome to Odior. At our Odior, we prioritize your privacy. We
+            collect personal data such as name, email, and address solely for
+            order processing and customer service. Payment information is
+            securely handled by trusted third-party providers. We do not share
+            your data with third parties, except for shipping and payment
+            processing purposes. Your data is stored securely, and you have the
+            right to access or delete it at any time. By using our website, you
+            consent to this policy. We may update this policy as needed, and any
+            changes will be posted on this page.
+          </p>
         </div>
       </div>
     </div>
   </section>
+
   <script>
     function loadCheckoutDetails() {
       document.getElementById('checkout-subtotal').textContent = localStorage.getItem('cartSubtotal') || 'LKR 0.00';
@@ -258,45 +289,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       document.getElementById('checkout-discount').textContent = localStorage.getItem('cartDiscount') || 'LKR 0.00';
       document.getElementById('checkout-total').textContent = localStorage.getItem('cartTotal') || 'LKR 0.00';
     }
+
     document.addEventListener('DOMContentLoaded', function () {
       loadCheckoutDetails();
-
-      const checkoutForm = document.getElementById('checkout-form');
-
-      checkoutForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const termsAccepted = document.querySelector('input[name="terms_accepted"]').checked;
-
-        if (!termsAccepted) {
-          alert('Please accept the terms and conditions to proceed.');
-          return; // Stop form submission
-        }
-        else {
-          const formData = new FormData(checkoutForm);
-
-          // Add cart data to FormData
-          let cartData = JSON.parse(localStorage.getItem('O-Dinor_cart')) || {};
-          formData.append('O-Dinor_cart', JSON.stringify(cartData));
-
-          // Submit form data using Fetch API
-          fetch('checkout.php', {
-            method: 'POST',
-            body: formData
-          })
-            .then(response => response.text())
-            .then(data => {
-              localStorage.removeItem('O-Dinor_cart');
-              localStorage.removeItem('cartSubtotal');
-              localStorage.removeItem('cartDelivery');
-              localStorage.removeItem('cartDiscount');
-              localStorage.removeItem('cartTotal');
-            })
-            .catch(error => console.error('Error:', error));
-        }
-
-      });
     });
+
+    const checkoutForm = document.getElementById('checkout-form');
+
+    checkoutForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(checkoutForm);
+
+      // Add cart data to FormData
+      let cartData = JSON.parse(localStorage.getItem('O-Dinor_cart')) || [];
+      formData.append('O-Dinor_cart', JSON.stringify(cartData));
+
+      // Submit form data using Fetch API
+      fetch('checkout.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(data => {
+          localStorage.removeItem('O-Dinor_cart');
+          localStorage.removeItem('cartSubtotal');
+          localStorage.removeItem('cartDelivery');
+          localStorage.removeItem('cartDiscount');
+          localStorage.removeItem('cartTotal');
+
+          // Show success modal
+          var modal = document.getElementById("orderModal");
+          modal.style.display = "block";
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    // Show terms modal
+    document.getElementById("termsLink").addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default anchor behavior
+
+      var termsModal = document.getElementById("termsModal");
+      termsModal.style.display = "block";
+    });
+
+    // Close the terms modal when clicking the close button
+    document.querySelector("#termsModal .close").onclick = function () {
+      document.getElementById("termsModal").style.display = "none";
+    };
+
   </script>
   <?php include 'footer.php'; ?>
 </body>
