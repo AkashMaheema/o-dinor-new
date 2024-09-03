@@ -321,3 +321,183 @@ h1.mb-0.bread.color {
 .cart-total hr {
   background: rgba(255, 255, 255, 0.1);
 }
+/* popup */
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  top: 50px;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 50px;
+  border: 1px solid #888;
+  /* width: 100%; Could be more or less, depending on screen size */
+  width: 600px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  /* float: right; */
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal a {
+  padding: 8px 10px;
+  width: 40%;
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 630px) {
+  .modal-content {
+    width: 300px;
+  }
+  .modal a {
+    padding: 8px 10px;
+    width: 30%;
+  }
+  .modal h1 {
+    font-size: 26px;
+  }
+  .modal p {
+    font-size: 12px;
+  }
+  .modal-content {
+    padding: 30px;
+  }
+  .modal a {
+    font-size: 14px;
+    padding: 8px 8px;
+    width: 100%;
+  }
+}
+
+/*  */
+.terms-box {
+  max-width: 350px;
+  background-color: white;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  padding: 15px 15px;
+  border-radius: 20px;
+}
+
+.terms-text {
+  padding: 0 20px;
+  height: 100%;
+  overflow: auto;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+}
+
+.terms-text::-webkit-scrollbar {
+  width: 2px;
+  background-color: #282828;
+}
+
+.terms-text::-webkit-scrollbar-thumb {
+  background-color: #d13639;
+}
+
+.terms-text h2 {
+  text-transform: uppercase;
+}
+.terms-text p {
+  font-size: 12px;
+  text-align: justify;
+}
+
+.terms-box h4 {
+  font-size: 13px;
+  text-align: center;
+  padding: 0 4px;
+}
+
+.terms-box h4 span {
+  color: #d13639;
+}
+
+.terms-box .button {
+  display: flex;
+  padding: 0 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.terms-box .btn {
+  /* height: 50px; */
+  padding: 5px 20px;
+  border: 0;
+  border-radius: 6px;
+  font-size: 19px;
+  font-weight: 500;
+  color: white;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+
+.terms-box .red-btn {
+  background-color: black;
+}
+
+.terms-box .btn:hover {
+  opacity: 0.6;
+}
+
+.terms-box .btn:focus {
+  outline: 2px solid #f1f1f1;
+  outline-offset: 4px;
+  opacity: 0.8;
+}
+.modal1 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal1-content {
+  background-color: #fefefe;
+  margin: auto auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  position: relative;
+  top: 100px;
+}
+
+/* /popup */

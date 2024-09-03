@@ -44,12 +44,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $color = $_POST['color'];
     $quantity = $_POST['quantity'];
 
-    $insertStockQuery = "INSERT INTO stock (product_id, size, color, quantity) VALUES ($product_id, '$size', '$color', $quantity)";
+    // Check if the product with the same size and color already exists in the stock
+    $checkStockQuery = "SELECT id, quantity FROM stock WHERE product_id=$product_id AND size='$size' AND color='$color'";
+    $checkStockResult = $conn->query($checkStockQuery);
 
-    if ($conn->query($insertStockQuery) === TRUE) {
-        echo '<div class="d-flex justify-content-end"><div class="alert alert-success m-1" role="alert" style="width: 300px;text-align:center;">New Stock added successfully!</div></div>';
+    if ($checkStockResult->num_rows > 0) {
+        // Product exists, update the quantity
+        $row = $checkStockResult->fetch_assoc();
+        $newQuantity = $row['quantity'] + $quantity;
+        $stockId = $row['id'];
+
+        $updateStockQuery = "UPDATE stock SET quantity=$newQuantity WHERE id=$stockId";
+
+        if ($conn->query($updateStockQuery) === TRUE) {
+            echo '<div class="d-flex justify-content-end"><div class="alert alert-success m-1" role="alert" style="width: 300px;text-align:center;">Stock updated successfully!</div></div>';
+        } else {
+            echo "Error: " . $conn->error;
+        }
     } else {
-        echo "Error: " . $conn->error;
+        // Product does not exist, insert new row
+        $insertStockQuery = "INSERT INTO stock (product_id, size, color, quantity) VALUES ($product_id, '$size', '$color', $quantity)";
+
+        if ($conn->query($insertStockQuery) === TRUE) {
+            echo '<div class="d-flex justify-content-end"><div class="alert alert-success m-1" role="alert" style="width: 300px;text-align:center;">New stock added successfully!</div></div>';
+        } else {
+            echo "Error: " . $conn->error;
+        }
     }
 }
 ?>
