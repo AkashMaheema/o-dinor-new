@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Decode the cart data from POST
-  $cartData = json_decode($_POST['cart'], true);
+  $cartData = json_decode($_POST['O-Dinor_cart'], true);
 
   // Insert each product in the sold_products table
   $sold_at = date('Y-m-d H:i:s'); // Current timestamp
