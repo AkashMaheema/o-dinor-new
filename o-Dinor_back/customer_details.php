@@ -10,7 +10,7 @@ if (empty($_SESSION['name'])) {
 $resultsPerPage = 10;
 
 // Find out the number of results stored in the database
-$totalResultsQuery = "SELECT COUNT(*) as total FROM checkout_details";
+$totalResultsQuery = "SELECT COUNT(*) as total FROM customers";
 $totalResultsResult = $conn->query($totalResultsQuery);
 $totalResults = $totalResultsResult->fetch_assoc()['total'];
 
@@ -29,7 +29,7 @@ if ($page < 1) {
 $offset = ($page - 1) * $resultsPerPage;
 
 // Fetch limited records with pagination
-$checkoutQuery = "SELECT * FROM checkout_details LIMIT $offset, $resultsPerPage";
+$checkoutQuery = "SELECT * FROM customers LIMIT $offset, $resultsPerPage";
 $checkoutResult = $conn->query($checkoutQuery);
 
 ?>
