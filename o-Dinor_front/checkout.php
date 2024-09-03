@@ -48,16 +48,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "Error inserting product ID $product_id: " . $sold_stmt->error;
       exit;
     }
+
+    // Reduce stock quantity in the stock table
+    $update_stock_stmt = $conn->prepare("UPDATE stock SET quantity = quantity - ? WHERE product_id = ?");
+    $update_stock_stmt->bind_param("ii", $quantity_sold, $product_id);
+
+    // Execute and check for errors
+    if (!$update_stock_stmt->execute()) {
+      echo "Error updating stock for product ID $product_id: " . $update_stock_stmt->error;
+      exit;
+    }
   }
 
   // Close statements and connection
   $stmt->close();
   $sold_stmt->close();
+  $update_stock_stmt->close();
   $conn->close();
 
   echo "Order and products saved successfully!";
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
