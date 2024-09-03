@@ -26,6 +26,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
 }
 
 .card_atc .checkOut div {
@@ -37,6 +38,7 @@
   align-items: center;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: -1px 15px 30px -12px rgb(32, 32, 32);
 
   margin-bottom: 20px;
   gap: 5px;
