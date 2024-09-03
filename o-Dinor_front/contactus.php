@@ -11,7 +11,7 @@
 
 <body>
     <?php include 'navbar.php'; ?>
-    <div class="hero-wrap hero-bread" style="background-image: url('images/checkout.png')">
+    <div class="hero-wrap hero-bread" style="background-image: url('images/contact77.jpg')">
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
                 <div class="col-md-9 text-center">
@@ -72,26 +72,32 @@
                     </div>
                 </div>
                 <div class="col-md-6 order-md-last d-flex">
-                    <form action="#" class="bg-white p-2 contact-form">
-                        <h1 class="text-center mb-5">Contact Us</h1>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Email" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject" />
-                        </div>
-                        <div class="form-group">
-                            <textarea name="" id="" cols="30" rows="7" class="form-control"
-                                placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Send Message" class="btn py-3 px-5" />
-                        </div>
-                    </form>
-                </div>
+    <!-- Web3Form integration -->
+    <form action="https://api.web3forms.com/submit" method="POST" class="bg-white p-2 contact-form">
+        <h1 class="text-center mb-5">Contact Us</h1>
+
+        
+        <input type="hidden" name="access_key" value="78d788fa-3b53-4c08-9902-c3a2e12a872b" />
+        <!-- <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you" /> -->
+
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Your Name" required />
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Your Email" required />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="subject" placeholder="Subject" required />
+        </div>
+        <div class="form-group">
+            <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message" required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Send Message" class="btn py-3 px-5" />
+        </div>
+    </form>
+</div>
+
             </div>
         </div>
     </section>
