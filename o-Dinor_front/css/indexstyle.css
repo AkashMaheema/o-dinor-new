@@ -362,21 +362,43 @@ nav input {
 }
 
 /* Responsive Styles */
+/* For screens smaller than 768px */
+/* For screens smaller than 768px */
+/* For screens smaller than 768px */
 @media (max-width: 768px) {
+  .home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh; /* Full viewport height */
+    overflow: hidden; /* Prevents overflow issues */
+  }
+
   .containt h1 {
-    margin-left: 2rem;
-    padding-top: 6rem;
-    font-size: 60px;
-    margin-bottom: 3rem;
+    writing-mode: vertical-rl; /* Makes the text vertical */
+    text-orientation: upright; /* Ensures the text is upright */
+    font-size: 6vw; /* Adjusted font size */
+    margin-top: 1rem; /* Removes all margins */
+    white-space: nowrap; /* Prevents wrapping */
   }
 }
 
+/* For screens smaller than 480px */
 @media (max-width: 480px) {
+  .home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140vh; /* Full viewport height */
+    overflow: hidden; /* Prevents overflow issues */
+  }
+
   .containt h1 {
-    margin-left: 1rem;
-    padding-top: 4rem;
-    font-size: 40px;
-    margin-bottom: 4rem;
+    writing-mode: vertical-rl; /* Makes the text vertical */
+    text-orientation: upright; /* Ensures the text is upright */
+    font-size: 3vw; /* Further reduced font size for smaller screens */
+    margin: 0; /* Removes all margins */
+    white-space: nowrap; /* Prevents wrapping */
   }
 }
 
@@ -654,7 +676,7 @@ nav input {
 
 @media (max-width: 700px) {
   .home .containt h1 pre {
-    font-size: 3rem;
+    font-size: 4rem;
     color: rgb(247, 244, 239);
     margin-top: 5rem;
   }
@@ -727,8 +749,8 @@ nav input {
     padding: 1.5rem;
   }
   .home .containt h1 pre {
-    font-size: 4rem;
-    padding-left: 5rem;
+    font-size: 6rem;
+    padding-right: 3rem;
   }
   .tbl-3 table tr td .product-card {
     align-items: center;
