@@ -92,9 +92,9 @@ h1.mb-0.bread.color {
 }
 .media-body:hover {
   .heading {
-    color: #ffa45c;
+    color: #484847;
   }
-  color: #fff;
+  color: #484847;
   background-color: #000000;
 }
 .img-2 {
@@ -122,10 +122,10 @@ h1.mb-0.bread.color {
   margin-top: 50px;
 }
 .endtext {
-    width: 50% !important;
-    height: 100px !important;
-    font-size: medium !important;
-    outline: 1px solid;
+  width: 50% !important;
+  height: 100px !important;
+  font-size: medium !important;
+  outline: 1px solid;
 }
 @media (min-width: 992px) {
   .wrap-about {
@@ -136,7 +136,7 @@ h1.mb-0.bread.color {
   .wrap-about {
     padding-left: 3em;
   }
-  .endtext{
+  .endtext {
     font-size: small;
   }
 }
@@ -145,9 +145,9 @@ h1.mb-0.bread.color {
   font-weight: 600;
   color: #000000;
 }
-.heading-section-bold{
-    padding-top: 50px;
-    font-size: 30px;
+.heading-section-bold {
+  padding-top: 50px;
+  font-size: 30px;
   font-weight: 600;
   color: #000000;
 }

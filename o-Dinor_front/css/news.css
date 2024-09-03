@@ -58,6 +58,7 @@ body {
   float: right;
   box-sizing: border-box;
   margin-top: 49px;
+  outline: 1px solid black;
 }
 
 .events ul {
@@ -86,7 +87,7 @@ body {
   transition: 0.5s;
 }
 
-.events ul li:hover .time {
+ul li:hover .time {
   background: #f6f4f4;
 }
 
@@ -113,6 +114,7 @@ body {
   width: 70%;
   height: 100%;
   float: left;
+  outline: 1px solid black;
 }
 
 .details h3 {
@@ -150,12 +152,12 @@ body {
   padding: 40px;
   /* height: 545px; */
   width: 100%;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .maincontent-img {
   width: 100%;
-  outline: 1px solid red;
+  /* outline: 1px solid red; */
 }
 
 .maincontent-tex {

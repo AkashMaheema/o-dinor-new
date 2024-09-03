@@ -264,7 +264,7 @@
 <section class="new-creations">
       <h1>CULTURE & EVENTS​</h1>
       <div class="product">
-        <img src="image/news6.jpg" alt="Dior Forever" />
+        <img src="images/newsevent09 (1).jpg" alt="Dior Forever" />
         <div class="product-info">
           <h2>O-dinor Forever</h2>
           <p>
