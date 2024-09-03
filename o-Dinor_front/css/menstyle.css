@@ -9,16 +9,16 @@
   --max-width: 1400px;
 }
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
 
-body{
+body {
   width: 100vw;
-  height: 100vh;  
+  height: 100vh;
 }
 
 /*  */
@@ -31,7 +31,7 @@ body{
   top: 100px;
 }
 
-.hero-wrap h1{
+.hero-wrap h1 {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -113,7 +113,7 @@ h1.mb-0.bread.color {
 .hero-wrap .slider-text .btn-primary:hover,
 .hero-wrap .slider-text .btn-primary:focus {
   background: #fff !important;
-  color: #000000;
+  color: #000000;
 }
 
 /* .newHeader {
@@ -185,10 +185,9 @@ h1.mb-0.bread.color {
   width: fit-content !important;
   margin: auto;
   padding: 5rem 1rem;
-
 }
 
-.categorie_title{
+.categorie_title {
   margin-top: 5rem;
 }
 
@@ -317,7 +316,7 @@ h1.mb-0.bread.color {
   overflow: hidden;
 }
 
-.sale_card{
+.sale_card {
   height: 500px !important;
 }
 
@@ -375,7 +374,7 @@ h1.mb-0.bread.color {
 
 /* ************ */
 
-.section1{
+.section1 {
   width: fit-content !important;
   height: 100%;
   display: grid;
@@ -386,11 +385,11 @@ h1.mb-0.bread.color {
   gap: 10px;
 }
 
-.categoryCard{
+.categoryCard {
   position: relative;
 }
 
-.categoryCard img{
+.categoryCard img {
   width: 100%;
   height: 440px;
   object-fit: cover;
@@ -398,8 +397,8 @@ h1.mb-0.bread.color {
   border-radius: 20px;
 }
 
-.categoryCard::before{
-  content: '';
+.categoryCard::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -411,11 +410,11 @@ h1.mb-0.bread.color {
   transition: background-color 0.5s;
 }
 
-.categoryCard:hover::before{
+.categoryCard:hover::before {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.categoryCard .text{
+.categoryCard .text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -424,7 +423,7 @@ h1.mb-0.bread.color {
   z-index: 2;
 }
 
-.categoryCard .text h1{
+.categoryCard .text h1 {
   font-size: 23px;
   color: white;
   font-weight: 600;
@@ -432,8 +431,8 @@ h1.mb-0.bread.color {
   display: inline-block;
 }
 
-.categoryCard .text h1::after{
-  content: '';
+.categoryCard .text h1::after {
+  content: "";
   position: absolute;
   left: 50%;
   bottom: -5px;
@@ -445,7 +444,7 @@ h1.mb-0.bread.color {
   transition: width 0.3s ease;
 }
 
-.categoryCard:hover .text h1::after{
+.categoryCard:hover .text h1::after {
   border-radius: 20px;
   width: 110px;
 }
@@ -500,7 +499,6 @@ h1.mb-0.bread.color {
   color: var(--text-dark);
 }
 
-
 /* Destop view 1 */
 /* @media (min-width: 1238px){
   .section1{
@@ -520,30 +518,30 @@ h1.mb-0.bread.color {
   }
 } */
 
-@media (min-width: 1200px) and (max-width: 1549px){
-  .section1{
+@media (min-width: 1200px) and (max-width: 1549px) {
+  .section1 {
     grid-template-columns: repeat(5, 220px);
   }
-  .categoryCard .text h1{
+  .categoryCard .text h1 {
     font-size: 23px;
   }
 }
 
-@media (min-width: 1023px) and (max-width: 1238px){
-  .section1{
+@media (min-width: 1023px) and (max-width: 1238px) {
+  .section1 {
     grid-template-columns: repeat(4, 220px);
   }
 }
-@media screen and (max-width: 899px){
-  .newHeader{
+@media screen and (max-width: 899px) {
+  .newHeader {
     top: 0;
   }
-  .newHeader .hero-img img{
+  .newHeader .hero-img img {
     /* object-fit: contain; */
   }
 }
-@media screen and (min-width: 900px){
-  .newHeader{
+@media screen and (min-width: 900px) {
+  .newHeader {
     top: 100px;
   }
 }
@@ -560,60 +558,59 @@ h1.mb-0.bread.color {
   
 } */
 
-@media (min-width: 801px) and (max-width: 1023px){
-  .section1{
+@media (min-width: 801px) and (max-width: 1023px) {
+  .section1 {
     display: grid;
     grid-template-columns: repeat(3, 220px);
   }
-  .categoryCard .text h1::after{
+  .categoryCard .text h1::after {
     opacity: 0;
   }
-  
 }
 
 /* Mobilie view 1*/
 @media (min-width: 643px) and (max-width: 800px) {
-  .section1{
+  .section1 {
     display: grid;
     grid-template-columns: repeat(2, 280px);
     justify-content: center;
     gap: 10px;
   }
-  .categoryCard .text h1::after{
+  .categoryCard .text h1::after {
     opacity: 0;
   }
-  
 }
 
 @media (min-width: 643px) and (max-width: 800px) {
-  .section1{
+  .section1 {
     display: grid;
     grid-template-columns: repeat(2, 240px);
     justify-content: center;
     gap: 10px;
   }
-  .categoryCard .text h1::after{
+  .categoryCard .text h1::after {
     opacity: 0;
   }
-  
 }
 
 /* Mobilie view 1*/
 @media (max-width: 642px) {
-  .section1{
+  .section1 {
     grid-template-columns: repeat(2, 160px);
     grid-template-rows: 274px;
   }
-  .categoryCard, .categoryCard img, .categoryCard::before{
+  .categoryCard,
+  .categoryCard img,
+  .categoryCard::before {
     height: 274px;
   }
-  .categoryCard .text h1{
+  .categoryCard .text h1 {
     font-size: 17px;
   }
-  .categoryCard .text h1::after{
+  .categoryCard .text h1::after {
     opacity: 0;
   }
-  main .mainh1{
+  main .mainh1 {
     font-size: 45px;
   }
 }
@@ -634,15 +631,15 @@ h1.mb-0.bread.color {
     transform: translate(0%, -150%);
   }
 
-  .sale__title{
+  .sale__title {
     font-size: 1.5rem;
   }
 
-  .sale__title span{
+  .sale__title span {
     font-size: 1.5rem;
   }
 
-  .sale__subtitle{
+  .sale__subtitle {
     font-size: 0.7rem;
   }
 
@@ -672,12 +669,12 @@ h1.mb-0.bread.color {
   .header__container {
     grid-template-columns: repeat(1, 1fr);
   }
-  
+
   .header__image {
     display: none;
   }
 
-  .sale__container{
+  .sale__container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -685,7 +682,7 @@ h1.mb-0.bread.color {
     justify-content: center;
     align-items: center;
   }
-  
+
   .sale__grid {
     width: 340px;
     grid-template-columns: repeat(1, 1fr);
@@ -693,27 +690,26 @@ h1.mb-0.bread.color {
     gap: 2rem;
   }
 
-  .sale_card{
+  .sale_card {
     width: 100% !important;
     /* width: 300px !important; */
   }
-  .sale_card img{
+  .sale_card img {
     width: 100% !important;
     /* width: 300px !important; */
   }
 
-  .sale__title{
+  .sale__title {
     font-size: 2rem;
   }
 
-  .sale__title span{
+  .sale__title span {
     font-size: 2.5rem;
   }
 
-  .sale__subtitle{
+  .sale__subtitle {
     font-size: 1rem;
   }
-  
 
   .musthave__grid {
     grid-template-columns: repeat(2, 1fr);

@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 :root {
@@ -58,6 +57,10 @@
   cursor: pointer;
   transition: 0.3s;
 }
+.btn:hover {
+  color: black;
+  background-color: white;
+}
 
 a {
   text-decoration: none;
@@ -80,7 +83,7 @@ body {
   top: 100px;
 }
 
-.hero-wrap h1{
+.hero-wrap h1 {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -162,7 +165,7 @@ h1.mb-0.bread.color {
 .hero-wrap .slider-text .btn-primary:hover,
 .hero-wrap .slider-text .btn-primary:focus {
   background: #fff !important;
-  color: #000000;
+  color: #000000;
 }
 
 .link a {
@@ -181,8 +184,8 @@ h1.mb-0.bread.color {
   position: relative;
 
   width: 100%;
-  height: 400px; 
-  overflow: hidden; 
+  height: 400px;
+  overflow: hidden;
   margin-bottom: 100px;
 }
 
@@ -221,7 +224,6 @@ h1.mb-0.bread.color {
 }
 
 @media (max-width: 768px) {
-  
   .newHeader .hero-info h1 {
     font-size: 36px;
   }
@@ -229,11 +231,11 @@ h1.mb-0.bread.color {
 
 @media (max-width: 480px) {
   .newHeader {
-    top: 50px; 
+    top: 50px;
   }
 
   .newHeader .hero-info h1 {
-    font-size: 28px; 
+    font-size: 28px;
   }
 }
 
@@ -291,7 +293,7 @@ h1.mb-0.bread.color {
   overflow: hidden;
 }
 
-.sale_card{
+.sale_card {
   height: 500px !important;
 }
 
@@ -565,21 +567,21 @@ h1.mb-0.bread.color {
   }
 }
 
-@media (width < 850px){
-  .sale__title{
+@media (width < 850px) {
+  .sale__title {
     font-size: 1.5rem;
   }
 
-  .sale__title span{
+  .sale__title span {
     font-size: 1.5rem;
   }
 
-  .sale__subtitle{
+  .sale__subtitle {
     font-size: 0.7rem;
   }
 }
 
-@media (width < 700px){
+@media (width < 700px) {
   .sale__grid {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -592,15 +594,15 @@ h1.mb-0.bread.color {
     transform: translate(0%, -150%);
   }
 
-  .sale__title{
+  .sale__title {
     font-size: 1.5rem;
   }
 
-  .sale__title span{
+  .sale__title span {
     font-size: 1.5rem;
   }
 
-  .sale__subtitle{
+  .sale__subtitle {
     font-size: 0.7rem;
   }
 }
@@ -617,12 +619,12 @@ h1.mb-0.bread.color {
   .header__container {
     grid-template-columns: repeat(1, 1fr);
   }
-  
+
   .header__image {
     display: none;
   }
 
-  .sale__container{
+  .sale__container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -630,7 +632,7 @@ h1.mb-0.bread.color {
     justify-content: center;
     align-items: center;
   }
-  
+
   .sale__grid {
     width: 340px;
     grid-template-columns: repeat(1, 1fr);
@@ -638,25 +640,24 @@ h1.mb-0.bread.color {
     gap: 2rem;
   }
 
-  .sale_card{
+  .sale_card {
     width: 100% !important;
   }
-  .sale_card img{
+  .sale_card img {
     width: 100% !important;
   }
 
-  .sale__title{
+  .sale__title {
     font-size: 2rem;
   }
 
-  .sale__title span{
+  .sale__title span {
     font-size: 2.5rem;
   }
 
-  .sale__subtitle{
+  .sale__subtitle {
     font-size: 1rem;
   }
-  
 
   .musthave__grid {
     grid-template-columns: repeat(2, 1fr);
