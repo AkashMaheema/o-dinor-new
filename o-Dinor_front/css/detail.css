@@ -46,8 +46,8 @@ input[type="radio"] {
 /* Add blue outline when selected */
 .color-label input:checked + .color-circle,
 .size-label input:checked + .size-box {
-  border-color: blue;
-  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+  border-color: #ffa45c;
+  box-shadow: 0 0 5px #ffa45c;
 }
 
 /* Style for unavailable sizes */
@@ -58,7 +58,7 @@ input[type="radio"] {
 }
 
 .size-box.available:hover {
-  border-color: #007bff;
+  border-color: #ffa45c;
 }
 
 /*details page*/
@@ -71,7 +71,6 @@ input[type="radio"] {
 }
 
 .detailContainer {
-  display: flex;
   max-width: 100vw;
   flex-wrap: wrap;
   margin-top: 1px;
@@ -86,7 +85,6 @@ input[type="radio"] {
 
 .imageContainer {
   display: flex;
-  width: 50%;
   /* padding: 20px; */
 }
 
@@ -109,7 +107,6 @@ input[type="radio"] {
 
 .details {
   display: block;
-  width: 50%;
   grid-template-columns: repeat(2, 1fr);
   gap: 50px;
   text-align: left;
@@ -223,10 +220,6 @@ input[type="radio"] {
   margin: 5px;
 }
 
-.similar-products {
-  margin-top: 20px;
-}
-
 .listProduct {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -283,7 +276,7 @@ input[type="radio"] {
 
 @media screen and (max-width: 992px) {
   .listProduct {
-    grid-template-columns: repeat(3, 1fr);
+    overflow-x: scroll;
   }
 
   .details {
@@ -293,7 +286,7 @@ input[type="radio"] {
 
 @media screen and (max-width: 768px) {
   .listProduct {
-    grid-template-columns: repeat(2, 1fr);
+    overflow-x: scroll;
   }
 
   .details {
@@ -312,7 +305,7 @@ input[type="radio"] {
   }
 
   .details .buttons button {
-    font-size: small;
+    font-size: 10px;
   }
 
   .details .buttons {

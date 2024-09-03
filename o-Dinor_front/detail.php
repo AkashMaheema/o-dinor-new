@@ -34,7 +34,7 @@ $stmt->execute();
 $size_rate_result = $stmt->get_result();
 $sizeRates = [];
 while ($row = $size_rate_result->fetch_assoc()) {
-    $sizeRates[$row['size']] = $row['rate'];
+  $sizeRates[$row['size']] = $row['rate'];
 }
 
 // Define standard sizes
@@ -44,8 +44,9 @@ $standard_sizes = ['S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
 $available_sizes = explode(',', $product['sizes']);
 
 // Fetch similar products based on the category
-$category = $product['category'];
-$gender = $product['gender'];
+$category = $product['category'] ?? ''; // Use empty string if null
+$gender = $product['gender'] ?? ''; // Use empty string if null
+$product_id = $product['id'];
 
 $sql = "SELECT p.*, 
         GROUP_CONCAT(pi.image_path ORDER BY pi.id) AS images,
@@ -57,21 +58,23 @@ $sql = "SELECT p.*,
             (SELECT ps.rate FROM product_sizes ps WHERE ps.product_id = p.id AND ps.size = 'XXL' LIMIT 1),
             (SELECT ps.rate FROM product_sizes ps WHERE ps.product_id = p.id AND ps.size = 'XXXL' LIMIT 1)
         ) AS lowest_rate
-        FROM products p 
-        LEFT JOIN product_images pi ON p.id = pi.product_id 
-        WHERE p.category = ? AND p.gender = ? AND p.id != ? 
+        FROM products p
+        LEFT JOIN product_images pi ON p.id = pi.product_id
+        WHERE p.id != ? 
+        AND (p.gender = ? OR ? = '') 
+        AND (p.category = ? OR ? = '')
         GROUP BY p.id 
         LIMIT 4"; // Adjust the limit as needed
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssi", $category, $gender, $product_id); // Corrected bind_param parameters
+$stmt->bind_param("issss", $product_id, $gender, $gender, $category, $category); // Correctly bind the parameters
 $stmt->execute();
 $result = $stmt->get_result();
 
 $similarProducts = [];
 while ($row = $result->fetch_assoc()) {
-    $row['images'] = explode(',', $row['images']);
-    $similarProducts[] = $row;
+  $row['images'] = explode(',', $row['images']);
+  $similarProducts[] = $row;
 }
 
 $conn->close();
@@ -80,7 +83,8 @@ $conn->close();
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>Product View</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -94,8 +98,8 @@ $conn->close();
   <div class="container">
     <div class="title">PRODUCT DETAILS</div>
     <br>
-    <div class="detailContainer">
-      <div class="imageContainer">
+    <div class="detailContainer d-md-flex">
+      <div class="imageContainer col-lg-6 mb-5">
         <div class="carousel">
           <!-- Carousel of images -->
           <?php
@@ -108,7 +112,7 @@ $conn->close();
           <img id="mainImage" src="<?= htmlspecialchars($images[0]); ?>" alt="Main Image" class="img-fluid">
         </div>
       </div>
-      <div class="details">
+      <div class="details col-lg-6 mb-5">
         <h1><?= htmlspecialchars($product['name']); ?></h1>
         <h4>Title</h4>
         <p><?= htmlspecialchars($product['title']); ?></p>
@@ -138,7 +142,8 @@ $conn->close();
           <?php endforeach; ?>
         </div>
         <br>
-        <p><b>Price:</b> LKR <span id="product-price"><?= htmlspecialchars(number_format($product['lowest_rate'], 2)); ?></span></p>
+        <p><b>Price:</b> LKR <span
+            id="product-price"><?= htmlspecialchars(number_format($product['lowest_rate'], 2)); ?></span></p>
 
         <div class="buttons">
           <button class="btn_add" onclick="addToCart()">Add To Cart</button>
@@ -146,7 +151,7 @@ $conn->close();
       </div>
     </div>
     <div class="title">SIMILAR PRODUCTS</div>
-    <div class="listProduct" id="similar-products"></div>
+    <div class="listProduct col-lg-12 mb-5" id="similar-products"></div>
   </div>
   <br>
   <br>
