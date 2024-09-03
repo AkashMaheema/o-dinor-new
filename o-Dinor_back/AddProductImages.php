@@ -5,13 +5,15 @@ session_start();
 $name = $_SESSION['name'];
 if (empty($_SESSION['name'])) {
     header("Location: login.php");
+    exit();
 }
+
 // Handle image uploads
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['upload'])) {
     $product_id = $_POST['product_id'];
 
-    //Handle image uploads
-    if (isset($_FILES['images'])) {
+    // Handle image uploads
+    if (isset($_FILES['images']) && $product_id) {
         $uploads_dir = '../o-Dinor_back/uploads';
         if (!is_dir($uploads_dir)) {
             mkdir($uploads_dir, 0777, true);
@@ -27,16 +29,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['upload'])) {
                 // Insert image path into the database
                 $sql = "INSERT INTO product_images (product_id, image_path) VALUES ($product_id, '$image_path')";
                 if ($conn->query($sql)) {
-                    echo '<div class="d-flex justify-content-end"><div class="alert alert-success m-1" role="alert" style="width: 300px;text-align:center;z-index:10;">New image added successfully!</div></div>';
+                    echo '<div class="alert alert-success" role="alert">New image added successfully!</div>';
                 } else {
-                    echo "Error uploading image: " . $conn->error;
+                    echo '<div class="alert alert-danger" role="alert">Error uploading image: ' . $conn->error . '</div>';
                 }
             } else {
-                echo "Error moving uploaded file";
+                echo '<div class="alert alert-danger" role="alert">Error moving uploaded file.</div>';
             }
         }
     } else {
-        echo "No images selected";
+        echo '<div class="alert alert-warning" role="alert">No images selected or invalid product.</div>';
     }
 }
 
@@ -44,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['upload'])) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['image_id'])) {
     $image_id = $_POST['image_id'];
 
-    // Perform deletion from database and filesystem if required
+    // Perform deletion from database and filesystem
     $sql_select = "SELECT id, image_path FROM product_images WHERE id = $image_id";
     $result_select = $conn->query($sql_select);
 
@@ -57,16 +59,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['image_id'])) {
             // Delete from database
             $sql_delete = "DELETE FROM product_images WHERE id = $image_id";
             if ($conn->query($sql_delete)) {
-                echo '<div class="d-flex justify-content-end"><div class="alert alert-success m-1" role="alert" style="width: 300px;text-align:center;">Image deleted successfully</div></div>';
+                echo '<div class="alert alert-success" role="alert">Image deleted successfully</div>';
             } else {
-                echo "Error deleting image: " . $conn->error;
+                echo '<div class="alert alert-danger" role="alert">Error deleting image: ' . $conn->error . '</div>';
             }
         } else {
-            echo "Error deleting image file";
+            echo '<div class="alert alert-danger" role="alert">Error deleting image file.</div>';
         }
     } else {
-        echo "Image not found";
+        echo '<div class="alert alert-warning" role="alert">Image not found.</div>';
     }
+}
+
+// Fetch products based on gender and category
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['gender']) && isset($_GET['category'])) {
+    $gender = $_GET['gender'];
+    $category = $_GET['category'];
+
+    $sql_fetch = "SELECT id, name FROM products WHERE gender = '$gender' AND category = '$category'";
+    $result_fetch = $conn->query($sql_fetch);
+
+    $products = array();
+    if ($result_fetch->num_rows > 0) {
+        while ($row = $result_fetch->fetch_assoc()) {
+            $products[] = array(
+                'id' => $row['id'],
+                'name' => $row['name']
+            );
+        }
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($products);
+    exit();
 }
 
 // Fetch images handler for AJAX request
@@ -89,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['product_id'])) {
 
     header('Content-Type: application/json');
     echo json_encode($images);
-    exit;
+    exit();
 }
 ?>
 
@@ -115,8 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['product_id'])) {
         }
 
         .selected {
-            outline: 2px solid red;
-            /* Red outline for selected image */
+            outline: 2px solid red; /* Red outline for selected image */
         }
     </style>
 </head>
@@ -128,42 +152,72 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['product_id'])) {
     </header>
     <div class="container">
         <form action="AddProductImages.php" method="post" enctype="multipart/form-data">
-            <ul type="none">
-                <li>
-                    <label for="product_id" class="col-sm-3 col-form-label">Select Product:</label>
-                    <select name="product_id" id="product_id" class="w-50" required>
-                        <option value="">Select Product</option>
-                        <?php
-                        $sql = "SELECT id, name FROM products";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
-                            }
-                        } else {
-                            echo "<option value=''>No products available</option>";
-                        }
-                        ?>
-                    </select>
-                </li>
-                <li>
-                    <label for="images" class="col-sm-3 col-form-label">Product Images:</label>
-                    <input type="file" id="images" name="images[]" class="w-50" multiple accept="image/*" required>
-                </li>
-            </ul>
-            <div class="d-flex justify-content-end">
-                <button type="submit" name="upload" class="btn btn-primary">Add Images</button>
-                <button type="button" onclick="showImages()" class="btn btn-secondary ms-2">Show Images</button>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Gender:</label>
+                <select name="gender" id="gender" class="form-select" onchange="updateProducts()" required>
+                    <option value="">Select Gender</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
             </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category:</label>
+                <select name="category" id="category" class="form-select" onchange="updateProducts()" required>
+                    <option value="">Select Category</option>
+                    <!-- Populate categories dynamically from database -->
+                    <?php
+                    $sql = "SELECT DISTINCT category FROM products";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<option value='" . $row['category'] . "'>" . $row['category'] . "</option>";
+                        }
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="product_id" class="form-label">Select Product:</label>
+                <select name="product_id" id="product_id" class="form-select" required>
+                    <option value="">Select Product</option>
+                    <!-- Products will be updated dynamically -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="images" class="form-label">Product Images:</label>
+                <input type="file" id="images" name="images[]" class="form-control" multiple accept="image/*" required>
+            </div>
+            <button type="submit" name="upload" class="btn btn-primary">Add Images</button>
+            <button type="button" class="btn btn-secondary ms-2" onclick="showImages()">Show Images</button>
         </form>
         <div id="imagesDiv" class="mt-3"></div>
         <button id="deleteBtn" class="btn btn-danger mt-3" style="display:none;" onclick="deleteSelectedImage()">Delete Selected Image</button>
     </div>
 
     <script>
-        function showPopup(message) {
-            alert(message);
-            window.location.href = 'AddProductImages.php';
+        function updateProducts() {
+            var gender = document.getElementById('gender').value;
+            var category = document.getElementById('category').value;
+
+            if (gender && category) {
+                fetch('AddProductImages.php?gender=' + gender + '&category=' + category)
+                    .then(response => response.json())
+                    .then(data => {
+                        var productSelect = document.getElementById('product_id');
+                        productSelect.innerHTML = '<option value="">Select Product</option>';
+                        if (data.length > 0) {
+                            data.forEach(product => {
+                                var option = document.createElement('option');
+                                option.value = product.id;
+                                option.textContent = product.name;
+                                productSelect.appendChild(option);
+                            });
+                        } else {
+                            productSelect.innerHTML = '<option value="">No products available</option>';
+                        }
+                    })
+                    .catch(error => console.error('Error fetching products:', error));
+            }
         }
 
         function showImages() {
@@ -219,12 +273,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['product_id'])) {
                             },
                             body: 'image_id=' + encodeURIComponent(imageId)
                         })
-                        .then(response => {
-                            if (response.ok) {
-                                return response.text();
-                            }
-                            throw new Error('Network response was not ok.');
-                        })
+                        .then(response => response.text())
                         .then(data => {
                             showImages(); // Refresh image display
                         })
@@ -240,3 +289,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['product_id'])) {
 </body>
 
 </html>
+
