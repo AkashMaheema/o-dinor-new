@@ -4,7 +4,9 @@
   <!-- <div style="overflow-y: auto;"> -->
   <ul class="listCard_atc"></ul>
   <div class="checkOut">
-    <a href="./main_cart.php"><div class="total">0</div></a>
+    <a href="./main_cart.php">
+      <div class="total">0</div>
+    </a>
     <div class="closeShopping">Close</div>
   </div>
   <!-- </div> -->
@@ -20,35 +22,35 @@
   let listCards = JSON.parse(localStorage.getItem('O-Dinor_cart')) || {};
 
   function addToCart() {
-  const selectedColor = document.querySelector('input[name="color"]:checked');
-  const selectedSize = document.querySelector('input[name="size"]:checked');
+    const selectedColor = document.querySelector('input[name="color"]:checked');
+    const selectedSize = document.querySelector('input[name="size"]:checked');
 
-  if (!selectedColor || !selectedSize) {
-    alert('Please select both a color and size.');
-    return;
+    if (!selectedColor || !selectedSize) {
+      alert('Please select both a color and size.');
+      return;
+    }
+
+    document.body.classList.add("active");
+    document.body.style.overflow = "hidden";
+
+    // Get the selected product details
+    const productId = <?= json_encode($product_id); ?>;
+    const productName = <?= json_encode($product['name']); ?>;
+    const productImage = <?= json_encode($images[0]); ?>;
+    const color = selectedColor.value;
+    const size = selectedSize.value;
+
+    // Get the rate for the selected size
+    const sizeRates = <?= json_encode($sizeRates); ?>; // PHP size rates passed to JS
+    const productRate = sizeRates[size]; // Get rate for the selected size
+
+    if (!productRate) {
+      alert('Unable to retrieve the rate for the selected size.');
+      return;
+    }
+
+    addToCard(productId, productName, productRate, productImage, color, size);
   }
-
-  document.body.classList.add("active");
-  document.body.style.overflow = "hidden";
-
-  // Get the selected product details
-  const productId = <?= json_encode($product_id); ?>;
-  const productName = <?= json_encode($product['name']); ?>;
-  const productImage = <?= json_encode($images[0]); ?>;
-  const color = selectedColor.value;
-  const size = selectedSize.value;
-
-  // Get the rate for the selected size
-  const sizeRates = <?= json_encode($sizeRates); ?>; // PHP size rates passed to JS
-  const productRate = sizeRates[size]; // Get rate for the selected size
-
-  if (!productRate) {
-    alert('Unable to retrieve the rate for the selected size.');
-    return;
-  }
-
-  addToCard(productId, productName, productRate, productImage, color, size);
-}
   function addToCard(id, name, rate, image, color, size) {
     const uniqueKey = `${id}_${color}_${size}`;
 
@@ -81,20 +83,26 @@
         totalPrice += product.rate * product.quantity;
         count += product.quantity;
 
+        // Get the available stock for the current product
+        const availableStock = stockData[product.size]?.[product.color] || 0;
+
+        // Check if the quantity has reached the available stock
+        const disableIncrease = product.quantity >= availableStock;
+
         let newDiv = document.createElement("li");
         newDiv.innerHTML = `
-          <div><img src="${product.image}" alt="${product.name}" /></div>
-          <div>${product.name}</div>
-          <div><span style="display:inline-block; width: 20px; height: 20px; background-color: ${product.color}; border-radius: 50%; border: 1px solid #ccc;"></span></div>
-          <div>${product.size}</div>
-          <div>LKR ${product.rate}</div>
-          <div>${product.quantity}</div>
-          <div>
-              <button onClick="changeQuantity('${key}', ${product.quantity - 1})">-</button>
-              <div class="count">${product.quantity}</div>
-              <button onClick="changeQuantity('${key}', ${product.quantity + 1})">+</button>
-          </div>
-      `;
+                <div><img src="${product.image}" alt="${product.name}" /></div>
+                <div>${product.name}</div>
+                <div><span style="display:inline-block; width: 20px; height: 20px; background-color: ${product.color}; border-radius: 50%; border: 1px solid #ccc;"></span></div>
+                <div>${product.size}</div>
+                <div>LKR ${product.rate}</div>
+                <div>${product.quantity}</div>
+                <div>
+                    <button onClick="changeQuantity('${key}', ${product.quantity - 1})">-</button>
+                    <div class="count">${product.quantity}</div>
+                    <button onClick="changeQuantity('${key}', ${product.quantity + 1})" ${disableIncrease ? 'disabled' : ''}>+</button>
+                </div>
+            `;
         listCard.appendChild(newDiv);
       }
     });
