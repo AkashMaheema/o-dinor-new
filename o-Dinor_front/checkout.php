@@ -1,3 +1,64 @@
+<?php
+// Include database connection
+include './configdb.php'; // Ensure this file contains the proper connection details.
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Save Checkout Details
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
+  $country = $_POST['country'];
+  $street_address = $_POST['street_address'];
+  $apartment = $_POST['apartment'];
+  $city = $_POST['city'];
+  $postcode = $_POST['postcode'];
+  $phone = $_POST['phone'];
+  $email = $_POST['email'];
+  $create_account = isset($_POST['create_account']) ? 1 : 0;
+  $ship_different_address = isset($_POST['ship_different_address']) ? 1 : 0;
+  $payment_method = $_POST['payment_method'];
+  $terms_accepted = isset($_POST['terms_accepted']) ? 1 : 0;
+
+  // Insert checkout details and get the last inserted checkout_id
+  $stmt = $conn->prepare("INSERT INTO checkout_details (first_name, last_name, country, street_address, apartment, city, postcode, phone, email, create_account, ship_different_address, payment_method, terms_accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssssssssssss", $first_name, $last_name, $country, $street_address, $apartment, $city, $postcode, $phone, $email, $create_account, $ship_different_address, $payment_method, $terms_accepted);
+
+  if ($stmt->execute()) {
+    $checkout_id = $stmt->insert_id; // Get the last inserted ID for checkout
+  } else {
+    echo "Error: " . $stmt->error;
+    exit;
+  }
+
+  // Decode the cart data from POST
+  $cartData = json_decode($_POST['O-Dinor_cart'], true);
+
+  // Insert each product in the sold_products table
+  $sold_at = date('Y-m-d H:i:s'); // Current timestamp
+  $sold_stmt = $conn->prepare("INSERT INTO sold_products (product_id, checkout_id, quantity_sold, sold_at) VALUES (?, ?, ?, ?)");
+
+  foreach ($cartData as $item) {
+    $product_id = $item['id'];
+    $quantity_sold = $item['quantity'];
+
+    // Bind the parameters for the current product
+    $sold_stmt->bind_param("iiis", $product_id, $checkout_id, $quantity_sold, $sold_at);
+
+    // Execute and check for errors
+    if (!$sold_stmt->execute()) {
+      echo "Error inserting product ID $product_id: " . $sold_stmt->error;
+      exit;
+    }
+  }
+
+  // Close statements and connection
+  $stmt->close();
+  $sold_stmt->close();
+  $conn->close();
+
+  echo "Order and products saved successfully!";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,20 +90,20 @@
   <section>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-xl-8 ">
-          <form action="#" class="billing-form">
+        <div class="col-xl-8">
+          <form id="checkout-form" class="billing-form" method="post">
             <h3 class="mb-4 billing-heading">Billing Details</h3>
             <div class="row align-items-end">
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="firstname">First Name</label>
-                  <input type="text" class="form-control" placeholder="" />
+                  <input type="text" class="form-control" name="first_name" placeholder="First Name" required />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="lastname">Last Name</label>
-                  <input type="text" class="form-control" placeholder="" />
+                  <input type="text" class="form-control" name="last_name" placeholder="Last Name" required />
                 </div>
               </div>
               <div class="w-100"></div>
@@ -53,13 +114,14 @@
                     <div class="icon">
                       <span class="ion-ios-arrow-down"></span>
                     </div>
-                    <select name="" id="" class="form-control">
-                      <option value="">France</option>
-                      <option value="">Italy</option>
-                      <option value="">Philippines</option>
-                      <option value="">South Korea</option>
-                      <option value="">Hongkong</option>
-                      <option value="">Japan</option>
+                    <select name="country" class="form-control" required>
+                      <option value="SriLanka">Sri Lanka</option>
+                      <option value="France">France</option>
+                      <option value="Italy">Italy</option>
+                      <option value="Philippines">Philippines</option>
+                      <option value="South Korea">South Korea</option>
+                      <option value="Hongkong">Hongkong</option>
+                      <option value="Japan">Japan</option>
                     </select>
                   </div>
                 </div>
@@ -68,144 +130,157 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="streetaddress">Street Address</label>
-                  <input type="text" class="form-control" placeholder="House number and street name" />
+                  <input type="text" class="form-control" name="street_address"
+                    placeholder="House number and street name" required />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Apartment, suite, unit etc: (optional)" />
+                  <input type="text" class="form-control" name="apartment"
+                    placeholder="Apartment, suite, unit etc: (optional)" />
                 </div>
               </div>
               <div class="w-100"></div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="towncity">Town / City</label>
-                  <input type="text" class="form-control" placeholder="" />
+                  <input type="text" class="form-control" name="city" placeholder="City" required />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="postcodezip">Postcode / ZIP *</label>
-                  <input type="text" class="form-control" placeholder="" />
+                  <input type="text" class="form-control" name="postcode" placeholder="Postcode / ZIP" required />
                 </div>
               </div>
               <div class="w-100"></div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="phone">Phone</label>
-                  <input type="text" class="form-control" placeholder="" />
+                  <input type="text" class="form-control" name="phone" placeholder="Phone" required />
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="emailaddress">Email Address</label>
-                  <input type="text" class="form-control" placeholder="" />
+                  <input type="email" class="form-control" name="email" placeholder="Email Address" required />
                 </div>
               </div>
               <div class="w-100"></div>
               <div class="col-md-12">
                 <div class="form-group mt-4">
                   <div class="radio">
-                    <label class="mr-3"><input type="radio" name="optradio" /> Create an
-                      Account?
-                    </label>
-                    <label><input type="radio" name="optradio" /> Ship to
-                      different address</label>
+                    <label class="mr-3"><input type="checkbox" name="create_account" value="1" /> Create an
+                      Account?</label>
+                    <label><input type="checkbox" name="ship_different_address" value="1" /> Ship to a different
+                      address</label>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- END -->
+
+            <div class="row mt-5 pt-3 d-flex cart_calculation">
+              <div class="col-md-6 d-flex">
+                <div class="cart-detail cart-total bg-light p-3 p-md-4">
+                  <h3 class="billing-heading mb-4">Cart Total</h3>
+                  <p class="d-flex">
+                    <span>Subtotal</span>
+                    <span id="checkout-subtotal">LKR 0.00</span>
+                  </p>
+                  <p class="d-flex">
+                    <span>Delivery</span>
+                    <span id="checkout-delivery">LKR 0.00</span>
+                  </p>
+                  <p class="d-flex">
+                    <span>Discount</span>
+                    <span id="checkout-discount">LKR 0.00</span>
+                  </p>
+                  <hr />
+                  <p class="d-flex total-price">
+                    <span>Total</span>
+                    <span id="checkout-total">LKR 0.00</span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="cart-detail bg-light p-3 p-md-4">
+                  <h3 class="billing-heading mb-4">Payment Method</h3>
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <div class="radio">
+                        <label><input type="radio" name="payment_method" value="bank" class="mr-2" required /> Bank
+                          Transfer</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <div class="radio">
+                        <label><input type="radio" name="payment_method" value="cod" class="mr-2" required /> Cash on
+                          Delivery</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <div class="radio">
+                        <label><input type="radio" name="payment_method" value="paypal" class="mr-2" required />
+                          Paypal</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <div class="checkbox">
+                        <label><input type="checkbox" value="" class="mr-2" required/> I have read and accept the <a
+                            id="termsLink" href="">terms and conditions</a></label>
+                      </div>
+                    </div>
+                  </div>
+                  <button id="checkout-button" type="submit" class="btn order-button" form="checkout-form">Place
+                    an order</button>
                 </div>
               </div>
             </div>
           </form>
-          <!-- END -->
 
-          <div class="row mt-5 pt-3 d-flex cart_calucatation">
-            <div class="col-md-6 d-flex">
-              <div class="cart-detail cart-total bg-light p-3 p-md-4">
-                <h3 class="billing-heading mb-4">Cart Total</h3>
-                <p class="d-flex">
-                  <span>Subtotal</span>
-                  <span id="checkout-subtotal">LKR 0.00</span>
-                </p>
-                <p class="d-flex">
-                  <span>Delivery</span>
-                  <span id="checkout-delivery">LKR 0.00</span>
-                </p>
-                <p class="d-flex">
-                  <span>Discount</span>
-                  <span id="checkout-discount">LKR 0.00</span>
-                </p>
-                <hr />
-                <p class="d-flex total-price">
-                  <span>Total</span>
-                  <span id="checkout-total">LKR 0.00</span>
-                </p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="cart-detail bg-light p-3 p-md-4">
-                <h3 class="billing-heading mb-4">Payment Method</h3>
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div class="radio">
-                      <label><input type="radio" name="optradio" class="mr-2" />
-                        Direct Bank Transfer</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div class="radio">
-                      <label><input type="radio" name="optradio" class="mr-2" />
-                        Check Payment</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div class="radio">
-                      <label><input type="radio" name="optradio" class="mr-2" />
-                        Paypal</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-md-12">
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="" class="mr-2" /> I
-                        have read and accept the terms and conditions</label>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  <a href="#" class="order-button" id="order-btn">Place an order</a>
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-        <!-- .col-md-8 -->
+      </div>
+    </div>
+    <div id="orderModal" class="modal">
+      <div class="modal-content">
+        <!-- <span class="close">&times;</span> -->
+        <div class="modal-info">
+          <h1>Your order is complete!</h1>
+          <p>You will be receiving a conformation email with order details.</p>
+          <a href="shop.php" class="order-button">Explore more</a>
+        </div>
+      </div>
+    </div>
+    <div id="termsModal" class="modal1">
+      <div class="modal1-content terms-box">
+        <span class="close">&times;</span>
+        <div class="terms-text">
+          <h2>
+            <center>Term of service</center>
+          </h2>
+          <p>
+            Welcome to Odior. At our Odior, we prioritize your privacy. We
+            collect personal data such as name, email, and address solely for
+            order processing and customer service. Payment information is
+            securely handled by trusted third-party providers. We do not share
+            your data with third parties, except for shipping and payment
+            processing purposes. Your data is stored securely, and you have the
+            right to access or delete it at any time. By using our website, you
+            consent to this policy. We may update this policy as needed, and any
+            changes will be posted on this page.
+          </p>
+        </div>
       </div>
     </div>
   </section>
-  <?php include 'footer.php'; ?>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&sensor=false"></script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
 
   <script>
     function loadCheckoutDetails() {
@@ -215,17 +290,55 @@
       document.getElementById('checkout-total').textContent = localStorage.getItem('cartTotal') || 'LKR 0.00';
     }
 
-    document.addEventListener('DOMContentLoaded', loadCheckoutDetails);
-
-    // Clear cart data from localStorage after placing the order
-    document.getElementById('order-btn').addEventListener('click', function () {
-      localStorage.removeItem('cartSubtotal');
-      localStorage.removeItem('cartDelivery');
-      localStorage.removeItem('cartDiscount');
-      localStorage.removeItem('cartTotal');
-      alert('Order placed successfully!'); // Add your order processing logic here
+    document.addEventListener('DOMContentLoaded', function () {
+      loadCheckoutDetails();
     });
+
+    const checkoutForm = document.getElementById('checkout-form');
+
+    checkoutForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(checkoutForm);
+
+      // Add cart data to FormData
+      let cartData = JSON.parse(localStorage.getItem('O-Dinor_cart')) || [];
+      formData.append('O-Dinor_cart', JSON.stringify(cartData));
+
+      // Submit form data using Fetch API
+      fetch('checkout.php', {
+        method: 'POST',
+        body: formData
+      })
+        .then(response => response.text())
+        .then(data => {
+          localStorage.removeItem('O-Dinor_cart');
+          localStorage.removeItem('cartSubtotal');
+          localStorage.removeItem('cartDelivery');
+          localStorage.removeItem('cartDiscount');
+          localStorage.removeItem('cartTotal');
+
+          // Show success modal
+          var modal = document.getElementById("orderModal");
+          modal.style.display = "block";
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    // Show terms modal
+    document.getElementById("termsLink").addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default anchor behavior
+
+      var termsModal = document.getElementById("termsModal");
+      termsModal.style.display = "block";
+    });
+
+    // Close the terms modal when clicking the close button
+    document.querySelector("#termsModal .close").onclick = function () {
+      document.getElementById("termsModal").style.display = "none";
+    };
+
   </script>
+  <?php include 'footer.php'; ?>
 </body>
 
 </html>

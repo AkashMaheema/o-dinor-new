@@ -24,6 +24,9 @@
             <a class="navbar-link" href="./sold_products.php">Sold Products</a>
         </li>
         <li class="navbar-item">
+            <a class="navbar-link" href="./checkout_details.php">Check Out Details</a>
+        </li>
+        <li class="navbar-item">
             <a class="navbar-link nav_log_out" href="./logout.php">Log Out</a>
         </li>
     </ul>

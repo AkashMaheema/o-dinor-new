@@ -163,7 +163,7 @@
       <h2 class="section__title">Latest News</h2>
       <div class="news__grid">
         <div class="news__card">
-          <img src="images/news-1.png" alt="news" />
+          <img src="images/mn1.jpg" alt="news" />
           <div class="news__details">
             <p>
               FASHION <i class="ri-checkbox-blank-circle-fill"></i>
@@ -181,7 +181,7 @@
           </div>
         </div>
         <div class="news__card">
-          <img src="images/katsiaryna-endruszkiewicz-BteCp6aq4GI-unsplash.jpg" alt="news" />
+          <img src="images/mn2.jpg" alt="news" />
           <div class="news__details">
             <p>
               FASHION <i class="ri-checkbox-blank-circle-fill"></i>
@@ -198,7 +198,7 @@
           </div>
         </div>
         <div class="news__card">
-          <img src="images/good-faces-xmSWVeGEnJw-unsplash.jpg" alt="news" />
+          <img src="images/mn3.jpg" alt="news" />
           <div class="news__details">
             <p>
               STYLE <i class="ri-checkbox-blank-circle-fill"></i>
