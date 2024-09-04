@@ -43,7 +43,7 @@
             <a href="aboutus.php">
                 <p>Returns & Exchange</p>
             </a>
-            <a href="terms.php">
+            <a href="Privacy.php">
                 <p>Terms & Conditions</p>
             </a>
         </div>
