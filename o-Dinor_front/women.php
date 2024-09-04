@@ -94,7 +94,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=Shoes">
+      <a href="shop.php?gender=F&category=Bags">
         <div class="categoryCard shoes">
           <img src="img/BAGS.jpg" alt="bags">
           <div class="text">
