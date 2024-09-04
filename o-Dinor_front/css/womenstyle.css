@@ -329,6 +329,14 @@ h1.mb-0.bread.color {
   background-color: var(--text-dark);
 }
 
+
+.sale__a{
+  color: #fff;
+}
+.sale__a:hover{
+  color: #000;
+}
+
 .sale__card:before {
   position: absolute;
   content: "";
@@ -748,4 +756,7 @@ h1.mb-0.bread.color {
   main .mainh1 {
     font-size: 45px;
   }
+}
+.sale__btn:hover {
+  color: #000;
 }

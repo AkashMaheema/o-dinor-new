@@ -177,7 +177,7 @@
               offer tips and ideas on how to incorporate these trends into
               your wardrobe.
             </p>
-            <a href="news.php"><i class="ri-arrow-right-line"></i></a>
+            <a href="blog.php"><i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
         <div class="news__card">
@@ -194,7 +194,7 @@
               Provide your readers with practical tips and advice on how to
               dress for different ocasions, body types, or style preferences.
             </p>
-            <a href="news.php"><i class="ri-arrow-right-line"></i></a>
+            <a href="blog.php"><i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
         <div class="news__card">
@@ -211,7 +211,7 @@
               Cover the growing trend of eco-conscious fashion and explore the
               various ways to be sustainable in your fashion choices.
             </p>
-            <a href="news.php"><i class="ri-arrow-right-line"></i></a>
+            <a href="blog.php"><i class="ri-arrow-right-line"></i></a>
           </div>
         </div>
       </div>
