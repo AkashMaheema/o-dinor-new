@@ -13,8 +13,8 @@ $resultsPerPage = 10;
 // Find out the number of results stored in the database
 $totalResultsQuery = "
     SELECT COUNT(*) as total 
-    FROM sold_products sp
-    JOIN products p ON sp.product_id = p.id
+    FROM orders o
+    JOIN products p ON o.product_id = p.id
 ";
 $totalResultsResult = $conn->query($totalResultsQuery);
 $totalResults = $totalResultsResult->fetch_assoc()['total'];
@@ -35,9 +35,9 @@ $offset = ($page - 1) * $resultsPerPage;
 
 // Fetch limited records with pagination
 $stocksQuery = "
-    SELECT sp.id, p.name AS product_name, sp.checkout_id, sp.quantity_sold, sp.sold_at
-    FROM sold_products sp
-    JOIN products p ON sp.product_id = p.id
+    SELECT o.id, p.name AS product_name, o.checkout_id, o.quantity_sold, o.sold_at
+    FROM orders o
+    JOIN products p ON o.product_id = p.id
     LIMIT $offset, $resultsPerPage
 ";
 $stocksResult = $conn->query($stocksQuery);

@@ -3,73 +3,90 @@
 include './configdb.php'; // Ensure this file contains the proper connection details.
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Save Checkout Details
-  $first_name = $_POST['first_name'];
-  $last_name = $_POST['last_name'];
-  $country = $_POST['country'];
-  $street_address = $_POST['street_address'];
-  $apartment = $_POST['apartment'];
-  $city = $_POST['city'];
-  $postcode = $_POST['postcode'];
-  $phone = $_POST['phone'];
-  $email = $_POST['email'];
-  $create_account = isset($_POST['create_account']) ? 1 : 0;
-  $ship_different_address = isset($_POST['ship_different_address']) ? 1 : 0;
-  $payment_method = $_POST['payment_method'];
-  $terms_accepted = isset($_POST['terms_accepted']) ? 1 : 0;
+    // Save Checkout Details
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $country = $_POST['country'];
+    $street_address = $_POST['street_address'];
+    $apartment = $_POST['apartment'];
+    $city = $_POST['city'];
+    $postcode = $_POST['postcode'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
 
-  // Insert checkout details and get the last inserted checkout_id
-  $stmt = $conn->prepare("INSERT INTO checkout_details (first_name, last_name, country, street_address, apartment, city, postcode, phone, email, create_account, ship_different_address, payment_method, terms_accepted) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-  $stmt->bind_param("sssssssssssss", $first_name, $last_name, $country, $street_address, $apartment, $city, $postcode, $phone, $email, $create_account, $ship_different_address, $payment_method, $terms_accepted);
+    // Insert checkout details and get the last inserted customer_id
+    $stmt = $conn->prepare("INSERT INTO customers (first_name, last_name, country, street_address, apartment, city, postcode, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssssss", $first_name, $last_name, $country, $street_address, $apartment, $city, $postcode, $phone, $email);
 
-  if ($stmt->execute()) {
-    $checkout_id = $stmt->insert_id; // Get the last inserted ID for checkout
-  } else {
-    echo "Error: " . $stmt->error;
-    exit;
-  }
-
-  // Decode the cart data from POST
-  $cartData = json_decode($_POST['O-Dinor_cart'], true);
-
-  // Insert each product in the sold_products table
-  $sold_at = date('Y-m-d H:i:s'); // Current timestamp
-  $sold_stmt = $conn->prepare("INSERT INTO sold_products (product_id, checkout_id, quantity_sold, sold_at) VALUES (?, ?, ?, ?)");
-
-  foreach ($cartData as $item) {
-    $product_id = $item['id'];
-    $quantity_sold = $item['quantity'];
-
-    // Bind the parameters for the current product
-    $sold_stmt->bind_param("iiis", $product_id, $checkout_id, $quantity_sold, $sold_at);
-
-    // Execute and check for errors
-    if (!$sold_stmt->execute()) {
-      echo "Error inserting product ID $product_id: " . $sold_stmt->error;
-      exit;
+    if ($stmt->execute()) {
+        $customer_id = $stmt->insert_id; // Get the last inserted customer_id
+    } else {
+        echo "Error: " . $stmt->error;
+        exit;
     }
 
-    // Reduce stock quantity in the stock table
-    $update_stock_stmt = $conn->prepare("UPDATE stock SET quantity = quantity - ? WHERE product_id = ?");
-    $update_stock_stmt->bind_param("ii", $quantity_sold, $product_id);
+    // Fetch order details
+    $subtotal = $_POST['subtotal'];
+    $delivery = $_POST['delivery'];
+    $discount = $_POST['discount'];
+    $total = $_POST['total'];
+    $payment_method = $_POST['payment_method'];
+
+    // Insert order details into the orders table
+    $order_stmt = $conn->prepare("INSERT INTO orders (customer_id, subtotal, delivery, discount, total, payment_method) VALUES (?, ?, ?, ?, ?, ?)");
+    $order_stmt->bind_param("idddds", $customer_id, $subtotal, $delivery, $discount, $total, $payment_method);
 
     // Execute and check for errors
-    if (!$update_stock_stmt->execute()) {
-      echo "Error updating stock for product ID $product_id: " . $update_stock_stmt->error;
-      exit;
+    if ($order_stmt->execute()) {
+        $order_id = $order_stmt->insert_id; // Get the last inserted order_id
+    } else {
+        echo "Error inserting order: " . $order_stmt->error;
+        exit;
     }
-  }
 
-  // Close statements and connection
-  $stmt->close();
-  $sold_stmt->close();
-  $update_stock_stmt->close();
-  $conn->close();
+    // Decode the cart data from POST
+    $cartData = json_decode($_POST['O-Dinor_cart'], true);
 
-  echo "Order and products saved successfully!";
+    // Insert each product in the order_has_items table
+    $order_has_items_stmt = $conn->prepare("INSERT INTO order_has_items (order_id, product_id, quantity, color, size) VALUES (?, ?, ?, ?, ?)");
+
+    foreach ($cartData as $item) {
+        $product_id = $item['id'];
+        $quantity = $item['quantity'];
+        $color = $item['color'] ?? null; // Assuming color is available in the cart data
+        $size = $item['size'] ?? null;   // Assuming size is available in the cart data
+
+        // Bind the parameters for the current product
+        $order_has_items_stmt->bind_param("iiiss", $order_id, $product_id, $quantity, $color, $size);
+
+        // Execute and check for errors
+        if (!$order_has_items_stmt->execute()) {
+            echo "Error inserting product ID $product_id: " . $order_has_items_stmt->error;
+            exit;
+        }
+
+        // Reduce stock quantity in the stock table
+        // Uncomment and adjust as needed
+        // $update_stock_stmt = $conn->prepare("UPDATE stock SET quantity = quantity - ? WHERE product_id = ?");
+        // $update_stock_stmt->bind_param("ii", $quantity, $product_id);
+
+        // if (!$update_stock_stmt->execute()) {
+        //     echo "Error updating stock for product ID $product_id: " . $update_stock_stmt->error;
+        //     exit;
+        // }
+    }
+
+    // Close the statements and connection
+    $stmt->close();
+    $order_stmt->close();
+    $order_has_items_stmt->close();
+    // Uncomment if used
+    // $update_stock_stmt->close();
+    $conn->close();
+
+    echo "Order and products saved successfully!";
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -246,7 +263,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   <div class="form-group">
                     <div class="col-md-12">
                       <div class="checkbox">
-                        <label><input type="checkbox" value="" class="mr-2" required/> I have read and accept the <a
+                        <label><input type="checkbox" value="" class="mr-2" required /> I have read and accept the <a
                             id="termsLink" href="">terms and conditions</a></label>
                       </div>
                     </div>
@@ -317,6 +334,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       let cartData = JSON.parse(localStorage.getItem('O-Dinor_cart')) || [];
       formData.append('O-Dinor_cart', JSON.stringify(cartData));
 
+      function parseCurrency(value) {
+        // Remove currency symbol and commas, then convert to float
+        return parseFloat(value.replace(/[^0-9.-]+/g, '')) || 0;
+      }
+
+      // Retrieve and clean the values from local storage
+      const subtotal = parseCurrency(localStorage.getItem('cartSubtotal')) || 0;
+      const delivery = parseCurrency(localStorage.getItem('cartDelivery')) || 0;
+      const discount = parseCurrency(localStorage.getItem('cartDiscount')) || 0;
+      const total = parseCurrency(localStorage.getItem('cartTotal')) || 0;
+
+      // Log the retrieved values to ensure they are correct
+      console.log('Subtotal:', subtotal);
+      console.log('Delivery:', delivery);
+      console.log('Discount:', discount);
+      console.log('Total:', total);
+
+      // Append order amounts to FormData
+      formData.append('subtotal', subtotal);
+      formData.append('delivery', delivery);
+      formData.append('discount', discount);
+      formData.append('total', total);
+
+
       // Submit form data using Fetch API
       fetch('checkout.php', {
         method: 'POST',
@@ -336,6 +377,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         })
         .catch(error => console.error('Error:', error));
     });
+
     // Show terms modal
     document.getElementById("termsLink").addEventListener("click", function (event) {
       event.preventDefault(); // Prevent default anchor behavior
