@@ -92,6 +92,11 @@ h1.mb-0.bread.color {
 .cart-list {
   margin-top: 20px;
   overflow-x: scroll;
+  /*  */
+  border-radius: 0px;
+background: #e0e0e0;
+box-shadow:  10px 10px 93px #d9d9d9,
+             -10px -10px 93px #e7e7e7;
 }
 
 .table {
@@ -182,8 +187,13 @@ h1.mb-0.bread.color {
 .cart-total {
   width: 100%;
   display: block;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  /* border: 1px solid rgba(0, 0, 0, 0.05); */
   padding: 20px;
+  /*  */
+  border-radius: 10px;
+/* background: #e0e0e0; */
+box-shadow:  10px 10px 93px #d9d9d9,
+             -10px -10px 93px #e7e7e7;
 }
 
 .cart-total h3 {

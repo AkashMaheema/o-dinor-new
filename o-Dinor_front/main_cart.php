@@ -180,7 +180,7 @@
       // Sample discount codes: 'DISCOUNT10' for 10% off
       const discountCodes = {
         'DISCOUNT10': 0.10, // 10% discount
-        'DISCOUNT20': 0.20  // 20% discount
+        'DISCOUNT20': 0.20 // 20% discount
       };
       return discountCodes[code.toUpperCase()] * parseFloat(document.getElementById('subtotal-price').textContent.replace('LKR ', ''));
     }
@@ -189,13 +189,12 @@
     document.getElementById('discount-code').addEventListener('input', updateTotalPrice);
 
     // Checkout button click event
-    document.getElementById('checkout-btn').addEventListener('click', function () {
+    document.getElementById('checkout-btn').addEventListener('click', function() {
       window.location.href = 'checkout.php';
     });
 
     // Load cart items on page load
     document.addEventListener('DOMContentLoaded', displayCartItems);
-
   </script>
 </body>
 

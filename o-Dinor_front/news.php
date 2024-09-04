@@ -4,8 +4,9 @@
 <head>
   <link rel="stylesheet" href="css/news.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <title>news</title>
 
-<meta charset="utf-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 
@@ -16,7 +17,7 @@
     }
   </style>
 
-  
+
 </head>
 
 <body>
@@ -31,69 +32,58 @@
       that doesn't comprise on sensoriality
     </p>
   </div>
-<section class="new-creations">
-      <h1>NEW CREATIONS</h1>
-      <div class="product">
-        <img src="images/cosmatic1.jpg" alt="Dior Forever" />
-        <div class="product-info">
-          <h2>Dior Forever</h2>
-          <p>
-            The first O-dinor liquid highlighter, a true concentration of light
-            that brightens the complexion with an instant and long-lasting glow.
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+  <section class="new-creations">
+    <h1>NEW CREATIONS</h1>
+    <div class="product">
+      <img src="images/cosmatic1.jpg" alt="Dior Forever" />
+      <div class="product-info">
+        <h2>Dior Forever</h2>
+        <p>
+          The first O-dinor liquid highlighter, a true concentration of light
+          that brightens the complexion with an instant and long-lasting glow.
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
-      <div class="product">
-        <img src="images/cosmatic2.jpg" alt="Capture Totale Hyalushot" />
-        <div class="product-info">
-          <h2>Capture Totale Hyalushot</h2>
-          <p>
-            The 1st O-dinor wrinkle corrector for both emerging and present
-            wrinkles, a concentrated hyaluronic acid duo.
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+    </div>
+    <div class="product">
+      <img src="images/cosmatic2.jpg" alt="Capture Totale Hyalushot" />
+      <div class="product-info">
+        <h2>Capture Totale Hyalushot</h2>
+        <p>
+          The 1st O-dinor wrinkle corrector for both emerging and present
+          wrinkles, a concentrated hyaluronic acid duo.
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
+    </div>
 
 
 
-        <div class="product">
-        <img src="images/cosmatic3.jpg" alt="Dior Forever" />
-        <div class="product-info">
-          <h2>Dior Forever</h2>
-          <p>
-            The first O-dinor liquid highlighter, a true concentration of light
-            that brightens the complexion with an instant and long-lasting glow.
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+    <div class="product">
+      <img src="images/cosmatic3.jpg" alt="Dior Forever" />
+      <div class="product-info">
+        <h2>Dior Forever</h2>
+        <p>
+          The first O-dinor liquid highlighter, a true concentration of light
+          that brightens the complexion with an instant and long-lasting glow.
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
+    </div>
 
 
 
-        <div class="product">
-        <img src="images/cosmatic4.jpg" alt="Dior Forever" />
-        <div class="product-info">
-          <h2>Dior Forever</h2>
-          <p>
-            The first O-dinor liquid highlighter, a true concentration of light
-            that brightens the complexion with an instant and long-lasting glow.
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+    <div class="product">
+      <img src="images/cosmatic4.jpg" alt="Dior Forever" />
+      <div class="product-info">
+        <h2>Dior Forever</h2>
+        <p>
+          The first O-dinor liquid highlighter, a true concentration of light
+          that brightens the complexion with an instant and long-lasting glow.
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
-
-
-       
-
-        
-
-
-      
-
-      
-    </section>
+    </div>
 
 
 
@@ -104,7 +94,18 @@
 
 
 
-    <!-- Mid Section -->
+  </section>
+
+
+
+
+
+
+
+
+
+
+  <!-- Mid Section -->
   <div class="container ">
     <div class="row">
       <div class="col-lg-6 mb-4">
@@ -186,27 +187,27 @@
     <div class="row d-dm-flex">
       <div class="col-lg-6 maincontent-img">
         <!-- <div class="maincontent-img"> -->
-          <img src="images/news5.jpg" alt="News Image" />
+        <img src="images/news5.jpg" alt="News Image" />
         <!-- </div> -->
       </div>
-       <!-- <div class="col-lg-2"> </div> -->
+      <!-- <div class="col-lg-2"> </div> -->
       <div class="col-lg-6  maincontent-tex">
         <!-- <div class="maincontent-tex"> -->
-          <h3>1946</h3>
-          <h4>
-            
-              FOUNDING OF THE HOUSE OF DIOR AND ESTABLISHMENT AT 30, AVENUE
-              MONTAIGNE
-            
-          </h4>
-          <p>
-            “It was in 1946 that I moved into 30 Avenue Montaigne. This
-            delightful house had enough elegant rooms and salons to contain
-            a house of couture (...).”
-          </p>
-          <p style="padding-top: 25px">
-            Christian O-dinor, Je suis Couturier, 1951
-          </p>
+        <h3>1946</h3>
+        <h4>
+
+          FOUNDING OF THE HOUSE OF DIOR AND ESTABLISHMENT AT 30, AVENUE
+          MONTAIGNE
+
+        </h4>
+        <p>
+          “It was in 1946 that I moved into 30 Avenue Montaigne. This
+          delightful house had enough elegant rooms and salons to contain
+          a house of couture (...).”
+        </p>
+        <p style="padding-top: 25px">
+          Christian O-dinor, Je suis Couturier, 1951
+        </p>
         <!-- </div> -->
       </div>
     </div>
@@ -261,73 +262,73 @@
 
 
 
-<section class="new-creations">
-      <h1>CULTURE & EVENTS​</h1>
-      <div class="product">
-        <img src="images/newsevent09 (1).jpg" alt="Dior Forever" />
-        <div class="product-info">
-          <h2>O-dinor Forever</h2>
-          <p>
-           
+  <section class="new-creations">
+    <h1>CULTURE & EVENTS​</h1>
+    <div class="product">
+      <img src="images/newsevent09 (1).jpg" alt="Dior Forever" />
+      <div class="product-info">
+        <h2>O-dinor Forever</h2>
+        <p>
+
           Inside the Dream, the film
-               F rom the inspiration to the launch of an exquisite fragrance, experience a sensorial journey through the secret world of these passionate artisans.
-            
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+          F rom the inspiration to the launch of an exquisite fragrance, experience a sensorial journey through the secret world of these passionate artisans.
+
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
-      <div class="product">
-        <img src="images/c23.jpg" alt="Capture Totale Hyalushot" />
-        <div class="product-info">
-          <h2>
-Wildlife Day</h2>
-          <p>
-            The 1st Dior wrinkle corrector for both emerging and present
-            wrinkles, a concentrated hyaluronic acid duo.
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+    </div>
+    <div class="product">
+      <img src="images/c23.jpg" alt="Capture Totale Hyalushot" />
+      <div class="product-info">
+        <h2>
+          Wildlife Day</h2>
+        <p>
+          The 1st Dior wrinkle corrector for both emerging and present
+          wrinkles, a concentrated hyaluronic acid duo.
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
+    </div>
 
 
 
-        <div class="product">
-        <img src="images/c22.jpg" alt="Dior Forever" />
-        <div class="product-info">
-          <h2>o-Dinor Forever</h2>
-          <p>
-            The first Dior liquid highlighter, a true concentration of light
-            that brightens the complexion with an instant and long-lasting glow.
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+    <div class="product">
+      <img src="images/c22.jpg" alt="Dior Forever" />
+      <div class="product-info">
+        <h2>o-Dinor Forever</h2>
+        <p>
+          The first Dior liquid highlighter, a true concentration of light
+          that brightens the complexion with an instant and long-lasting glow.
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
+    </div>
 
 
 
-        <div class="product">
-        <img src="images/newsevent02 (1).jpg" alt="Dior Forever" />
-        <div class="product-info">
-          <h2>Look of the show</h2>
-          <p>
-            
+    <div class="product">
+      <img src="images/newsevent02 (1).jpg" alt="Dior Forever" />
+      <div class="product-info">
+        <h2>Look of the show</h2>
+        <p>
 
-Discover tips from Peter Philips and the beauty products used on the models from the latest runway show from Maria Grazia Chiuri.
-          </p>
-          <a href="#" class="discover-btn">Discover</a>
-        </div>
+
+          Discover tips from Peter Philips and the beauty products used on the models from the latest runway show from Maria Grazia Chiuri.
+        </p>
+        <a href="#" class="discover-btn">Discover</a>
       </div>
+    </div>
 
 
-       
-
-        
 
 
-      
 
-      
-    </section>
+
+
+
+
+
+  </section>
 
 
 
@@ -421,7 +422,7 @@ Discover tips from Peter Philips and the beauty products used on the models from
         </p>
       </div>
     </div> -->
-     <?php include 'footer.php'; ?>
+  <?php include 'footer.php'; ?>
 </body>
 
 </html>
