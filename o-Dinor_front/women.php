@@ -103,7 +103,7 @@
         </div>
       </a>
 
-      <a href="shop.php?gender=F&category=short">
+      <a href="shop.php?gender=F&category=Shorts">
         <div class="categoryCard short">
           <img src="img/SHORTS.jpg" alt="t-shirt">
           <div class="text">
