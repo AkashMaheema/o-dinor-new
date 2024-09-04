@@ -21,10 +21,10 @@
             <a class="navbar-link" href="./stock.php">View Stock</a>
         </li>
         <li class="navbar-item">
-            <a class="navbar-link" href="./sold_products.php">Sold Products</a>
+            <a class="navbar-link" href="./orders.php">Orders</a>
         </li>
         <li class="navbar-item">
-            <a class="navbar-link" href="./checkout_details.php">Check Out Details</a>
+            <a class="navbar-link" href="./customer_details.php">Customer Details</a>
         </li>
         <li class="navbar-item">
             <a class="navbar-link nav_log_out" href="./logout.php">Log Out</a>
